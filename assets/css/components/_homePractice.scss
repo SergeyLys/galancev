@@ -1,0 +1,15 @@
+.b-practice {
+	padding-bottom: 70px;
+}
+
+.b-subscribe {
+	margin-bottom: 80px;
+
+	.button {
+		margin-bottom: 0;
+	}
+
+	@include breakpoint(medium) {
+		margin-bottom: 0;
+	}
+}

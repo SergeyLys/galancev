@@ -1,0 +1,7 @@
+.b-experts {
+	padding-bottom: 80px;
+
+	@include breakpoint(medium) {
+		padding-bottom: 100px;
+	}
+}

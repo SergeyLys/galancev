@@ -1,0 +1,36 @@
+header.site-header
+  .row.expanded
+    .small-12.columns
+      a(href="#").toggle-menu
+        span.sandwich
+          span.sw-topper
+          span.sw-bottom
+          span.sw-footer
+    .small-12.columns
+      nav.site-navigation
+        .site-menu
+          .site-menu--tablet
+            .nav-icon
+              img(src="../images/icon-inst.png", alt="icon")
+            ul.menu-concept
+              li: a(href='#') Сила личности
+              li: a(href='#') Сила команды
+              li: a(href='#') Сила стратегии
+            ul.menu-inside
+              li: a(href='#') Эксперты
+              li.has-sub
+                a(href='#') Услуги
+                ul.sub-menu.popup
+                  li: a(href="#") Личный и командный консалтинг
+                  li: a(href="#") Тренинги и обучающие программы
+                  li: a(href="#") Вебинары
+                  li: a(href="#") Коучинг юридических проектов
+              li: a(href='#') События
+              li: a(href='#') Блог
+              li: a(href='#') Контакты
+          .site-authorisation.hide-for-medium    
+            a(href="#").button.secondary Вход
+            a(href="#").button Регистрация
+      .site-authorisation.show-for-medium
+          a(href="#").button.secondary Вход
+          a(href="#").button Регистрация    

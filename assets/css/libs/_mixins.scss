@@ -1,0 +1,15 @@
+$animate-scss-speed: 1s !default;
+
+@mixin animate($animation: none, $speed: $animate-scss-speed) {
+  @if $animation != none {
+    animation-name: $animation;
+  }
+  
+  animation-duration: $speed;
+  animation-fill-mode: forwards;
+}
+
+.flex {
+	display: flex;
+	-js-display: flex;
+}
