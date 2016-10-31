@@ -83,10 +83,7 @@ $button-hollow-hover-lightness: -50% !default;
   text-transform: uppercase;
   position: relative;
   z-index: 1;
-
-  &:before {
-    display: none;
-  }
+  background-image: none;
 }
 
 /// Expands a button to make it full-width.

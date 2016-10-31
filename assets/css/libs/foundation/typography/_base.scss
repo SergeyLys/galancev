@@ -42,18 +42,18 @@ $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace !default
 /// @type Map
 $header-sizes: (
   small: (
-    'h1': 36,//
-    'h2': 24,//
-    'h3': 24,//
-    'h4': 18,
+    'h1': 36, //+
+    'h2': 24, //+
+    'h3': 24, //+
+    'h4': 18, //+
     'h5': 17,
     'h6': 16,
   ),
   medium: (
-    'h1': 48,//
-    'h2': 30,//
-    'h3': 24,//
-    'h4': 25,
+    'h1': 48, //+
+    'h2': 30, //+
+    'h3': 24, //+
+    'h4': 18, //+
     'h5': 20,
     'h6': 16,
   ),
@@ -325,27 +325,15 @@ $abbr-underline: 1px dotted $black !default;
     line-height: inherit;
     cursor: pointer;
     position: relative;
+    text-decoration: none;
+    @include border-bottom($anchor-color);
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 95%;
-      width: 100%;
-      height: 1px;
-      background: $anchor-color;
-      opacity: 1;
-      transition: opacity .2s ease;
-    }
 
     &:hover,
     &:focus {
       color: $anchor-color-hover;
       @if $anchor-text-decoration-hover != $anchor-text-decoration {
         text-decoration: $anchor-text-decoration-hover;
-      }
-
-      &:before {
-        opacity: 0;
       }
     }
 

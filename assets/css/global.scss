@@ -1,6 +1,6 @@
-@import "libs/foundation/foundation";
 @import "libs/variables";
 @import "libs/mixins";
+@import "libs/foundation/foundation";
 @import "libs/animate";
 @import "libs/slick/slick";
 @import "libs/slick/slick-theme";
@@ -21,3 +21,4 @@
 @import 'components/homeExperts';
 @import 'components/homeNews';
 @import 'components/subscribeForm';
+@import 'components/sliders';

@@ -26,6 +26,11 @@
   background: $white;
 }
 
+.content-align-middle {
+  @extend .flex;
+  align-items: center;
+}
+
 .section-title {
   text-align: center;
   margin-top: 45px;
@@ -39,6 +44,7 @@
 
     h2 {
       font-size: 36px;
+      line-height: 40px;
       font-family: $secondary-font-regular;
 
       @include breakpoint(medium) {

@@ -106,10 +106,7 @@
 
 .services-list {
 	margin: auto;
-
-	@include breakpoint(medium) {
-		width: 80%;
-	}
+	width: 80%;
 
 	@include breakpoint(large) {
 		width: 66.6666667%;

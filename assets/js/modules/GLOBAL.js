@@ -90,7 +90,8 @@ export default {
         jQueryBridget( 'masonry', masonry);
         $('.masonry-grid').masonry({
             itemSelector: '.masonry-item',
-            columnWidth: '.masonry-item'
+            columnWidth: '.masonry-item',
+            gutter: 0
         });
     }
 

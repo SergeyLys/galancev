@@ -111,18 +111,18 @@ $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
   small: (
-    'h1': 36, //
-    'h2': 24, //
-    'h3': 24, //
-    'h4': 18,
+    'h1': 36, //+
+    'h2': 24, //+
+    'h3': 24, //+
+    'h4': 18, //+
     'h5': 17,
     'h6': 16,
   ),
   medium: (
-    'h1': 48, //
-    'h2': 30, //
-    'h3': 24, //
-    'h4': 25,
+    'h1': 48, //+
+    'h2': 30, //+
+    'h3': 24, //+
+    'h4': 18, //+
     'h5': 20,
     'h6': 16,
   ),
