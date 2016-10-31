@@ -1,0 +1,24 @@
+section.b-news.background-light
+    .row
+        .small-12.columns
+            .section-title.big
+                h2 Новости и события
+    .row.masonry-grid
+        .small-12.medium-6.large-4.columns.masonry-item
+            article.b-news_item
+                .b-news_item-img(style='background-image: url(../images/)')
+                .b-news_item-data
+                    .b-news_item-data--title
+                        h4: a(href='#') news title
+                    .b-news_item-data--descr
+                        span.date 13:00, 14 января
+                        p Автор: #[span.colored Дмитрий Галанцев]
+        .small-12.medium-6.large-4.columns.masonry-item
+            article.b-news_item.big
+                .b-news_item-img(style='background-image: url(../images/)')
+                .b-news_item-data
+                    .b-news_item-data--title
+                        span.date 13:00, 14 января
+                    .b-news_item-data--descr
+                        h4: a(href='#') news title
+                        p По проспекту Мра 7 в Москве

@@ -2,3 +2,8 @@
 .site-footer {
 	z-index: 1;
 }
+
+.site-footer--top,
+.site-footer--bottom {
+	border-top: 1px solid rgba($black, .3);
+}

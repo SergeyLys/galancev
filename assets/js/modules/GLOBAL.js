@@ -4,6 +4,8 @@
 
 import slick from "slick-carousel";
 import waypoint from '../libs/waypoints.min.js';
+import jQueryBridget from 'jquery-bridget';
+import masonry from 'masonry-layout';
 
 (function($) {
     $.fn.animated = function(inEffect) {
@@ -33,6 +35,7 @@ export default {
         this.headerFunctions();
         this.scrollDown();
         this.scrollAnimations();
+        this.masonry();
     },
 
     headerFunctions () {
@@ -42,7 +45,7 @@ export default {
         $('body').removeClass('menu-open');
       });
 
-      $('.menu-concept, .menu-inside, site-authorisation').on('click', (e) => {
+      $('.menu-concept, .menu-inside, .site-authorisation').on('click', (e) => {
         e.stopPropagation();
       });
 
@@ -81,15 +84,14 @@ export default {
       $('.animateFadeInLeft').animated("fadeInLeft");
       $('.animateFadeInRight').animated("fadeInRight");
       $('.animateFullWidth').animated('fullWidth');
+    },
 
-      // $('#thing').waypoint(function() {
-      //   console.log('waypoint triggered')
-      // })
-      // var waypoint = new Waypoint({
-      //   element: document.getElementById('thing'),
-      //   handler: function(dir) {
-      //     console.log('Basic waypoint triggered')
-      //   }
-      // })
+    masonry() {
+        jQueryBridget( 'masonry', masonry);
+        $('.masonry-grid').masonry({
+            itemSelector: '.masonry-item',
+            columnWidth: '.masonry-item'
+        });
     }
+
 };

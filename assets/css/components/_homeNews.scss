@@ -1,0 +1,71 @@
+.masonry-item {
+  width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.b-news_item {
+  position: relative;
+
+  &.big {
+    .b-news_item-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 0;
+    }
+
+    .b-news_item-data {
+      z-index: 1;
+      text-transform: none;
+      border: 1px solid rgba($white, .5);
+      background: transparent;
+
+      .date {
+        color: $medium-gray;
+      }
+
+      p {
+        color: $medium-gray;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        top: 2px;
+        left: 2px;
+        border: 1px solid rgba($white, .5);
+      }
+    }
+
+    h4 {
+      a {
+        color: $medium-gray;
+
+        &:before {
+          background: $medium-gray;
+        }
+      }
+    }
+  }
+
+  .b-news_item-data {
+    @extend .flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background: $white;
+  }
+
+  .b-news_item-data--descr {
+    text-transform: uppercase;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
