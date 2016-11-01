@@ -2,6 +2,11 @@
  *      Global functions
  */
 
+//import ScrollMagic from 'scrollmagic';
+//import '../../../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
+//import '../../../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
+import 'gsap';
+import '../libs/MorphSVGPlugin.min';
 import slick from "slick-carousel";
 import waypoint from '../libs/waypoints.min.js';
 import jQueryBridget from 'jquery-bridget';
@@ -11,21 +16,44 @@ import masonry from 'masonry-layout';
     $.fn.animated = function(inEffect) {
         $(this).css("opacity", "0").addClass("animated").waypoint(function(dir) {
             if (dir === "down") {
-              if ($(this).data('animate-delay')) {
-                var that = $(this);
-                var delay = $(this).data('animate-delay');
+                if ($(this).data('animate-delay')) {
+                    var that = $(this);
+                    var delay = $(this).data('animate-delay');
 
-                setTimeout(function() {
-                  that.addClass(inEffect).css("opacity", "1");
-                }, delay);
-                
-              } else {
-                $(this).addClass(inEffect).css("opacity", "1");
-              }
+                    setTimeout(function() {
+                        that.addClass(inEffect).css("opacity", "1");
+                    }, delay);
+
+                } else {
+                    $(this).addClass(inEffect).css("opacity", "1");
+                }
             }
         }, {
             offset: "90%"
         });
+        //$(this).each(function(index, elem) {
+        //    $(this).css("opacity", "0").addClass("animated");
+        //    var controller = new ScrollMagic.Controller();
+        //
+        //    var animationInit = function() {
+        //        new ScrollMagic.Scene({
+        //            triggerElement: elem,
+        //            triggerHook: "0.8"
+        //        })
+        //            .setClassToggle(elem, inEffect)
+        //            .addTo(controller);
+        //    };
+        //
+        //    if ($(this).data('animate-delay')) {
+        //        var delay = $(this).data('animate-delay');
+        //        setTimeout(function() {
+        //            animationInit();
+        //        }, delay);
+        //    } else {
+        //        animationInit();
+        //    }
+        //
+        //})
     };
 })(jQuery);
 
@@ -78,12 +106,12 @@ export default {
     },
 
     scrollAnimations() {
-      $('.animateFadeIn').animated("fadeIn");
-      $('.animateFadeInUp').animated("fadeInUp");
-      $('.animateFadeInDown').animated("fadeInDown");
-      $('.animateFadeInLeft').animated("fadeInLeft");
-      $('.animateFadeInRight').animated("fadeInRight");
-      $('.animateFullWidth').animated('fullWidth');
+        $('.animateFadeIn').animated("fadeIn");
+        $('.animateFadeInUp').animated("fadeInUp");
+        $('.animateFadeInDown').animated("fadeInDown");
+        $('.animateFadeInLeft').animated("fadeInLeft");
+        $('.animateFadeInRight').animated("fadeInRight");
+        $('.animateFullWidth').animated('fullWidth');
     },
 
     masonry() {

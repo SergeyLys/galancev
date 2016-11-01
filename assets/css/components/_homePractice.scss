@@ -2,6 +2,36 @@
 	padding-bottom: 70px;
 }
 
+.b-practice_title {
+	text-align: center;
+	position: relative;
+
+	svg {
+		.st0 {
+			stroke: rgba($black, .3);
+		}
+	}
+
+	@include breakpoint(large) {
+		padding-top: 100px;
+		padding-bottom: 100px;
+
+		h2 {
+			position: absolute;
+			top: 40%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+	}
+
+	h2 {
+		@include breakpoint(large) {
+			width: 50%;
+			margin: auto;
+		}
+	}
+}
+
 .b-subscribe {
 	margin-bottom: 80px;
 

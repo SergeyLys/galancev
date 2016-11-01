@@ -1,5 +1,6 @@
 import "babel-polyfill";
 import './libs/jquery-migrate-3.0.0';
+
 import GLOBAL from "./modules/GLOBAL";
 import HOME from "./modules/HOME";
 

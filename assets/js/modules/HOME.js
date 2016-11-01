@@ -76,9 +76,36 @@ export default {
     },
 
     canvas() {
-        var canvas = document.getElementById('canvas');
-        canvas.width = 100;
-        canvas.height = 100;
+        $('.b-practice_title').waypoint(function(dir) {
+            if (dir === "down") {
+                var group1 = $('#path-01_1_'),
+                    group2 = $('#path-02'),
+                    group3 = $('#path-03'),
+                    group4 = $('#path-04'),
+                    group5 = $('#path-05'),
+                    tl;
+
+                tl = new TimelineMax();
+
+                tl
+                    .set(group1, {opacity: 1})
+                    .set(group2, {opacity: 1})
+                    .set(group3, {opacity: 1})
+                    .set(group4, {opacity: 1})
+                    .set(group5, {opacity: 1});
+
+
+                tl
+                    .to(group1, 1.5, {opacity: 1, morphSVG: 'M628.3,14.4L9.1,64.5'},.5)
+                    .to(group2, 1.5, {opacity: 1, morphSVG: 'M9.1,64.5l159.8,181.4'},.5)
+                    .to(group3, 1.5, {opacity: 1, morphSVG: 'M168.8,245.8L628.3,14.4'},.5)
+                    .to(group4, 1.5, {opacity: 1, morphSVG: 'M529,303.4L9.1,64.5'},.5)
+                    .to(group5, 1.5, {opacity: 1, morphSVG: 'M628.3,14.4l-99.3,289'},.5);
+            }
+        }, {
+            offset: "90%"
+        });
+
     },
 
     offsetSlider() {
