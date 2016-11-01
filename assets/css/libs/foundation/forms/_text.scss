@@ -12,11 +12,11 @@ $input-color: $black !default;
 
 /// Font color of placeholder text within text inputs.
 /// @type Color
-$input-placeholder-color: $medium-gray !default;
+$input-placeholder-color: $black !default;
 
 /// Font family of text inputs.
 /// @type Font
-$input-font-family: inherit !default;
+$input-font-family: $body-font-family-secondary !default;
 
 /// Font size of text inputs.
 /// @type Number
@@ -24,11 +24,11 @@ $input-font-size: rem-calc(16) !default;
 
 /// Background color of text inputs.
 /// @type Color
-$input-background: $white !default;
+$input-background: rgba($dark-gray, .15) !default;
 
 /// Background color of focused of text inputs.
 /// @type Color
-$input-background-focus: $white !default;
+$input-background-focus: rgba($dark-gray, .07) !default;
 
 /// Background color of disabled text inputs.
 /// @type Color
@@ -36,19 +36,19 @@ $input-background-disabled: $light-gray !default;
 
 /// Border around text inputs.
 /// @type Border
-$input-border: 1px solid $medium-gray !default;
+$input-border: 1px solid rgba($dark-gray, .15) !default;
 
 /// Border around focused text inputs.
 /// @type Color
-$input-border-focus: 1px solid $dark-gray !default;
+$input-border-focus: 1px solid rgba($dark-gray, .15) !default;
 
 /// Box shadow inside text inputs when not focused.
 /// @type Shadow
-$input-shadow: inset 0 1px 2px rgba($black, 0.1) !default;
+$input-shadow: none !default;
 
 /// Box shadow outside text inputs when focused.
 /// @type Shadow
-$input-shadow-focus: 0 0 5px $medium-gray !default;
+$input-shadow-focus: none !default;
 
 /// Cursor to use when hovering over a disabled text input.
 /// @type Cursor
@@ -64,22 +64,22 @@ $input-number-spinners: true !default;
 
 /// Radius for text inputs.
 /// @type Border
-$input-radius: $global-radius !default;
+$input-radius: 4px !default;
 
 /// Border radius for buttons, defaulted to global-radius.
 /// @type Number
 $button-radius: $global-radius !default;
 
 @mixin form-element {
-  $height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
+  // $height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
 
   display: block;
   box-sizing: border-box;
   width: 100%;
-  height: $height;
-  padding: $form-spacing / 2;
+  height: 50px;
+  padding: 15px 20px;
   border: $input-border;
-  margin: 0 0 $form-spacing;
+  margin: 0 0 20px;
 
   font-family: $input-font-family;
   font-size: $input-font-size;
@@ -128,6 +128,7 @@ $button-radius: $global-radius !default;
     // Placeholder text
     &::placeholder {
       color: $input-placeholder-color;
+      font-family: $body-font-family;
     }
 
     // Disabled/readonly state
