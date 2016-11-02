@@ -219,6 +219,10 @@ $h: 4px;
 
   li {
     text-align: center;
+
+    a {
+      background-image: none;
+    }
     
     @include breakpoint(large) {
       display: inline-block;
