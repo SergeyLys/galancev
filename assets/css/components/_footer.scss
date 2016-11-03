@@ -1,6 +1,11 @@
 // Site Footer
 .site-footer {
 	z-index: 1;
+	margin-top: 40px;
+
+	@include breakpoint(medium) {
+		margin-top: 80px;
+	}
 }
 
 .site-footer--top,

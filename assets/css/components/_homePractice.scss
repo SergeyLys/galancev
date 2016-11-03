@@ -5,11 +5,37 @@
 .b-practice_title {
   text-align: center;
   position: relative;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: auto;
 
   svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+
     .st0 {
-      stroke: rgba($black, .3);
+      stroke: rgba($black, 1);
+
+      @include breakpoint(medium) {
+        stroke: rgba($black, .3);
+      }
     }
+
+    @include breakpoint(medium) {
+      margin-left: calc(33.33333% - 30px);
+      display: block;
+    }
+
+    @include breakpoint(large) {
+      margin-left: calc(16.6666666667% - 30px);
+    }
+  }
+
+  @include breakpoint(medium) {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 
   @include breakpoint(large) {
@@ -17,27 +43,39 @@
     padding-bottom: 100px;
 
     h2 {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform: translateX(-50%) translateY(-50%);
     }
   }
 
   h2 {
-    @include breakpoint(large) {
+    margin-bottom: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include breakpoint(medium) {
+      position: static;
+      transform: none;
       width: 50%;
       margin: auto;
+      margin-bottom: 70px;
     }
   }
+}
+
+.b-practice_svg {
+  position: relative;
 }
 
 .b-practice_text--left,
 .b-practice_text--right {
 
-  @include breakpoint(large) {
-    width: 33.33333%;
-    position: absolute;
+  @include breakpoint(medium) {
+    width: calc(100% + 30px);
+    // position: absolute;
   }
 }
 
@@ -45,7 +83,7 @@
   left: 0;
   bottom: 0;
 
-  @include breakpoint(large) {
+  @include breakpoint(medium) {
     bottom: 100px;
     text-align: right;
   }
@@ -55,7 +93,8 @@
   right: 0;
   top: 0;
 
-  @include breakpoint(large) {
+  @include breakpoint(medium) {
+    margin-left: -30px;
     top: 100px;
     text-align: left;
   }
