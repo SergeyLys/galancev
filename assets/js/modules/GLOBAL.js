@@ -2,15 +2,19 @@
  *      Global functions
  */
 
+global.jQuery = require('jquery');
+global.$ = global.jQuery;
+
 //import ScrollMagic from 'scrollmagic';
 //import '../../../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
 //import '../../../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 import 'gsap';
 import '../libs/MorphSVGPlugin.min';
 import slick from "slick-carousel";
-import waypoint from '../libs/waypoints.min.js';
+//import waypoint from '../libs/waypoints.min.js';
 import jQueryBridget from 'jquery-bridget';
 import masonry from 'masonry-layout';
+import AOS from 'aos';
 
 (function($) {
     $.fn.animated = function(inEffect) {
@@ -106,12 +110,17 @@ export default {
     },
 
     scrollAnimations() {
-        $('.animateFadeIn').animated("fadeIn");
-        $('.animateFadeInUp').animated("fadeInUp");
-        $('.animateFadeInDown').animated("fadeInDown");
-        $('.animateFadeInLeft').animated("fadeInLeft");
-        $('.animateFadeInRight').animated("fadeInRight");
-        $('.animateFullWidth').animated('fullWidth');
+        //$('.animateFadeIn').animated("fadeIn");
+        //$('.animateFadeInUp').animated("fadeInUp");
+        //$('.animateFadeInDown').animated("fadeInDown");
+        //$('.animateFadeInLeft').animated("fadeInLeft");
+        //$('.animateFadeInRight').animated("fadeInRight");
+        //$('.animateFullWidth').animated('fullWidth');
+
+        AOS.init({
+            duration: 800,
+            easing: 'ease'
+        });
     },
 
     masonry() {

@@ -15,13 +15,6 @@ export default {
     closeBook () {
         $('.home-book .close-button').on('click', () => {
             $('.home-book').slideUp(200);
-
-            $('.animateFadeIn').animated("fadeIn");
-            $('.animateFadeInUp').animated("fadeInUp");
-            $('.animateFadeInDown').animated("fadeInDown");
-            $('.animateFadeInLeft').animated("fadeInLeft");
-            $('.animateFadeInRight').animated("fadeInRight");
-            $('.animateFullWidth').animated('fullWidth');
         });
     },
 
@@ -76,8 +69,14 @@ export default {
     },
 
     canvas() {
-        $('.b-practice_title').waypoint(function(dir) {
-            if (dir === "down") {
+        var triggered_times = 0;
+
+        var animateSvgInit = function () {
+            var pagePos = window.pageYOffset;
+            var anchorPos = $('.b-practice_title').offset().top - ($('.b-practice_title').height() + $('.b-practice_title').height() / 2);
+
+            if(pagePos > anchorPos && triggered_times == 0 ) {
+
                 var group1 = $('#path-01_1_'),
                     group2 = $('#path-02'),
                     group3 = $('#path-03'),
@@ -101,10 +100,19 @@ export default {
                     .to(group3, 1.5, {opacity: 1, morphSVG: 'M168.8,245.8L628.3,14.4'},.5)
                     .to(group4, 1.5, {opacity: 1, morphSVG: 'M529,303.4L9.1,64.5'},.5)
                     .to(group5, 1.5, {opacity: 1, morphSVG: 'M628.3,14.4l-99.3,289'},.5);
+
+                triggered_times = 1;
+
             }
-        }, {
-            offset: "90%"
+        };
+
+        animateSvgInit();
+
+        $(window).on('scroll', function() {
+            animateSvgInit();
         });
+
+
 
     },
 

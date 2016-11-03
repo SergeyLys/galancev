@@ -32,6 +32,32 @@
 	}
 }
 
+.b-practice_text--left,
+.b-practice_text--right {
+	width: 33.33333%;
+	position: absolute;
+}
+
+.b-practice_text--left {
+	left: 0;
+	bottom: 0;
+	text-align: right;
+
+	@include breakpoint(large) {
+		bottom: 100px;
+	}
+}
+
+.b-practice_text--right {
+	right: 0;
+	top: 0;
+	text-align: left;
+
+	@include breakpoint(large) {
+		top: 100px;
+	}
+}
+
 .b-subscribe {
 	margin-bottom: 80px;
 
