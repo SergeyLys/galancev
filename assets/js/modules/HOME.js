@@ -75,7 +75,7 @@ export default {
             var pagePos = window.pageYOffset;
             var anchorPos = $('.b-practice_title').offset().top - ($('.b-practice_title').height() + $('.b-practice_title').height() / 2);
 
-            if(pagePos > anchorPos && triggered_times == 0 ) {
+            if (pagePos > anchorPos && triggered_times == 0 ) {
 
                 var group1 = $('#path-01_1_'),
                     group2 = $('#path-02'),
@@ -92,7 +92,6 @@ export default {
                     .set(group3, {opacity: 1})
                     .set(group4, {opacity: 1})
                     .set(group5, {opacity: 1});
-
 
                 tl
                     .to(group1, 1.5, {opacity: 1, morphSVG: 'M628.3,14.4L9.1,64.5'},.5)
@@ -111,8 +110,6 @@ export default {
         $(window).on('scroll', function() {
             animateSvgInit();
         });
-
-
 
     },
 

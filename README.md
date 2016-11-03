@@ -13,26 +13,28 @@ Project root
     ├─── css
     │   ├─── libs 
     │   │   ├─── ( styles for plugins )
+    │   │   ├─── framework
     │   │   ├─── _mixins.scss
     │   │   └─── _variables.scss
-    │   ├─── framework
+    │   │
     │   ├─── pages ( contains scss files that describe pages, starts with '_' )
     │   ├─── components ( contains scss files that describe sections, starts with '_' )
+    │   ├─── base64-fonts.scss
     │   └─── global.scss
     │
     ├─── fonts
     │
     ├─── js
     │   ├─── modules 
-    │   ├─── services 
-    │   ├─── bundles 
+    │   ├─── libs
     │   └─── global.js
     │
     ├─── images
     │   └─── temp 
     │
-    ├─── html
-    │   ├─── (non compiled html files)
-    │   └─── templates (html sections)
+    ├─── jade
+    │   ├─── components
+    │   ├─── templates
+    │   └─── (non compiled jade files).jade
 
 ```

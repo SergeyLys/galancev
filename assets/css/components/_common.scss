@@ -57,6 +57,8 @@
 .section-divider {
   position: relative;
   height: 5px;
+  margin-left: auto;
+  margin-right: auto;
 
   &.has-img {
     margin: 95px 0;
@@ -100,11 +102,14 @@
     left: 50%;
     transform: translateX(-50%);
     background: rgba($black, .2);
-    width: 100%;
-
-    @include breakpoint(large) {
-      width: 0;
-    }
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition-duration: 800ms;
+    transition-property: all;
+    //width: 100%;
+    //
+    //@include breakpoint(large) {
+    //  width: 0;
+    //}
   }
 
   &:before {

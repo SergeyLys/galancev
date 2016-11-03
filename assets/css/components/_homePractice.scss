@@ -1,71 +1,74 @@
 .b-practice {
-	padding-bottom: 70px;
+  padding-bottom: 70px;
 }
 
 .b-practice_title {
-	text-align: center;
-	position: relative;
+  text-align: center;
+  position: relative;
 
-	svg {
-		.st0 {
-			stroke: rgba($black, .3);
-		}
-	}
+  svg {
+    .st0 {
+      stroke: rgba($black, .3);
+    }
+  }
 
-	@include breakpoint(large) {
-		padding-top: 100px;
-		padding-bottom: 100px;
+  @include breakpoint(large) {
+    padding-top: 100px;
+    padding-bottom: 100px;
 
-		h2 {
-			position: absolute;
-			top: 40%;
-			left: 50%;
-			transform: translateX(-50%) translateY(-50%);
-		}
-	}
+    h2 {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
 
-	h2 {
-		@include breakpoint(large) {
-			width: 50%;
-			margin: auto;
-		}
-	}
+  h2 {
+    @include breakpoint(large) {
+      width: 50%;
+      margin: auto;
+    }
+  }
 }
 
 .b-practice_text--left,
 .b-practice_text--right {
-	width: 33.33333%;
-	position: absolute;
+
+  @include breakpoint(large) {
+    width: 33.33333%;
+    position: absolute;
+  }
 }
 
 .b-practice_text--left {
-	left: 0;
-	bottom: 0;
-	text-align: right;
+  left: 0;
+  bottom: 0;
 
-	@include breakpoint(large) {
-		bottom: 100px;
-	}
+  @include breakpoint(large) {
+    bottom: 100px;
+    text-align: right;
+  }
 }
 
 .b-practice_text--right {
-	right: 0;
-	top: 0;
-	text-align: left;
+  right: 0;
+  top: 0;
 
-	@include breakpoint(large) {
-		top: 100px;
-	}
+  @include breakpoint(large) {
+    top: 100px;
+    text-align: left;
+  }
 }
 
 .b-subscribe {
-	margin-bottom: 80px;
+  margin-bottom: 80px;
 
-	.button {
-		margin-bottom: 0;
-	}
+  .button {
+    margin-bottom: 0;
+  }
 
-	@include breakpoint(medium) {
-		margin-bottom: 0;
-	}
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+  }
 }

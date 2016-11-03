@@ -13,11 +13,25 @@ $aos-distance: 100px !default;
 
 [data-aos^='fade'][data-aos^='fade'] {
   opacity: 0;
-  transition-property: opacity, transform;
+  transition-property: opacity, transform, width;
 
   &.aos-animate {
     opacity: 1;
     transform: translate(0, 0);
+  }
+}
+
+[data-aos='full-width'] {
+  &:before,
+  &:after {
+    width: 0;
+  }
+
+  &.aos-animate {
+    &:before,
+    &:after {
+      width: 100%;
+    }
   }
 }
 
