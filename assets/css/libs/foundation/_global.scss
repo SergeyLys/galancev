@@ -149,6 +149,8 @@ $-zf-flex-classes-imported: false;
     font-size: $global-font-size;
     backface-visibility: hidden;
     overflow-x: hidden;
+    @extend .flex;
+    flex-direction: column;
 
     @if ($body-antialiased) {
       -webkit-font-smoothing: antialiased;

@@ -5,6 +5,7 @@
 global.jQuery = require('jquery');
 global.$ = global.jQuery;
 
+import 'flexibility';
 import 'gsap';
 import '../libs/MorphSVGPlugin.min';
 import slick from "slick-carousel";

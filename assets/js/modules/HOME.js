@@ -82,54 +82,56 @@ export default {
         var triggered_times = 0;
 
         var animateSvgInit = function () {
-            var pagePos = window.pageYOffset;
-            var anchorPos = $('.b-practice_title').offset().top - ($('.b-practice_title').height() + $('.b-practice_title').height() / 2);
-            var tl = new TimelineMax();
-            if (pagePos > anchorPos && triggered_times == 0 && $(window).width() >= 1024) {
+            if ($('.b-practice_title').length) {
+                var pagePos = window.pageYOffset;
+                var anchorPos = $('.b-practice_title').offset().top - ($('.b-practice_title').height() + $('.b-practice_title').height() / 2);
+                var tl = new TimelineMax();
+                if (pagePos > anchorPos && triggered_times == 0 && $(window).width() >= 1024) {
 
-                var group1 = $('#path-01_1_'),
-                    group2 = $('#path-02'),
-                    group3 = $('#path-03'),
-                    group4 = $('#path-04'),
-                    group5 = $('#path-05');
+                    var group1 = $('#path-01_1_'),
+                        group2 = $('#path-02'),
+                        group3 = $('#path-03'),
+                        group4 = $('#path-04'),
+                        group5 = $('#path-05');
 
-                tl
-                    .set(group1, {opacity: 1})
-                    .set(group2, {opacity: 1})
-                    .set(group3, {opacity: 1})
-                    .set(group4, {opacity: 1})
-                    .set(group5, {opacity: 1});
+                    tl
+                        .set(group1, {opacity: 1})
+                        .set(group2, {opacity: 1})
+                        .set(group3, {opacity: 1})
+                        .set(group4, {opacity: 1})
+                        .set(group5, {opacity: 1});
 
-                tl
-                    .to(group1, 1.5, {opacity: 1, morphSVG: 'M628.3,14.4L9.1,64.5'},.5)
-                    .to(group2, 1.5, {opacity: 1, morphSVG: 'M9.1,64.5l159.8,181.4'},.5)
-                    .to(group3, 1.5, {opacity: 1, morphSVG: 'M168.8,245.8L628.3,14.4'},.5)
-                    .to(group4, 1.5, {opacity: 1, morphSVG: 'M529,303.4L9.1,64.5'},.5)
-                    .to(group5, 1.5, {opacity: 1, morphSVG: 'M628.3,14.4l-99.3,289'},.5);
+                    tl
+                        .to(group1, 1.5, {opacity: 1, morphSVG: 'M628.3,14.4L9.1,64.5'},.5)
+                        .to(group2, 1.5, {opacity: 1, morphSVG: 'M9.1,64.5l159.8,181.4'},.5)
+                        .to(group3, 1.5, {opacity: 1, morphSVG: 'M168.8,245.8L628.3,14.4'},.5)
+                        .to(group4, 1.5, {opacity: 1, morphSVG: 'M529,303.4L9.1,64.5'},.5)
+                        .to(group5, 1.5, {opacity: 1, morphSVG: 'M628.3,14.4l-99.3,289'},.5);
 
-                triggered_times = 1;
-            } else if (pagePos > anchorPos && triggered_times == 0 && $(window).width() >= 768 &&
-                        pagePos > anchorPos && triggered_times == 0 && $(window).width() <= 1023) {
-                console.log('view')
-                var group1 = $('#path-11_1_'),
-                    group2 = $('#path-12'),
-                    group3 = $('#path-13'),
-                    group4 = $('#path-14'),
-                    group5 = $('#path-15');
+                    triggered_times = 1;
+                } else if (pagePos > anchorPos && triggered_times == 0 && $(window).width() >= 768 &&
+                            pagePos > anchorPos && triggered_times == 0 && $(window).width() <= 1023) {
+                    console.log('view')
+                    var group1 = $('#path-11_1_'),
+                        group2 = $('#path-12'),
+                        group3 = $('#path-13'),
+                        group4 = $('#path-14'),
+                        group5 = $('#path-15');
 
-                tl
-                    .set(group1, {opacity: 1})
-                    .set(group2, {opacity: 1})
-                    .set(group3, {opacity: 1})
-                    .set(group4, {opacity: 1})
-                    .set(group5, {opacity: 1});
+                    tl
+                        .set(group1, {opacity: 1})
+                        .set(group2, {opacity: 1})
+                        .set(group3, {opacity: 1})
+                        .set(group4, {opacity: 1})
+                        .set(group5, {opacity: 1});
 
-                tl
-                    .to(group1, 1.5, {opacity: 1, morphSVG: 'M264.53333,14.4l-255,50.1'},.5)
-                    .to(group2, 1.5, {opacity: 1, morphSVG: 'M9.53333,64.5l65.80911,181.39999'},.5)
-                    .to(group3, 1.5, {opacity: 1, morphSVG: 'M75.30125,245.8L264.53333,14.4'},.5)
-                    .to(group4, 1.5, {opacity: 1, morphSVG: 'M223.63943,303.39999L9.53333,64.5'},.5)
-                    .to(group5, 1.5, {opacity: 1, morphSVG: 'M264.53333,14.4l-40.89389,289'},.5);
+                    tl
+                        .to(group1, 1.5, {opacity: 1, morphSVG: 'M264.53333,14.4l-255,50.1'},.5)
+                        .to(group2, 1.5, {opacity: 1, morphSVG: 'M9.53333,64.5l65.80911,181.39999'},.5)
+                        .to(group3, 1.5, {opacity: 1, morphSVG: 'M75.30125,245.8L264.53333,14.4'},.5)
+                        .to(group4, 1.5, {opacity: 1, morphSVG: 'M223.63943,303.39999L9.53333,64.5'},.5)
+                        .to(group5, 1.5, {opacity: 1, morphSVG: 'M264.53333,14.4l-40.89389,289'},.5);
+                }
             }
         };
 
