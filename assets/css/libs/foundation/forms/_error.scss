@@ -42,10 +42,11 @@ $input-error-font-weight: $global-weight-bold !default;
   $background: $input-background-invalid,
   $background-alpha: 0.1
 ) {
-  &:not(:focus) {
-    background-color: rgba($background, $background-alpha);
-    border-color: $background;
-  }
+  // &:not(:focus) {
+    border: 1px solid map-get($foundation-palette, alert) !important;
+    // background-color: rgba($background, $background-alpha);
+    // border-color: $background;
+  // }
 }
 
 /// Adds error styles to a form element, using the values in the settings file.
@@ -61,15 +62,18 @@ $input-error-font-weight: $global-weight-bold !default;
 @mixin foundation-form-error {
   @if $abide-inputs {
     // Error class for invalid inputs
-    .is-invalid-input {
+    input.error {
       @include form-input-error;
     }
   }
 
   @if $abide-labels {
     // Error class for labels of invalid outputs
-    .is-invalid-label {
+    label.error {
       color: $form-label-color-invalid;
+      font-size: 12px;
+      font-family: $body-font-family;
+      margin-top: -20px;
     }
   }
 

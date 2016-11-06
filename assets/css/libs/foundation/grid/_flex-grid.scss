@@ -38,7 +38,7 @@
   }
 
   @if $base {
-    @extend .flex;
+    display: flex;
     flex-flow: row wrap;
   }
 

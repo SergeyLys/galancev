@@ -27,7 +27,7 @@ $foundation-palette: (
   secondary: #0e88e4,
   success: #3adb76,
   warning: #ffae00,
-  alert: #ec5840,
+  alert: #f27412,
 ) !default;
 
 /// Color used for light gray UI items.
@@ -149,7 +149,7 @@ $-zf-flex-classes-imported: false;
     font-size: $global-font-size;
     backface-visibility: hidden;
     overflow-x: hidden;
-    @extend .flex;
+    display: flex;
     flex-direction: column;
 
     @if ($body-antialiased) {

@@ -2,7 +2,7 @@
 	 width="275px" height="320px" viewBox="0 0 275 320" style="enable-background:new 0 0 275 320;" xml:space="preserve">
 <style type="text/css">
 	.st0{opacity:0.2;fill:none;stroke:#3D302A;stroke-miterlimit:10;stroke-dasharray:4.029,4.0289;enable-background:new    ;}
-	.st11{fill:url(#SVGID_111_);}
+	.st11{fill:url(#SVGID_1111_);}
 	.st12{clip-path:url(#SVGID_31_);fill:url(#SVGID_41_);}
 	.st13{fill:url(#SVGID_51_);}
 	.st14{clip-path:url(#SVGID_71_);fill:url(#SVGID_81_);}
@@ -24,7 +24,7 @@
 <path id="path-115" class="st0 hide-for-medium" d="M264.53333,14.4l-40.89389,289"/>
 <g id="pin-101">
 	
-		<linearGradient id="SVGID_111_" gradientUnits="userSpaceOnUse" x1="8.29803" y1="-471.60001" x2="12.34003" y2="-471.60001" gradientTransform="matrix(1 0 0 1 0 542)">
+		<linearGradient id="SVGID_1111_" gradientUnits="userSpaceOnUse" x1="8.29803" y1="-471.60001" x2="12.34003" y2="-471.60001" gradientTransform="matrix(1 0 0 1 0 542)">
 		<stop  offset="0" style="stop-color:#755C52"/>
 		<stop  offset="1" style="stop-color:#FFFFFF"/>
 	</linearGradient>

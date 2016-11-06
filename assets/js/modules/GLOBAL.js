@@ -5,9 +5,9 @@
 global.jQuery = require('jquery');
 global.$ = global.jQuery;
 
-import 'flexibility';
 import 'gsap';
 import '../libs/MorphSVGPlugin.min';
+import '../libs/jquery.validate';
 import slick from "slick-carousel";
 import jQueryBridget from 'jquery-bridget';
 import masonry from 'masonry-layout';
@@ -20,6 +20,7 @@ export default {
         this.scrollDown();
         this.scrollAnimations();
         this.masonry();
+        this.formValidate();
     },
 
     headerFunctions () {
@@ -64,7 +65,8 @@ export default {
     scrollAnimations() {
         AOS.init({
             duration: 800,
-            easing: 'ease'
+            easing: 'ease',
+            offset: 25
         });
     },
 
@@ -75,6 +77,10 @@ export default {
             columnWidth: '.masonry-item',
             gutter: 0
         });
+    },
+
+    formValidate() {
+        $('form').validate();
     }
 
 };

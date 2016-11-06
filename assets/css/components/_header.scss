@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.site-menu-row {
+  max-width: 1600px !important;
+}
+
 $w: 35px;
 $h: 4px;
 
@@ -128,7 +132,7 @@ $h: 4px;
   align-items: center;
   justify-content: center;
   overflow: auto;
-  @extend .flex;
+  display: flex;
 
   @include breakpoint(medium) {
   }

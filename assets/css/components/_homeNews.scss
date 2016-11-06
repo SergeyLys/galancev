@@ -21,7 +21,7 @@
 .b-news_item {
   position: relative;
   min-height: 360px;
-  @extend .flex;
+  display: flex;
   flex-direction: column;
   transition: all .3s ease;
 
@@ -49,7 +49,7 @@
   }
 
   .b-news_item-data {
-    @extend .flex;
+    display: flex;
     flex-grow: 1;
     flex-direction: column;
     justify-content: space-between;

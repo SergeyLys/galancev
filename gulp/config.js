@@ -13,7 +13,7 @@ var options = {
     },
 
     styles:{
-        src: ['./assets/css/global.scss', './assets/css/pages/**/*.scss'],
+        src: ['./assets/css/global.scss', './assets/css/base64-fonts.scss', './assets/css/pages/**/*.scss'],
         dest:'./dist/css',
         watch: './assets/css/**/*.scss'
     },
@@ -24,13 +24,6 @@ var options = {
         webp_src:'./assets/images/to_webp/**/*.+(jpeg|jpg|png|gif)',
         svg_src:'./assets/images/**/*.svg'
     },
-
-    //markup:{
-    //    src:'./assets/html/*.html',
-    //    dest:'./dist/html/',
-    //    compiled: './dist/html/*.html',
-    //    watch:'./assets/html/**/*.html'
-    //},
 
     jade:{
         src: './assets/jade/*.jade',

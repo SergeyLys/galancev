@@ -25,18 +25,18 @@ export default {
                 var lineCenter = [line.offset().left + line.width() / 2, line.offset().top + line.height() / 2];
                 var angle = Math.atan2(e.pageX - lineCenter[0], - (e.pageY - lineCenter[1])) * (180 / Math.PI);
 
-                // console.log(angle);
-                // if (angle >= 45) {
-                //   angle = 45;
-                // }
+                console.log(angle);
+                if (angle >= 30) {
+                  angle = 30;
+                }
 
-                // if (angle <= -45) {
-                //   angle = -45;
-                // }
+                if (angle <= -30) {
+                  angle = -30;
+                }
 
                 if (angle >= 10) {
                     $('.task--left > .b-task_descr').css({
-                        'filter': 'blur(5px)'
+                        'filter': 'blur(3px)'
                     });
                     $('.task--right > .b-task_descr').css({
                         'filter': 'blur(0)'
@@ -45,7 +45,7 @@ export default {
 
                 if (angle <= -10) {
                     $('.task--right > .b-task_descr').css({
-                        'filter': 'blur(5px)'
+                        'filter': 'blur(3px)'
                     });
                     $('.task--left > .b-task_descr').css({
                         'filter': 'blur(0)'
@@ -157,7 +157,8 @@ export default {
                 {
                     breakpoint: 480,
                     settings: {
-                        slidesToShow: 1
+                        // slidesToShow: 1
+                        settings: "unslick"
                     }
                 }
             ]

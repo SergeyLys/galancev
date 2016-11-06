@@ -1,7 +1,7 @@
 .home-book {
 	min-height: 39.1666666667vh;
 	background: #F5EDE8;
-	@extend .flex;
+	display: flex;
 }
 
 .b-book {
@@ -9,7 +9,7 @@
 }
 
 .b-book_description {
-	// @extend .flex;
+	// display: flex;
 	// justify-content: center;
 	// align-items: center;
 	// flex-direction: column;

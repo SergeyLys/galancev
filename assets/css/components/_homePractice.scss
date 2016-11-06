@@ -10,9 +10,7 @@
   width: auto;
 
   svg {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: static;
     z-index: -1;
 
     .st0 {
@@ -24,8 +22,11 @@
     }
 
     @include breakpoint(medium) {
+      position: absolute;
       margin-left: calc(33.33333% - 30px);
       display: block;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     @include breakpoint(large) {

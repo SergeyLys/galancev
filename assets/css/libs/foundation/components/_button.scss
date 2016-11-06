@@ -126,6 +126,7 @@ $button-hollow-hover-lightness: -50% !default;
   &:hover, &:focus {
     color: $color;
     box-shadow: 0 20px 50px 0 rgba($black, .33);
+    transform: translateY(-1px);
   }
 }
 

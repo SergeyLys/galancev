@@ -43,8 +43,8 @@
 
 .b-concept_item {
 	text-align: center;
-	flex-direction: column;
-	@extend .flex;
+	// flex-direction: column;
+	display: flex;
 
 	.b-concept_item-inner {
 		margin-bottom: 40px;

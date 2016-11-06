@@ -81,7 +81,7 @@
 		text-align: center;
 		flex-direction: column;
 		justify-content: flex-end;
-		@extend .flex;
+		display: flex;
 
 		h2 {
 			margin-bottom: 20px;

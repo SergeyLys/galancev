@@ -1,5 +1,5 @@
 .b-tasks {
-  @extend .flex;
+  display: flex;
   position: relative;
   margin-top: 15px;
   margin-bottom: 140px;
@@ -10,7 +10,7 @@
 
   .row {
     min-height: 515px;
-    @extend .flex;
+    display: flex;
   }
 }
 
@@ -23,7 +23,7 @@
   background: rgba($black, .3);
   z-index: -1;
   opacity: 0;
-  transition: opacity .3s;
+  transition: all .3s ease;
 
   &:before {
     content: '';
@@ -42,16 +42,19 @@
 }
 
 .b-task_item {
-  @extend .flex;
-  flex-direction: column;
+  display: flex;
+  // flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
-  height: 100%;
   -ms-flex-pack: center;
 
   @include breakpoint(medium) {
     margin-bottom: 0;
+  }
+
+  @include breakpoint(large) {
+    height: 100%;
   }
 }
 
