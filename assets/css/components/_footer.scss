@@ -19,8 +19,10 @@
 		width: auto;
 	}
 
-	h4 {
+	.footer-title {
+		font-size: 18px;
 		font-family: $body-font-family-secondary;
+		line-height: $header-lineheight;
 		margin-bottom: 0;
 	}
 }

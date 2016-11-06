@@ -3580,8 +3580,10 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos],[data-aos][data-aos][data-a
   width: auto;
 }
 
-.site-footer--top h4,.site-footer--bottom h4 {
+.site-footer--top .footer-title,.site-footer--bottom .footer-title {
+  font-size: 18px;
   font-family: "nerissemibold", Roboto, Arial, sans-serif;
+  line-height: 1.4;
   margin-bottom: 0;
 }
 
