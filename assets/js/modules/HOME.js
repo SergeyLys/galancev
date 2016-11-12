@@ -25,7 +25,6 @@ export default {
                 var lineCenter = [line.offset().left + line.width() / 2, line.offset().top + line.height() / 2];
                 var angle = Math.atan2(e.pageX - lineCenter[0], - (e.pageY - lineCenter[1])) * (180 / Math.PI);
 
-                console.log(angle);
                 if (angle >= 30) {
                   angle = 30;
                 }
@@ -111,7 +110,6 @@ export default {
                     triggered_times = 1;
                 } else if (pagePos > anchorPos && triggered_times == 0 && $(window).width() >= 768 &&
                             pagePos > anchorPos && triggered_times == 0 && $(window).width() <= 1023) {
-                    console.log('view')
                     var group1 = $('#path-11_1_'),
                         group2 = $('#path-12'),
                         group3 = $('#path-13'),

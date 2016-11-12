@@ -18,6 +18,7 @@ export default {
     init(){
         this.headerFunctions();
         this.scrollDown();
+        this.scrollToAnchor();
         this.scrollAnimations();
         this.masonry();
         this.formValidate();
@@ -60,6 +61,30 @@ export default {
                 'scrollTop': position
             }, 800)
         });
+    },
+
+    scrollToAnchor() {
+        if($('[data-anchor]').length) {
+            $('[data-anchor]').each(function(el) {
+                $(this).on('click', function(e) {
+                    e.preventDefault();
+                    var anchor = $($(this).attr('href'));
+
+                    if(anchor.length) {
+                        $('body, html').animate({
+                            'scrollTop': anchor.offset().top
+                        }, 800)
+                    }
+
+                    if ($('body').hasClass('menu-open')) {
+                        $('.toggle-menu').removeClass('active');
+                        $('.site-navigation').removeClass('active');
+                        $('body').removeClass('menu-open');
+                    }
+
+                })
+            })
+        }
     },
 
     scrollAnimations() {
