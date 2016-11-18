@@ -22,6 +22,7 @@ export default {
         this.scrollAnimations();
         this.masonry();
         this.formValidate();
+        this.postFormData();
     },
 
     headerFunctions () {
@@ -105,7 +106,39 @@ export default {
     },
 
     formValidate() {
-        $('form').validate();
+        $('form').validate({
+            rules: {
+                name: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: formValidateSettings.name,
+                email: {
+                    required: formValidateSettings.emailEmpty,
+                    email: formValidateSettings.emailIncorrect
+                }
+            }
+        });
+    },
+
+    postFormData() {
+        $('.contact-form').on('submit', function(e) {
+            e.preventDefault();
+            var $form = $(this);
+            $.ajax({
+                type: $form.attr('method'),
+                url: $form.attr('action'),
+                dataType: 'json',
+                data: $form.serialize()
+            }).done(function(data) {
+                console.log(data);
+            }).fail(function() {
+                console.log('fail');
+            });
+        });
     }
 
 };

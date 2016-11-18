@@ -785,8 +785,8 @@
               </div>
             </div>
             <div class="small-12 medium-6 columns">
-              <form>
-                <input type="text" placeholder="Ваше имя" required>
+              <form method="GET" action="../../example.json" class="contact-form">
+                <input type="text" placeholder="Ваше имя" name="name" required>
                 <input placeholder="Ваша электронная почта" type="email" name="email" required>
                 <button class="button">Подписаться</button>
               </form>
@@ -866,6 +866,13 @@
       <!-- End Footer-->
     </div>
     <!-- End Document wrapper-->
-    <script src="../js/global.min.js"></script>
+    <script type="javascript">
+      var formValidateSettings = {
+          name: 'Введите свое имя',
+          emailEmpty: 'Введите мейл',
+          emailIncorrect: 'Введите корректный мейл'
+      };
+    </script>
+    <script src="../js/global.js"></script>
   </body>
 </html>
