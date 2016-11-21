@@ -4,6 +4,7 @@
   "description": "Javascript kit modules",
   "author": "cox",
   "dependencies": {
+    "isotope-layout": "^3.0.1",
     "jquery": "^3.0.0",
     "jquery-bridget": "^2.0.1",
     "lg-fullscreen": "^1.0.1",

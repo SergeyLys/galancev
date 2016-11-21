@@ -56,8 +56,8 @@ block content
       .col-xs-12
         .tab-wrapper
           ul.tabs
-            li.tab-item.active(data-tab='last'): a(href='#') Последние
-            li.tab-item(data-tab='event'): a(href='#') События
+            li.tab-item.active(data-filter='.last'): a(href='#') Последние
+            li.tab-item(data-filter='.event'): a(href='#') События
             li.tab-item: a(href='#') СМИ
             li.tab-item: a(href='#') Видео
             li.tab-item: a(href='#') Книги
@@ -71,8 +71,8 @@ block content
           .row.masonry-wrap
             .masonry-overflow
               .masonry
-                .col-xs-12.col-sm-6.col-md-4.masonry-item(style='display: none')
-                  article.blocks__article(data-content='last')
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.last
+                  article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-1.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
@@ -86,8 +86,8 @@ block content
                       a.article__source(href="#")
                         img.article__source-img(src="../uploads/articles/logo.jpg")
                         span.article__source-link www.the-village.ru
-                .col-xs-12.col-sm-6.col-md-4.masonry-item
-                  article.blocks__article(data-content='event')
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.event
+                  article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-2.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
@@ -98,8 +98,8 @@ block content
                     .article__bottom
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
-                .col-xs-12.col-sm-6.col-md-4.masonry-item(style='display: none')
-                  article.blocks__article(data-content='last')
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.last
+                  article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-2.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
@@ -110,8 +110,8 @@ block content
                     .article__bottom
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
-                .col-xs-12.col-sm-6.col-md-4.masonry-item
-                  article.blocks__article(data-content='event')
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.event
+                  article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-1.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
@@ -125,8 +125,8 @@ block content
                       a.article__source(href="#")
                         img.article__source-img(src="../uploads/articles/logo.jpg")
                         span.article__source-link www.the-village.ru
-                .col-xs-12.col-sm-6.col-md-4.masonry-item(style='display: none')
-                  article.blocks__article(data-content='last')
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.last
+                  article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-2.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
@@ -137,8 +137,8 @@ block content
                     .article__bottom
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
-                .col-xs-12.col-sm-6.col-md-4.masonry-item
-                  article.blocks__article(data-content='event')
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.event
+                  article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-2.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
