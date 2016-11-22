@@ -8,6 +8,7 @@ block script
         page: 'home_page'
     };
 
+
 block content
   include parts/about-promo
   .blocks
@@ -56,7 +57,7 @@ block content
       .col-xs-12
         .tab-wrapper
           ul.tabs
-            li.tab-item.active(data-filter='.last'): a(href='#') Последние
+            li.tab-item(data-filter='.last'): a(href='#') Последние
             li.tab-item(data-filter='.event'): a(href='#') События
             li.tab-item: a(href='#') СМИ
             li.tab-item: a(href='#') Видео
@@ -71,6 +72,7 @@ block content
           .row.masonry-wrap
             .masonry-overflow
               .masonry
+
                 .col-xs-12.col-sm-6.col-md-4.masonry-item.last
                   article.blocks__article
                     .article__top
@@ -80,180 +82,224 @@ block content
 
                         //- a.story__title(href="articles.html") Корпоративное право
                     .article__bottom
-                      .story
+                      .story-top
                         time.story__time Вчера, 12:00
-                        .label События
+                        a(href='#').label События
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
                       a.article__source(href="#")
                         img.article__source-img(src="../uploads/articles/logo.jpg")
                         span.article__source-link www.the-village.ru
+
                 .col-xs-12.col-sm-6.col-md-4.masonry-item.event
                   article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-2.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
                       a.tag.tag--newspaper(href="articles.html", rel="nofollow")
-                      .story
-                        time.story__time Вчера, 12:00
-                        a.story__title(href="articles.html") Управление коммуникацией
                     .article__bottom
+                      .story-top
+                        time.story__time Вчера, 12:00
+                        a(href='#').label Управление коммуникацией
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
+
                 .col-xs-12.col-sm-6.col-md-4.masonry-item.last
                   article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-2.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
                       a.tag.tag--newspaper(href="articles.html", rel="nofollow")
-                      .story
-                        time.story__time Вчера, 12:00
-                        a.story__title(href="articles.html") Управление коммуникацией
                     .article__bottom
+                      .story-top
+                        time.story__time Вчера, 12:00
+                        a(href='#').label Управление коммуникацией
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
+
                 .col-xs-12.col-sm-6.col-md-4.masonry-item.event
                   article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-1.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
                       a.tag.tag--pen(href="articles.html", rel="nofollow")
-                      .story
-                        time.story__time Вчера, 12:00
-                        a.story__title(href="articles.html") Корпоративное право
                     .article__bottom
+                      .story-top
+                        time.story__time Вчера, 12:00
+                        a(href='#').label Корпоративное право
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
                       a.article__source(href="#")
                         img.article__source-img(src="../uploads/articles/logo.jpg")
                         span.article__source-link www.the-village.ru
+
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.event
+                  include parts/form
+
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.event
+                  article.blocks__article
+                    .article__bottom
+                      .story-top
+                        time.story__time Вчера, 12:00
+                        a(href='#').label Корпоративное право
+                      h3.article__title
+                        a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
+                      a.article__source(href="#")
+                        img.article__source-img(src="../uploads/articles/logo.jpg")
+                        span.article__source-link www.the-village.ru
+
                 .col-xs-12.col-sm-6.col-md-4.masonry-item.last
                   article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-2.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
                       a.tag.tag--newspaper(href="articles.html", rel="nofollow")
-                      .story
-                        time.story__time Вчера, 12:00
-                        a.story__title(href="articles.html") Управление коммуникацией
                     .article__bottom
+                      .story-top
+                        time.story__time Вчера, 12:00
+                        a(href='#').label Управление коммуникацией
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
+
                 .col-xs-12.col-sm-6.col-md-4.masonry-item.event
                   article.blocks__article
                     .article__top
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-2.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
                       a.tag.tag--newspaper(href="articles.html", rel="nofollow")
-                      .story
-                        time.story__time Вчера, 12:00
-                        a.story__title(href="articles.html") Управление коммуникацией
                     .article__bottom
+                      .story-top
+                        time.story__time Вчера, 12:00
+                        a(href='#').label Управление коммуникацией
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
-                .col-xs-12.col-sm-6.col-md-4.masonry-item.event
-                  include parts/form
 
-        .wide-blocks
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.last
+                  article.blocks__article
+                    .article__top
+                      .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-2.jpg")
+                      a.article__top-link(href="article.html", rel="nofollow")
+                      a.tag.tag--newspaper(href="articles.html", rel="nofollow")
+                    .article__bottom
+                      .story-top
+                        time.story__time Вчера, 12:00
+                        a(href='#').label Управление коммуникацией
+                      h3.article__title
+                        a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
+
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.event
+                  article.blocks__article
+                    .article__top
+                      .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-2.jpg")
+                      a.article__top-link(href="article.html", rel="nofollow")
+                      a.tag.tag--newspaper(href="articles.html", rel="nofollow")
+                    .article__bottom
+                      .story-top
+                        time.story__time Вчера, 12:00
+                        a(href='#').label Управление коммуникацией
+                      h3.article__title
+                        a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
+
+        //- .wide-blocks
           
-        .middle-blocks
-          article.blocks__article
-            .article__top
-              .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-3.jpg")
-              a.article__top-link(href="article.html", rel="nofollow")
-              a.tag.tag--newspaper(href="articles.html", rel="nofollow")
-              .story
-                time.story__time Вчера, 12:00
-                a.story__title(href="articles.html") Управление коммуникацией
-            .article__bottom
-              .article__bln
-                a(href="https://goo.gl/maps/8VSTw6nsPg82", rel="nofollow") Томики Айкидо, Спортивный клуб
-              h3.article__title
-                a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность Санкт-Петербургского международного криминологического клуба
-          .middle-blocks__double
-            include parts/form
-            article.blocks__article
-              .article__top.article__top--noimg
-                a.tag.tag--star(href="articles.html", rel="nofollow")
-                .story
-                  time.story__time Вчера, 12:00
-                  a.story__title(href="articles.html") Айкидо
-              .article__bottom
-                .article__bln
-                  a(href="https://goo.gl/maps/8VSTw6nsPg82", rel="nofollow") Томики Айкидо, Спортивный клуб
-                h3.article__title
-                  a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность Санкт-Петербургского международного криминологического клуба
-                p.article__text Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему
-          .clearfix
-        #blocks-group.blocks-group
-          article.blocks__article
-            .article__top
-              .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-3.jpg")
-              a.article__top-link(href="article.html", rel="nofollow")
-              a.tag.tag--newspaper(href="articles.html", rel="nofollow")
-              .story
-                time.story__time Вчера, 12:00
-                a.story__title(href="articles.html") Управление коммуникацией
-            .article__bottom
-              h3.article__title
-                a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность Санкт-Петербургского международного криминологического клуба
-              a.article__source(href="#", rel="nofollow")
-                img.article__source-img(src="../uploads/articles/logo.jpg")
-                span.article__source-link www.the-village.ru
-          article.blocks__article
-            .article__top.article__top--noimg
-              a.tag.tag--star(href="articles.html", rel="nofollow")
-              .story
-                time.story__time Вчера, 12:00
-                a.story__title(href="articles.html") Айкидо
-            .article__bottom
-              h3.article__title
-                a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность Санкт-Петербургского международного криминологического клуба
-              p.article__text Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему
-          article.blocks__article
-            .article__top
-              .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-4.jpg")
-              a.article__top-link(href="article.html", rel="nofollow")
-              a.tag.tag--newspaper(href="articles.html", rel="nofollow")
-              .story
-                time.story__time Вчера, 12:00
-                a.story__title(href="articles.html") Управление коммуникацией
-            .article__bottom
-              h3.article__title
-                a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы
-              a.article__source(href="#", rel="nofollow")
-                img.article__source-img(src="../uploads/articles/logo.jpg")
-                span.article__source-link www.the-village.ru
-          article.blocks__article
-            .article__top
-              .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-3.jpg")
-              a.article__top-link(href="article.html", rel="nofollow")
-              a.tag.tag--newspaper(href="articles.html", rel="nofollow")
-              .story
-                time.story__time Вчера, 12:00
-                a.story__title(href="articles.html") Управление коммуникацией
-            .article__bottom
-              h3.article__title
-                a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность Санкт-Петербургского международного криминологического клуба
-              a.article__source(href="#", rel="nofollow")
-                img.article__source-img(src="../uploads/articles/logo.jpg")
-                span.article__source-link www.the-village.ru
-          article.blocks__article.blocks__article--last
-            .article__top
-              .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-4.jpg")
-              a.article__top-link(href="article.html", rel="nofollow")
-              a.tag.tag--newspaper(href="articles.html", rel="nofollow")
-              .story
-                time.story__time Вчера, 12:00
-                a.story__title(href="articles.html") Управление коммуникацией
-            .article__bottom
-              h3.article__title
-                a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы
-              a.article__source(href="#", rel="nofollow")
-                img.article__source-img(src="../uploads/articles/logo.jpg")
-                span.article__source-link www.the-village.ru
+        //- .middle-blocks
+        //-   article.blocks__article
+        //-     .article__top
+        //-       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-3.jpg")
+        //-       a.article__top-link(href="article.html", rel="nofollow")
+        //-       a.tag.tag--newspaper(href="articles.html", rel="nofollow")
+        //-       .story
+        //-         time.story__time Вчера, 12:00
+        //-         a.story__title(href="articles.html") Управление коммуникацией
+        //-     .article__bottom
+        //-       .article__bln
+        //-         a(href="https://goo.gl/maps/8VSTw6nsPg82", rel="nofollow") Томики Айкидо, Спортивный клуб
+        //-       h3.article__title
+        //-         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность Санкт-Петербургского международного криминологического клуба
+        //-   .middle-blocks__double
+        //-     include parts/form
+        //-     article.blocks__article
+        //-       .article__top.article__top--noimg
+        //-         a.tag.tag--star(href="articles.html", rel="nofollow")
+        //-         .story
+        //-           time.story__time Вчера, 12:00
+        //-           a.story__title(href="articles.html") Айкидо
+        //-       .article__bottom
+        //-         .article__bln
+        //-           a(href="https://goo.gl/maps/8VSTw6nsPg82", rel="nofollow") Томики Айкидо, Спортивный клуб
+        //-         h3.article__title
+        //-           a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность Санкт-Петербургского международного криминологического клуба
+        //-         p.article__text Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему
+        //-   .clearfix
+        //- #blocks-group.blocks-group
+        //-   article.blocks__article
+        //-     .article__top
+        //-       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-3.jpg")
+        //-       a.article__top-link(href="article.html", rel="nofollow")
+        //-       a.tag.tag--newspaper(href="articles.html", rel="nofollow")
+        //-       .story
+        //-         time.story__time Вчера, 12:00
+        //-         a.story__title(href="articles.html") Управление коммуникацией
+        //-     .article__bottom
+        //-       h3.article__title
+        //-         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность Санкт-Петербургского международного криминологического клуба
+        //-       a.article__source(href="#", rel="nofollow")
+        //-         img.article__source-img(src="../uploads/articles/logo.jpg")
+        //-         span.article__source-link www.the-village.ru
+        //-   article.blocks__article
+        //-     .article__top.article__top--noimg
+        //-       a.tag.tag--star(href="articles.html", rel="nofollow")
+        //-       .story
+        //-         time.story__time Вчера, 12:00
+        //-         a.story__title(href="articles.html") Айкидо
+        //-     .article__bottom
+        //-       h3.article__title
+        //-         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность Санкт-Петербургского международного криминологического клуба
+        //-       p.article__text Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему
+        //-   article.blocks__article
+        //-     .article__top
+        //-       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-4.jpg")
+        //-       a.article__top-link(href="article.html", rel="nofollow")
+        //-       a.tag.tag--newspaper(href="articles.html", rel="nofollow")
+        //-       .story
+        //-         time.story__time Вчера, 12:00
+        //-         a.story__title(href="articles.html") Управление коммуникацией
+        //-     .article__bottom
+        //-       h3.article__title
+        //-         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы
+        //-       a.article__source(href="#", rel="nofollow")
+        //-         img.article__source-img(src="../uploads/articles/logo.jpg")
+        //-         span.article__source-link www.the-village.ru
+        //-   article.blocks__article
+        //-     .article__top
+        //-       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-3.jpg")
+        //-       a.article__top-link(href="article.html", rel="nofollow")
+        //-       a.tag.tag--newspaper(href="articles.html", rel="nofollow")
+        //-       .story
+        //-         time.story__time Вчера, 12:00
+        //-         a.story__title(href="articles.html") Управление коммуникацией
+        //-     .article__bottom
+        //-       h3.article__title
+        //-         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность Санкт-Петербургского международного криминологического клуба
+        //-       a.article__source(href="#", rel="nofollow")
+        //-         img.article__source-img(src="../uploads/articles/logo.jpg")
+        //-         span.article__source-link www.the-village.ru
+        //-   article.blocks__article.blocks__article--last
+        //-     .article__top
+        //-       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-4.jpg")
+        //-       a.article__top-link(href="article.html", rel="nofollow")
+        //-       a.tag.tag--newspaper(href="articles.html", rel="nofollow")
+        //-       .story
+        //-         time.story__time Вчера, 12:00
+        //-         a.story__title(href="articles.html") Управление коммуникацией
+        //-     .article__bottom
+        //-       h3.article__title
+        //-         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы
+        //-       a.article__source(href="#", rel="nofollow")
+        //-         img.article__source-img(src="../uploads/articles/logo.jpg")
+        //-         span.article__source-link www.the-village.ru
         .article-loaders
-          img(src="images/loader.svg")
+          img(src="../images/loader.svg")
         .more-center
           a.btn(href="#") загрузить еще
     
