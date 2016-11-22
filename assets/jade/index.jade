@@ -77,10 +77,12 @@ block content
                       .article__top-picture.bg-image(data-bgimage="../uploads/articles/article-1.jpg")
                       a.article__top-link(href="article.html", rel="nofollow")
                       a.tag.tag--pen(href="articles.html", rel="nofollow")
+
+                        //- a.story__title(href="articles.html") Корпоративное право
+                    .article__bottom
                       .story
                         time.story__time Вчера, 12:00
-                        a.story__title(href="articles.html") Корпоративное право
-                    .article__bottom
+                        .label События
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
                       a.article__source(href="#")
@@ -149,7 +151,8 @@ block content
                     .article__bottom
                       h3.article__title
                         a(href="article.html") Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность
-
+                .col-xs-12.col-sm-6.col-md-4.masonry-item.event
+                  include parts/form
 
         .wide-blocks
           

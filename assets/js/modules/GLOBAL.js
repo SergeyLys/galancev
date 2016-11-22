@@ -7,6 +7,8 @@ export default {
 
   init(){
     this.headerFunctions();
+    this.articleFunctions();
+    this.sharrre();
   },
 
   headerFunctions () {
@@ -104,5 +106,95 @@ export default {
     //    text: '<span class="fa fa-vk"></span>'
     //  }));
     //}
+  },
+
+  articleFunctions() {
+    $(window).on('resize', function (e, data, el) {
+      setNotesAltitude();
+      setFeedBlockTop();
+    });
+
+    $(window).on('scroll', function (e, data, el) {
+      toggleOnScrollImages();
+    });
+
+    $('.definition--group .definition__column').on('mouseover', function (e, data, el) {
+      hoverDigits($(el));
+    });
+
+    $('.droplist__state').on('click', function (e, data, el) {
+      var $droplist = $(this).closest('.droplist');
+      var $droplistState = $droplist.find('.droplist__state');
+      var $dropp = $droplist.find('.droplist__list');
+      if (!$dropp.hasClass('active')) {
+        $dropp.addClass('active');
+        $droplistState.addClass('active');
+      } else {
+        $dropp.removeClass('active');
+        $droplistState.removeClass('active');
+      }
+    });
+
+
+    var setFeedBlockTop = function () {
+      var top = 0;
+      if ($(window).width() >= 768 && $('#content-data').length) {
+        top = $('#content-data').position().top;
+        $('#feed').css({
+          top: top
+        });
+      }
+    };
+
+    var setNotesAltitude = function () {
+      if ($(window).width() >= 768) {
+        $('.note-digit').each(function () {
+          var $digit = $(this);
+          var digitId = $digit.attr('id');
+          var $note = $('.' + digitId);
+          var digitOffsetTop = $digit.position().top;
+          $note.css({
+            top: digitOffsetTop
+          });
+        });
+        $('.note--p').each(function () {
+          var $note = $(this);
+          var $relatedP = $note.prev().length ? $note.prev() : $note.parent();
+          var relatedPOffsetTop = $relatedP.position().top;
+          $note.css({
+            top: relatedPOffsetTop
+          });
+
+        });
+      }
+    };
+    
+    var hoverDigits = function ($node) {
+      var $digit = $node.find('.definition__digit');
+      var $definitionGroup = $node.closest('.definition--group');
+      var currentUrl = $definitionGroup.css('background-image');
+      var digitUrl = $digit.data('bgimage');
+      if ($(window).width() >= 1280 && digitUrl !== currentUrl) {
+        $definitionGroup.css({
+          backgroundImage: "url('" + digitUrl + "')"
+        });
+      }
+    };
+
+    var toggleOnScrollImages = function () {
+      var $digits = null;
+      if ($('.definition--group').length && $(window).width() >= 768 && $(window).width() < 1280) {
+        $digits = $('.definition--group').find('.definition__digit');
+        $digits.each(function () {
+          var currentUrl = $('.definition--group').css('background-image');
+          var digitUrl = $(this).data('bgimage');
+          if ($(this).is(':in-viewport') && digitUrl !== currentUrl) {
+            $('.definition--group').css({
+              backgroundImage: "url('" + digitUrl + "')"
+            });
+          }
+        });
+      }
+    };
   }
 };
