@@ -1,17 +1,27 @@
 .noover
   overflow: visible!important
 
-div[class^='col-'] *
+.nopad
   padding-left: 0px
   padding-right: 0px
   padding-top: 0px
   padding-bottom: 0px
   width: 100%
+.no-vpad
+  padding-left: 0px
+  padding-right: 0px
+.nomarg
+  margin-top: 0px
+  margin-bottom: 0px
+  margin-left: 0px
+  margin-right: 0px
+
+.w100
+  width: 100%
 .content__preview-aside
-  margin-top: -100%
   .content__preview-link
     display: block
-    border-bottom: 0px
+    border-bottom: 0px!important
 .content__preview-link
   .content__preview-icon
     display: block
@@ -27,4 +37,52 @@ div[class^='col-'] *
     clear: both
     display: block
     content: ''
+
+//adopt
+/* phone */
+@media (max-width: $screen-sm)
+  .content__preview-aside
+    margin-top: 0px
+    padding-bottom: 50px
+    padding-top: 50px
+    .prew
+      margin-top: 0px
+      margin-bottom: 0px
+      width: auto;
+      display: block;
+      box-shadow: 7.071px 7.071px 20px rgba(0, 0, 0, 0.1)
+      max-width: 154px;
+    p,b
+      padding-left: 40px
+      display: block
+    br
+      display: none
+    .content__preview-link
+      position: relative
+      padding-bottom: 50px;
+      .content__preview-icon
+        position: absolute
+        top: 100%
+        margin-right: 0px
+        margin-top: 0px
+        margin-bottom: 0px
+        margin-left: 0px
+
+/* tablet */
+@media (min-width: $screen-sm) 
+  .content__preview-aside
+    margin-top: -160%
+    .prew
+      margin-top: -100%
+      margin-bottom: 100%
+      box-shadow: none
+
+/* desctop */
+@media (min-width: $screen-lg) 
+  .content__preview-aside
+      margin-top: -100%
+      .prew
+        margin-top: 0px
+        margin-bottom: 0px
+        box-shadow: 7.071px 7.071px 20px rgba(0, 0, 0, 0.1)
 
