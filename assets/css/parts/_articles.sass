@@ -35,12 +35,21 @@
     width: 1px
     background: #b2b6b9
     top: 30px
+    display: none
 
   &:after
     right: 33.33333%
 
+    @media (min-width: $screen-md)
+      display: block
+
   &:before
-    left: 33.33333%
+    @media (min-width: $screen-md)
+      display: block
+      left: 50%
+
+    @media (min-width: $screen-md)
+      left: 33.33333%
 
 .masonry-item
   padding-top: 30px
