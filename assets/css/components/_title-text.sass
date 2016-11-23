@@ -40,7 +40,7 @@
 
 //adopt
 /* phone */
-@media (max-width: $screen-sm)
+@media (min-width: $screen-xs) and (max-width: $screen-sm - 1)
   .content__preview-aside
     margin-top: 0px
     padding-bottom: 50px
@@ -69,7 +69,7 @@
         margin-left: 0px
 
 /* tablet */
-@media (min-width: $screen-sm) 
+@media (min-width: $screen-sm ) 
   .content__preview-aside
     margin-top: -160%
     .prew
@@ -78,7 +78,7 @@
       box-shadow: none
 
 /* desctop */
-@media (min-width: $screen-lg) 
+@media (min-width: $screen-md) 
   .content__preview-aside
       margin-top: -100%
       .prew
