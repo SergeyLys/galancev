@@ -1,10 +1,4 @@
-
-<script type="text/javascript">
-  var vars = {
-      ajaxUrl: "",
-      page: 'article_page'
-  };
-</script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
@@ -141,6 +135,7 @@
   </head>
   <body>
     <div class="wrap">
+      <div class="notify-wrap"></div>
       <div class="container-fluid header-wrap">
         <header class="blocks__inner site-header">
           <div class="burger"></div>
@@ -211,13 +206,19 @@
         </header>
         <main class="content">
           <div class="content-inner">
-            <div class="content__preview">
-              <div class="content__preview-text">
-                <p>В 1998 г. Россия ратифицировала Европейскую конвенцию о защите прав человека и основных свобод, а также признала обязательной юрисдикцию ЕСПЧ. В данной статье мы попытались проанализировать некоторые вопросы, посвященные обеспечению прав человека и основных свобод при осуществлении адвокатской деятельности в уголовном процессе, влиянию решений Европейского суда на формирование статуса адвоката в целом.</p>
+            <div class="row">
+              <div class="content__preview noover">
+                <div class="col-xs-12 col-sm-12 col-md-7 col-md-offset-1">
+                  <div class="content__preview-text">
+                    <p>В 1998 г. Россия ратифицировала Европейскую конвенцию о защите прав человека и основных свобод, а также признала обязательной юрисдикцию ЕСПЧ. В данной статье мы попытались проанализировать некоторые вопросы, посвященные обеспечению прав человека и основных свобод при осуществлении адвокатской деятельности в уголовном процессе, влиянию решений Европейского суда на формирование статуса адвоката в целом.</p>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-3">
+                  <aside class="content__preview-aside"><a href="#" class="content__preview-link cls"><img src="../uploads/notify/2.jpg" class="prew"><img src="../uploads/articles/logo.jpg" class="content__preview-icon"></a><b><i>Эта статья опубликована</i></b><br>
+                    <p>в интернет-издательстве “The Village Россия” 3 Ноября 2105 г.<br><a href="#">www.the-village.ru/publications/64430054/vlijanie_resheniy_galantsev</a></p>
+                  </aside>
+                </div>
               </div>
-              <aside class="content__preview-aside"><a href="#" class="content__preview-source"><img src="../uploads/notify/2.jpg" class="content__walp"><img src="../uploads/articles/logo.jpg" class="content__preview-img"></a><b><i>Эта статья опубликована</i></b><br>
-                <p>в интернет-издательстве “The Village Россия” 3 Ноября 2105 г.<br><a href="#">www.the-village.ru/publications/64430054/vlijanie_resheniy_galantsev</a></p>
-              </aside>
             </div>
             <div id="content-data" class="content__data"><p> Европейская конвенция о защите прав человека и основных свобод обязана своим существованием Парламентской Ассамблее Совета Европы, которая разработала на своей первой сессии "нить" обязательств, принятых на себя государствами в силу Устава этой в этой сфере. Конвенция была задумана не только для достижения цели, предусмотренной в этом Уставе, - создание наиболее тесного союза европейских стран для защиты и развития прав человека и основных свобод, - но особенно для того, чтобы противостоять постоянному искушению со стороны государства нарушать права граждан.<span id="note-digit-1" class="note-digit"></span></p>
               <aside class="note note-digit-1">
@@ -474,6 +475,32 @@
         </main>
       </div>
     </div>
+    <section class="contact-form">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-4 col-md-offset-2">
+            <div class="title">
+              <h2>Напишите мне</h2>
+              <p>по любому интересующему вас поводу</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-ms-offset-0">
+            <form class="form">
+              <fieldset><span class="required">*</span>
+                <input type="text" name="name" placeholder="Ваше имя:" required class="form-control">
+              </fieldset>
+              <fieldset><span class="required">*</span>
+                <input type="email" name="email" placeholder="Электронная почта:" required class="form-control">
+              </fieldset>
+              <fieldset><span class="required">*</span>
+                <input type="text" name="message" placeholder="Сообщение:" required class="form-control">
+              </fieldset>
+              <button type="submit" class="btn btn--brd">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer class="site-footer container">
       <div class="row">
         <div class="col-xs-12">

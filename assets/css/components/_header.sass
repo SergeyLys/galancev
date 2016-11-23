@@ -32,7 +32,11 @@
 		align-items: center
 
 		&.search-open
-			height: auto
+			height: 100vh
+			
+
+			@media (min-width: $screen-md)
+				height: auto
 
 		.burger
 			background: url('../images/close.png') no-repeat center center

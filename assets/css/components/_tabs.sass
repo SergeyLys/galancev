@@ -2,14 +2,54 @@
 	padding: 30px 0
 	text-align: center
 
+
+.tab-selector
+	position: relative
+	z-index: 4
+
+	.active-tab
+		font-size: 14px
+		border: 1px solid #687684
+		color: #687684
+		text-transform: uppercase
+		min-height: 50px
+		display: flex
+		align-items: center
+		padding: 10px 25px
+		cursor: pointer
+
+		@media (min-width: $screen-md)
+			display: none
+
 .tabs
 	margin: 0
 	padding: 0
 	list-style-type: none
+	margin-bottom: 30px
+	padding-top: 15px
+	position: absolute
+	display: none
+	top: calc(100% + 15px)
+	background: #fff
+	z-index: 2
+	width: 100% !important
+	max-height: 300px
+	overflow: auto
+
+	@media (min-width: $screen-md)
+		display: block !important
+		width: auto !important
+		padding-top: 0
+		max-height: none
+		position: relative
+
 
 	li
-		display: inline-block
+		display: block
 		padding: 10px 25px
+
+		@media (min-width: $screen-md)
+			display: inline-block
 
 		a
 			font-size: 14px

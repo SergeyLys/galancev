@@ -3,12 +3,66 @@
 */
 
 
+var jQueryBridget = require('jquery-bridget');
+var Isotope = require('isotope-layout');
+jQueryBridget( 'isotope', Isotope, $ );
+
+
+(function($) {
+  $.fn.tabsToSelect = function() {
+    return $(this).each(function() {
+
+      if ($(window).width() <= 1023) {
+
+        if ($('.tab-selector').length == 0) {
+          var that = $(this);
+          var tabsWrap = $('<div></div>').addClass('tab-selector');
+          var activeTab = $('<span></span>').addClass('active-tab');
+          $(this).wrapAll(tabsWrap);
+          $(this).parent().append(activeTab);
+
+          if ($(this).find('li.active').length) {
+            activeTab.html($(this).find('li.active > a').html());
+          } else {
+            activeTab.html($(this).find('li').eq(0).find('a').html());
+          }
+
+
+          $('.tab-selector').on('click', function(e) {
+            if ($(window).width() <= 1023) {
+              e.stopPropagation();
+              that.slideToggle();
+            }
+          });
+
+          $('.tab-selector a').on('click', function(e) {
+            if ($(window).width() <= 1023) {
+              e.stopPropagation();
+              $(that).slideUp(100);
+              activeTab.html($(this).html());
+            }
+          });
+
+          $(document).on('click', function() {
+            if ($(window).width() <= 1023) {
+              $(that).slideUp(100);
+            }
+          });
+        }
+      }
+    })
+  }
+})(jQuery);
+
+
 export default {
 
   init(){
     this.headerFunctions();
     this.articleFunctions();
     this.sharrre();
+    this.tabsToSelect();
+    this.masonryGrid();
   },
 
   headerFunctions () {
@@ -146,6 +200,8 @@ export default {
       }
     };
 
+    setFeedBlockTop();
+
     var setNotesAltitude = function () {
       if ($(window).width() >= 768) {
         $('.note-digit').each(function () {
@@ -196,5 +252,37 @@ export default {
         });
       }
     };
+  },
+
+  tabsToSelect() {
+    $('.tabs').tabsToSelect();
+  },
+
+  masonryGrid () {
+
+    $('.masonry').isotope({
+      itemSelector: '.masonry-item',
+      columnWidth: '.masonry-item',
+      isResizable: true,
+      isAnimatedFromBottom: true,
+      animationOptions: {
+        duration: 250,
+        easing: "swing"
+      },
+      getSortData: {
+        category: '[data-content]'
+      }
+    });
+
+
+    $('.tabs .tab-item a').on('click', function(e) {
+      e.preventDefault();
+      var filterValue = $( this ).parent().attr('data-filter');
+      $('.masonry').isotope({ filter: filterValue });
+
+      $('.tabs .tab-item').removeClass('active');
+      $(this).parent().addClass('active');
+    });
+
   }
 };
