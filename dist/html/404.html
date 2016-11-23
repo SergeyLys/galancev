@@ -1,11 +1,4 @@
-
-<script type="text/javascript">
-  var vars = {
-      ajaxUrl: "",
-      page: 'common_page'
-  };
-  
-</script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
@@ -143,6 +136,7 @@
   </head>
   <body>
     <div class="wrap">
+      <div class="notify-wrap"></div>
       <div class="container-fluid header-wrap">
         <header class="blocks__inner site-header">
           <div class="burger"></div>
@@ -203,6 +197,32 @@
         </div>
       </div>
     </div>
+    <section class="contact-form">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-4 col-md-offset-2">
+            <div class="title">
+              <h2>Напишите мне</h2>
+              <p>по любому интересующему вас поводу</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-ms-offset-0">
+            <form class="form">
+              <fieldset><span class="required">*</span>
+                <input type="text" name="name" placeholder="Ваше имя:" required class="form-control">
+              </fieldset>
+              <fieldset><span class="required">*</span>
+                <input type="email" name="email" placeholder="Электронная почта:" required class="form-control">
+              </fieldset>
+              <fieldset><span class="required">*</span>
+                <input type="text" name="message" placeholder="Сообщение:" required class="form-control">
+              </fieldset>
+              <button type="submit" class="btn btn--brd">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer class="site-footer container">
       <div class="row">
         <div class="col-xs-12">

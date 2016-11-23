@@ -2,16 +2,9 @@
 *      Home page
 */
 
-var jQueryBridget = require('jquery-bridget');
-//var Masonry = require('masonry-layout');
-var Isotope = require('isotope-layout');
-jQueryBridget( 'isotope', Isotope, $ );
-
-
 export default {
 
 	init() {
-		this.masonryGrid();
 		this.oneHeightTitles();
 	},
 
@@ -42,34 +35,6 @@ export default {
 				});
 			}
 		})
-	},
-
-	masonryGrid () {
-
-		$('.masonry').isotope({
-			itemSelector: '.masonry-item',
-			columnWidth: '.masonry-item',
-			isResizable: true,
-			isAnimatedFromBottom: true,
-			animationOptions: {
-				duration: 250,
-				easing: "swing"
-			},
-			getSortData: {
-				category: '[data-content]'
-			}
-		});
-
-
-		$('.tabs .tab-item a').on('click', function(e) {
-			e.preventDefault();
-			var filterValue = $( this ).parent().attr('data-filter');
-			$('.masonry').isotope({ filter: filterValue });
-
-			$('.tabs .tab-item').removeClass('active');
-			$(this).parent().addClass('active');
-		});
-
 	}
 
 };
