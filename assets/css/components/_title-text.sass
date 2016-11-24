@@ -1,3 +1,29 @@
+.c-grey-imp
+   color: #687684!important
+   *
+    color: #687684!important
+h1.c-black-imp
+  color:#000!important
+.bg-transp
+  background: transparent;
+
+.story.c-grey-imp
+  &:before
+    background: transparent url(/dist/images/mark-grey.svg) left center no-repeat;
+    left: 0
+  .story__title
+    border-bottom: 1px solid rgba(104,118,132,0.20);
+    &:hover
+      border-bottom: 1px solid rgba(104,118,132,1);
+.breadcrumbs.c-grey-imp
+
+  a.breadcrumbs__link
+    border-bottom: 1px solid rgba(104,118,132,0.20);
+    &:hover
+      border-bottom: 1px solid rgba(104,118,132,1);
+.preview
+  .breadcrumbs.c-grey-imp
+    margin-top: 70px
 .noover
   overflow: visible!important
 
@@ -67,7 +93,9 @@
         margin-top: 0px
         margin-bottom: 0px
         margin-left: 0px
-
+  .preview
+    .breadcrumbs.c-grey-imp
+      margin-top: 99px
 /* tablet */
 @media (min-width: $screen-sm ) 
   .content__preview-aside
@@ -76,6 +104,9 @@
       margin-top: -100%
       margin-bottom: 100%
       box-shadow: none
+  .preview
+    .breadcrumbs.c-grey-imp
+      margin-top: 119px
 
 /* desctop */
 @media (min-width: $screen-md) 

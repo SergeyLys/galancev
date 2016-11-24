@@ -2,9 +2,11 @@
   padding-top: 70px
   text-align: left
   .breadcrumbs
+    margin-bottom: 0px
     .breadcrumbs__li
       float: left
   h1
+    margin-top: 30px 
     font-size: 36px
     colo:#000
   p.discr
@@ -15,8 +17,18 @@
 h1.extra
   font-weight: 800
 
-@media (max-width: $screen-sm)
+//adopt
+/* phone */
+@media (min-width: $screen-xs) and (max-width: $screen-sm - 1)
   .heading.mod
+    padding-top: 70px
     h1
+      margin-top: 30px
       font-size: 30px
-
+/* tablet */
+@media (min-width: $screen-sm ) 
+  .heading.mod
+    padding-top: 90px
+    h1
+      margin-top: 20px
+      font-size: 30px
