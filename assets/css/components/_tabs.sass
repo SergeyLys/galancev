@@ -9,14 +9,25 @@
 
 	.active-tab
 		font-size: 14px
-		border: 1px solid #687684
-		color: #687684
+		border: 1px solid $gray
+		color: $gray
 		text-transform: uppercase
 		min-height: 50px
 		display: flex
 		align-items: center
 		padding: 10px 25px
 		cursor: pointer
+		border-radius: 25px
+		font-weight: bold
+		position: relative
+
+		&:after
+			content: '\25bc'
+			position: absolute
+			right: 20px
+			top: 50%
+			color: $gray
+			transform: translateY(-50%)
 
 		@media (min-width: $screen-md)
 			display: none
@@ -25,7 +36,6 @@
 	margin: 0
 	padding: 0
 	list-style-type: none
-	margin-bottom: 30px
 	padding-top: 15px
 	position: absolute
 	display: none
@@ -42,6 +52,7 @@
 		padding-top: 0
 		max-height: none
 		position: relative
+		background: transparent
 
 
 	li
@@ -60,11 +71,11 @@
 			text-transform: uppercase
 
 		&.active
-			border: 1px solid #687684
-			border-radius: 15px
+			border: 1px solid $gray
+			border-radius: 25px
 
 			a
-				color: #687684
+				color: $gray
 				pointer-events: none
 				cursor: default
 				
