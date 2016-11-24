@@ -13,16 +13,45 @@
 
 .about-promo
   position: relative
-  margin-bottom: 38px
+  // margin-bottom: 38px
   padding-top: 60px
+  padding-bottom: 60px
 
   @media (min-width: $screen-sm)
     padding-top: 120px
+
+  .row
+    display: -webkit-flex
+    display: -moz-flex
+    display: -ms-flex
+    display: -o-flex
+    display: flex
+    flex-wrap: wrap
+
+  .vertical-centered
+    display: -webkit-flex
+    display: -moz-flex
+    display: -ms-flex
+    display: -o-flex
+    display: flex
+    align-items: center
 //overflow-x: hidden
+
+.about-promo-bg
+  background-repeat: no-repeat
+
+  @media (min-width: $screen-sm)
+    padding-top: 240px
+    background-position: left 140px
+    background-size: 53% auto
+  @media (min-width: $screen-md)
+    background-position: bottom left
+    background-size: 50% auto
 
 .about-promo__top
   position: relative
   border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+
 
 .about-promo__author
   display: block
@@ -43,6 +72,7 @@
   letter-spacing: -2.8px
   // text-align: right
   font-weight: 100
+  margin-top: 0
 
   span
     font-weight: 900
@@ -61,7 +91,7 @@
   right: 0
   left: 3px
   margin: auto
-  background: transparent url('/assets/basetheme-design/images/pen-scrape.svg') center no-repeat
+  background: transparent url('../images/pen-scrape.svg') center no-repeat
   background-size: contain
 
 .about-promo__bottom
@@ -109,7 +139,7 @@
 @media (min-width: $screen-sm)
 
   .about-promo
-    margin-bottom: 52px
+    // margin-bottom: 52px
 
   .about-promo .container
     width: 100%
@@ -186,7 +216,7 @@
     right: auto
     bottom: auto
     width: auto
-    margin-top: 55px
+    // margin-top: 55px
     margin-bottom: 32px
     text-align: left
 
