@@ -2,13 +2,113 @@
 *      Global functions
 */
 
-
+import "../libs/sharrre/jquery.sharrre.js";
+import "../libs/jquery-form/jquery.form.js";
+import '../libs/validation/jquery.validate.js';
 var jQueryBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
 jQueryBridget( 'isotope', Isotope, $ );
 
-
 (function($) {
+  $.fn.formSubmit = function() {
+    $(this).each(function() {
+      var that = this;
+      $(this).validate({
+        rules: {
+          name: "required",
+          email: {
+            required: true,
+            email: true
+          }
+        },
+        messages: {
+          name: formValidateSettings.name,
+          email: {
+            required: formValidateSettings.emailEmpty,
+            email: formValidateSettings.emailIncorrect
+          }
+        },
+
+        submitHandler: function(form, e) {
+          e.preventDefault();
+          var $form = $(that);
+          $.ajax({
+            type: $form.attr('method'),
+            url: $form.attr('action'),
+            dataType: 'json',
+            data: $form.serialize()
+          }).done(function(data) {
+
+            if (data.success == true) {
+              $form.hide(200);
+              $form[0].reset();
+
+              var formSuccess = $('<div></div>').addClass('form-success');
+              formSuccess.html('<img src="/assets/images/icon-success.png" alt="success"> <h2> <span>'+ data.title +'</span>, '+formValidateSettings.thanks+'</h2> <p>'+ data.message +'</p>');
+              $form.parent().append(formSuccess);
+
+              setTimeout(function() {
+                $form.parent().find('.form-success').show(200);
+              }, 200);
+
+              setTimeout(function() {
+                $form.parent().find('.form-success').hide(200);
+              }, 3000);
+
+              setTimeout(function() {
+                $form.parent().find('.form-success').remove();
+                $form.parent().find('.form-success');
+                $form.show(200);
+              }, 3200);
+            } else {
+              $form.hide(200);
+
+              var formError = $('<div></div>').addClass('form-error');
+              formError.html('<img src="/assets/images/icon-error.png" alt="success"> <h2>'+ data.title +'</h2> <p>'+ data.message +'</p><a href="#">'+formValidateSettings.send_again+'</a>');
+              $form.parent().append(formError);
+
+              setTimeout(function() {
+                $form.parent().find('.form-error').show(200);
+              }, 200);
+
+              $form.parent().find('.form-error').find('a').on('click', function(e) {
+                e.preventDefault();
+                $form.parent().find('.form-error').hide(200);
+
+                setTimeout(function() {
+                  $form.parent().find('.form-error').remove();
+                  $form.show(200);
+                }, 200);
+              })
+            }
+
+
+          }).fail(function() {
+            $form.hide(200);
+
+            var formError = $('<div></div>').addClass('form-error');
+            formError.html('<img src="/assets/images/icon-error.png" alt="success"> <h2>'+ data.title +'</h2> <p>'+ data.message +'</p><a href="#">'+formValidateSettings.send_again+'</a>');
+            $form.parent().append(formError);
+
+            setTimeout(function() {
+              $form.parent().find('.form-error').show(200);
+            }, 200);
+
+            $form.parent().find('.form-error').find('a').on('click', function(e) {
+              e.preventDefault();
+              $form.parent().find('.form-error').hide(200);
+
+              setTimeout(function() {
+                $form.parent().find('.form-error').remove();
+                $form.show(200);
+              }, 200);
+            })
+          });
+        }
+      });
+    })
+  }
+
   $.fn.tabsToSelect = function() {
     return $(this).each(function() {
 
@@ -64,6 +164,7 @@ export default {
     this.sharrre();
     this.tabsToSelect();
     this.masonryGrid();
+    this.formValidate();
   },
 
   banner() {
@@ -346,5 +447,9 @@ export default {
       $(this).parent().addClass('active');
     });
 
-  }
+  },
+
+  formValidate() {
+    $('form').formSubmit();
+  },
 };

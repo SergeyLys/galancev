@@ -1,22 +1,5 @@
 import "babel-polyfill";
 
-// import "./libs/imagesloaded.pkgd.js";
-// import "./libs/isinvievport/isInViewport.js";
-
-
-// import "./libs/flexibility/flexibility.js";
-
-// global.jQuery = require('jquery');
-// global.$ = global.jQuery;
-
-// import "./libs/light-gallery/lightgallery.min.js";
-// import "./libs/light-gallery/lg-thumbnail.min.js";
-// import "./libs/light-gallery/lg-fullscreen.min.js";
-import "./libs/sharrre/jquery.sharrre.js";
-import "./libs/jquery-form/jquery.form.js";
-import "./libs/validation/jquery.validate.js";
-// import "./libs/validation/localization/messages_ru.js";
-
 import GLOBAL from "./modules/GLOBAL";
 import HOME from "./modules/HOME";
 import ARTICLE from "./modules/ARTICLE";
