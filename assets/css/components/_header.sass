@@ -146,6 +146,11 @@
 			width: 100px
 			height: 100%
 
+	.b-logo
+		@media(min-width: $screen-md)
+			width: 210px
+			height: 100%
+
 	.b-search
 		border-right: none
 		border-left: 1px solid #eee
@@ -202,7 +207,7 @@
 		opacity: 1
 		transform: none
 		height: auto
-		padding-left: 100px
+		padding-left: 210px
 
 .header_menu--top,
 .header_menu--bottom
@@ -271,6 +276,17 @@
 
 			&.has-sub
 				position: relative
+
+				> a
+					position: relative
+
+					@media (max-width: 1023px)
+						&:before
+							content: '\25bc'
+							position: absolute
+							left: calc(100% + 10px)
+							top: calc(50% - 2px)
+							font-size: 12px
 
 				&:hover
 					> .sub-menu

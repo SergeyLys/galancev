@@ -333,9 +333,6 @@ export default {
       animationOptions: {
         duration: 250,
         easing: "swing"
-      },
-      getSortData: {
-        category: '[data-content]'
       }
     });
 

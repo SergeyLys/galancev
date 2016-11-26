@@ -11,14 +11,35 @@
     bottom: 0
     z-index: -1
 
+.about-img
+  display: -webkit-flex
+  display: -moz-flex
+  display: -ms-flex
+  display: -o-flex
+  display: flex
+  align-items: center
+  margin-bottom: 30px
+
+  .b-img
+    margin-right: 40px
+
+  @media (min-width: $screen-sm)
+    margin-bottom: 0
+
 .about-promo
   position: relative
   // margin-bottom: 38px
   padding-top: 60px
   padding-bottom: 60px
 
+  .text-bold
+    margin-bottom: 40px
+
   @media (min-width: $screen-sm)
     padding-top: 120px
+
+    .text-bold
+      margin-top: 40px
 
   .row
     display: -webkit-flex
@@ -51,6 +72,10 @@
 .about-promo__top
   position: relative
   border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+  margin-bottom: 30px
+
+  @media (min-width: $screen-sm)
+    margin-bottom: 0
 
 
 .about-promo__author
@@ -73,6 +98,7 @@
   // text-align: right
   font-weight: 100
   margin-top: 0
+  margin: 0
 
   span
     font-weight: 900
@@ -97,6 +123,10 @@
 .about-promo__bottom
   // padding-top: 20px
   margin-bottom: 25px
+  width: 100%
+
+  @media (min-width: $screen-sm)
+    margin-bottom: 25px
 
   @media (min-width: $screen-md)
     border-bottom: 1px solid #b2b6b9
