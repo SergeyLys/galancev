@@ -31,6 +31,14 @@
       
     </script>
     <script type="text/javascript">
+      var formValidateSettings = {
+          name: 'Это поле обязательно для заполнения',
+          emailEmpty: 'Это поле обязательно для заполнения',
+          emailIncorrect: 'Введите корректный адресс',
+          send_again: 'Попробовать еще раз',
+          thanks: 'спасибо!'
+      };
+      
       var banner = 'notifyImg';
       
       var notifyImg = `<div class="notify has-img">
@@ -264,7 +272,7 @@
           </div>
           <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-ms-offset-0">
             <div class="form-holder">
-              <form class="form">
+              <form action="../../example.json" method="get" class="form">
                 <fieldset><span class="required">*</span>
                   <input type="text" name="name" placeholder="Ваше имя:" required class="form-control">
                 </fieldset>
@@ -411,22 +419,6 @@
         </div>
       </div>
     </footer>
-    <script>
-      //- var global = {
-      //-   validationMessages: {
-      //-     name: 'Введите ваше имя.',
-      //-     email: 'Введите ваш email.',
-      //-     topics: 'Будьте добры, виберите тематики.'
-      //-   }
-      //- };
-      //- var vars = {
-      //-     ajaxUrl: "",
-      //-     page: 'home_page'
-      //- };
-      
-      
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="../js/global.js"></script>
   </body>
 </html>

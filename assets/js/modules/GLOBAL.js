@@ -2,9 +2,12 @@
 *      Global functions
 */
 
-import "../libs/sharrre/jquery.sharrre.js";
-import "../libs/jquery-form/jquery.form.js";
-import '../libs/validation/jquery.validate.js';
+global.jQuery = require('jquery');
+global.$ = global.jQuery;
+
+// import "../libs/sharrre/jquery.sharrre.js";
+// import "../libs/jquery-form/jquery.form.js";
+import '../libs/jquery.validate.js';
 var jQueryBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
 jQueryBridget( 'isotope', Isotope, $ );
@@ -44,7 +47,7 @@ jQueryBridget( 'isotope', Isotope, $ );
               $form[0].reset();
 
               var formSuccess = $('<div></div>').addClass('form-success');
-              formSuccess.html('<img src="/assets/images/icon-success.png" alt="success"> <h2> <span>'+ data.title +'</span>, '+formValidateSettings.thanks+'</h2> <p>'+ data.message +'</p>');
+              formSuccess.html('<div class="state-icon"></div> <div class="form-title">'+ data.title +'</div> <div class="form-descr">'+ data.message +'</div>');
               $form.parent().append(formSuccess);
 
               setTimeout(function() {
@@ -64,7 +67,7 @@ jQueryBridget( 'isotope', Isotope, $ );
               $form.hide(200);
 
               var formError = $('<div></div>').addClass('form-error');
-              formError.html('<img src="/assets/images/icon-error.png" alt="success"> <h2>'+ data.title +'</h2> <p>'+ data.message +'</p><a href="#">'+formValidateSettings.send_again+'</a>');
+              formError.html('<div class="state-icon"></div> <div class="form-title">'+ data.title +'</div> <div class="form-descr">'+ data.message +'</div>');
               $form.parent().append(formError);
 
               setTimeout(function() {
@@ -87,7 +90,7 @@ jQueryBridget( 'isotope', Isotope, $ );
             $form.hide(200);
 
             var formError = $('<div></div>').addClass('form-error');
-            formError.html('<img src="/assets/images/icon-error.png" alt="success"> <h2>'+ data.title +'</h2> <p>'+ data.message +'</p><a href="#">'+formValidateSettings.send_again+'</a>');
+            formError.html('<div class="state-icon"></div> <div class="form-title">'+ data.title +'</div> <div class="form-descr">'+ data.message +'</div> <a href="#" class="btn">'+formValidateSettings.send_again+'</a>');
             $form.parent().append(formError);
 
             setTimeout(function() {
@@ -161,7 +164,7 @@ export default {
     this.banner();
     this.headerFunctions();
     this.articleFunctions();
-    this.sharrre();
+    // this.sharrre();
     this.tabsToSelect();
     this.masonryGrid();
     this.formValidate();

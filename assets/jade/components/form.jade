@@ -1,8 +1,8 @@
 #subscribeNewsletterFormWrap.form-wrap.form-wrap--insider
-  .form-wrap__inner
-    .form-title Подпишитесь на рассылку
-    .form-descr Выберите интересующую тематику
-    form#subscribeNewsletterForm.form(action="signup.txt", autocomplete="off", method="post")
+  .form-wrap__inner.form-holder
+    form#subscribeNewsletterForm.form(action="../../example.json", autocomplete="off", method="get")
+      .form-title Подпишитесь на рассылку
+      .form-descr Выберите интересующую тематику
       fieldset
         input.form-control(type="text", name="name", placeholder="Ваше имя:")
       fieldset
@@ -55,12 +55,3 @@
             input(type="checkbox", id="activeHobby", name="droplist-category")
             label(for="activeHobby") Активный отдых
       button.btn.btn--inverse(type="submit") Подписаться
-  #subscribeNewsletterFormSuccessMessage.form-wrap__success
-    .state-icon
-    .form-title Подписка оформлена
-    .form-descr На электронный адрес maxim@mail.com отправлена подрбная информация о деталях подписки
-  #subscribeNewsletterFormErrorMessage.form-wrap__error
-    .state-icon
-    .form-title К сожалению возникла ошибка при отправке данных
-    .form-descr Подождите 30 секунд и попробуйте подписаться еще раз
-    button.btn(type="submit") Попробовать еще раз
