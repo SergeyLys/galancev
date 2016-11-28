@@ -61,6 +61,13 @@
 				width: 50px
 				height: 50px
 
+			.b-logo
+				svg
+					margin-left: 110px
+
+				path#text
+					opacity: 0
+
 			.search-form
 				&.active
 					right: 50px
@@ -147,9 +154,24 @@
 			height: 100%
 
 	.b-logo
+		svg
+			margin-left: 110px
+		path
+			transition: all .3s ease
+
+			&#text
+				opacity: 0
+
 		@media(min-width: $screen-md)
 			width: 210px
 			height: 100%
+
+			svg
+				margin-left: 0
+
+				path#text
+					opacity: 1
+
 
 	.b-search
 		border-right: none
