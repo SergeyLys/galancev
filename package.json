@@ -4,6 +4,7 @@
   "description": "Javascript kit modules",
   "author": "cox",
   "dependencies": {
+    "imagesloaded": "^4.1.1",
     "isotope-layout": "^3.0.1",
     "jquery": "^3.0.0",
     "jquery-bridget": "^2.0.1",

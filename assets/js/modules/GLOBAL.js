@@ -10,6 +10,7 @@ global.$ = global.jQuery;
 import '../libs/jquery.validate.js';
 var jQueryBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
+var imagesLoaded = require('imagesloaded');
 jQueryBridget( 'isotope', Isotope, $ );
 
 (function($) {
@@ -449,6 +450,25 @@ export default {
       $('.tabs .tab-item').removeClass('active');
       $(this).parent().addClass('active');
     });
+
+    $('.load-more').on('click', function(e) {
+      e.preventDefault();
+
+      $('.masonry').imagesLoaded( function(){
+        var $newItems = $('<div class="col-xs-12 col-sm-6 col-md-4 masonry-item event"><article class="blocks__article"><div class="article__bottom"><div class="story-top"><time class="story__time">Вчера, 12:00</time><a href="#" class="label">Корпоративное право</a> </div> <h3 class="article__title"><a href="article.html">Освещает общую криминологическую теорию, криминологические отрасли, частные криминологические проблемы, а также деятельность</a></h3><a href="#" class="article__source"><img src="../uploads/articles/logo.jpg" class="article__source-img"><span class="article__source-link">www.the-village.ru</span></a></div></article></div>');
+
+        $('.masonry').append( $newItems )
+          .isotope( 'appended', $newItems )
+          .isotope('layout');
+
+
+
+        //.append( $newItems ).isotope( 'addItems', $newItems );
+      });
+
+    })
+
+
 
   },
 
