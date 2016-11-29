@@ -10,6 +10,7 @@ global.$ = global.jQuery;
 import '../libs/jquery.validate.js';
 var jQueryBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
+var imagesLoaded = require('imagesloaded');
 jQueryBridget( 'isotope', Isotope, $ );
 
 (function($) {
@@ -284,12 +285,24 @@ export default {
       } else if ($(window).width() >= 1024) {
         $('body').removeClass('menu-open');
       }
-    })
+    });
 
     $('.b-search').on('click', function() {
       $(this).toggleClass('active');
       $('.search-form').toggleClass('active');
-      $('.site-header').toggleClass('active').toggleClass('search-open');
+
+      if ($(window).width() >= 1024) {
+        if ($('.site-header').hasClass('active') && $('.site-header').hasClass('search-open')) {
+          $('.site-header').removeClass('active').removeClass('search-open');
+        } else {
+          $('.site-header').addClass('active').addClass('search-open');
+        }
+      } else {
+        $('.site-header').toggleClass('search-open');
+      }
+
+
+
     });
   },
 
@@ -450,9 +463,11 @@ export default {
       $(this).parent().addClass('active');
     });
 
+
+
   },
 
   formValidate() {
     $('form').formSubmit();
-  },
+  }
 };
