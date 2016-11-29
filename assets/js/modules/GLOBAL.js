@@ -285,12 +285,18 @@ export default {
       } else if ($(window).width() >= 1024) {
         $('body').removeClass('menu-open');
       }
-    })
+    });
 
     $('.b-search').on('click', function() {
       $(this).toggleClass('active');
       $('.search-form').toggleClass('active');
-      $('.site-header').toggleClass('active').toggleClass('search-open');
+
+      if (!$('.site-header').hasClass('active')) {
+        $('.site-header').addClass('active');
+      }
+
+      $('.site-header').toggleClass('search-open');
+
     });
   },
 
