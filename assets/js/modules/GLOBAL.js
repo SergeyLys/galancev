@@ -291,11 +291,17 @@ export default {
       $(this).toggleClass('active');
       $('.search-form').toggleClass('active');
 
-      if (!$('.site-header').hasClass('active')) {
-        $('.site-header').addClass('active');
+      if ($(window).width() >= 1024) {
+        if ($('.site-header').hasClass('active') && $('.site-header').hasClass('search-open')) {
+          $('.site-header').removeClass('active').removeClass('search-open');
+        } else {
+          $('.site-header').addClass('active').addClass('search-open');
+        }
+      } else {
+        $('.site-header').toggleClass('search-open');
       }
 
-      $('.site-header').toggleClass('search-open');
+
 
     });
   },
@@ -456,6 +462,8 @@ export default {
       $('.tabs .tab-item').removeClass('active');
       $(this).parent().addClass('active');
     });
+
+
 
   },
 
