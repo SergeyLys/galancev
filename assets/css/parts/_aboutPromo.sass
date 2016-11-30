@@ -86,6 +86,7 @@
 
   @media (min-width: $screen-xl)
     width: 85%
+    max-width: 670px
 
 .about-promo__title
   // position: absolute
@@ -134,8 +135,11 @@
 
 .about-promo__bottom-text
   margin-bottom: 12px
-  font-size: 16px
+  font-size: 14px
   line-height: 30px
+
+  @media (min-width: $screen-sm)
+    font-size: 16px
 
 .about-promo__bottom-text p
   margin: 0
@@ -175,11 +179,6 @@
     width: 100%
     padding-right: 20px
     padding-left: 20px
-
-  .about-promo__author
-    width: auto
-    // margin-top: -20px
-    // margin-left: -20px
 
   .about-promo__title
     // width: 345px
@@ -247,7 +246,7 @@
     bottom: auto
     width: auto
     // margin-top: 55px
-    margin-bottom: 32px
+    margin-bottom: 15px
     text-align: left
 
   // .about-promo__title:after
