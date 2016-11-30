@@ -184,6 +184,9 @@
 	background: #fff url('../images/search.png') no-repeat center center
 	transition: all .3s ease
 
+	&:hover
+		background: $active url('../images/search.png') no-repeat center center
+
 	&.active
 		background: #fff url('../images/close.png') no-repeat center center
 
@@ -273,6 +276,7 @@
 
 				a
 					font-size: 16px
+					line-height: 24px
 
 					@media (min-width: $screen-md)
 						display: block
