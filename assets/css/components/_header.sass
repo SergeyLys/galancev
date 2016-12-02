@@ -63,7 +63,9 @@
 
 			.b-logo
 				svg
-					margin-left: 110px
+					margin: auto
+					margin-left: 16px
+					width: 80px
 
 				path#text
 					opacity: 0
@@ -156,9 +158,17 @@
 	.b-logo
 		align-items: flex-end
 		justify-content: flex-start
+		overflow: hidden
 
 		svg
-			margin-left: 110px
+			margin: auto
+			margin-left: 16px
+			width: 80px
+
+			@media(min-width: $screen-sm)
+				margin-left: 30px
+				margin-bottom: 15px
+
 		path
 			transition: all .3s ease
 
@@ -170,6 +180,7 @@
 			height: 100%
 
 			svg
+				width: auto
 				margin-left: 20px
 				margin-bottom: 15px
 
@@ -294,6 +305,9 @@
 		li
 			@media (min-width: $screen-md)
 				float: left
+				margin-left: 15px
+
+			@media (min-width: $screen-lg)
 				margin-left: 40px
 
 			a

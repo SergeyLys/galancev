@@ -243,10 +243,10 @@ export default {
 
     $('.burger').on('click', function() {
       $('.site-header').toggleClass('active');
-      $('body').toggleClass('menu-open');
 
       if($(window).width() <= 1023) {
         $('.header_menu').toggleClass('active');
+        $('body').toggleClass('menu-open');
       }
     });
 
