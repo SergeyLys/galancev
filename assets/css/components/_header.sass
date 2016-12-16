@@ -61,9 +61,14 @@
 				width: 50px
 				height: 50px
 
+			.b-search
+				background-size: 40%
+
 			.b-logo
 				svg
-					margin-left: 110px
+					margin: auto
+					margin-left: 16px
+					width: 80px
 
 				path#text
 					opacity: 0
@@ -153,12 +158,24 @@
 			width: 100px
 			height: 100%
 
+	.b-search
+		@media (max-width: 1023px)
+			background-size: 40%
+
 	.b-logo
 		align-items: flex-end
 		justify-content: flex-start
+		overflow: hidden
 
 		svg
-			margin-left: 110px
+			margin: auto
+			margin-left: 16px
+			width: 80px
+
+			@media(min-width: $screen-sm)
+				margin-left: 30px
+				margin-bottom: 15px
+
 		path
 			transition: all .3s ease
 
@@ -170,7 +187,9 @@
 			height: 100%
 
 			svg
-				margin-left: 0
+				width: auto
+				margin-left: 20px
+				margin-bottom: 15px
 
 				path#text
 					opacity: 1
@@ -293,6 +312,9 @@
 		li
 			@media (min-width: $screen-md)
 				float: left
+				margin-left: 15px
+
+			@media (min-width: $screen-lg)
 				margin-left: 40px
 
 			a
