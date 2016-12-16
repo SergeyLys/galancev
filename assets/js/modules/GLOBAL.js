@@ -470,6 +470,6 @@ export default {
   },
 
   formValidate() {
-    $('form:not(.search-form)').formSubmit();
+    $('form:not(.search-form, .form--search)').formSubmit();
   }
 };
