@@ -165,7 +165,7 @@ export default {
     this.banner();
     this.headerFunctions();
     this.articleFunctions();
-     this.sharrre();
+    this.sharrre();
     this.tabsToSelect();
     this.masonryGrid();
     this.formValidate();
