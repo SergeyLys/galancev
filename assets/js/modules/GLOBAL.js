@@ -2,10 +2,10 @@
 *      Global functions
 */
 
-global.jQuery = require('jquery');
-global.$ = global.jQuery;
+//global.jQuery = require('jquery');
+//global.$ = global.jQuery;
 
-// import "../libs/sharrre/jquery.sharrre.js";
+import "../libs/sharrre/jquery.sharrre.js";
 // import "../libs/jquery-form/jquery.form.js";
 import '../libs/jquery.validate.js';
 var jQueryBridget = require('jquery-bridget');
@@ -165,7 +165,7 @@ export default {
     this.banner();
     this.headerFunctions();
     this.articleFunctions();
-    // this.sharrre();
+     this.sharrre();
     this.tabsToSelect();
     this.masonryGrid();
     this.formValidate();
@@ -422,13 +422,15 @@ export default {
     var toggleOnScrollImages = function () {
       var $digits = null;
       if ($('.definition--group').length && $(window).width() >= 768 && $(window).width() < 1280) {
+
         $digits = $('.definition--group').find('.definition__digit');
+
         $digits.each(function () {
           var currentUrl = $('.definition--group').css('background-image');
           var digitUrl = $(this).data('bgimage');
-          if ($(this).is(':in-viewport') && digitUrl !== currentUrl) {
+          if (digitUrl !== currentUrl) {
             $('.definition--group').css({
-              backgroundImage: "url('" + digitUrl + "')"
+              backgroundImage: `url(${digitUrl})`
             });
           }
         });
@@ -468,6 +470,6 @@ export default {
   },
 
   formValidate() {
-    $('form').formSubmit();
+    $('form:not(.search-form)').formSubmit();
   }
 };
