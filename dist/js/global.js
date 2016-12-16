@@ -3015,6 +3015,13 @@ exports.default = {
       }
     });
 
+    $('.masonry').on('masonry', function (e) {
+      var html = $(e.detail.html);
+      $('.masonry').imagesLoaded(function (e) {
+        $('.masonry').append(html).isotope('appended', html).isotope('layout');
+      });
+    });
+
     $('.tabs .tab-item a').on('click', function (e) {
       e.preventDefault();
       var filterValue = $(this).parent().attr('data-filter');
