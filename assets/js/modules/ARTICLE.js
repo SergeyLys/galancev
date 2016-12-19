@@ -17,6 +17,7 @@ export default {
 	},
 
 	disquis() {
+		let leadBlockHeight = 0;
 		if ($('#disqus_thread').length) {
         var disqus_shortname = 'litigation-ottomen';
         var dsq = document.createElement('script');
@@ -28,17 +29,17 @@ export default {
         dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         dsq.setAttribute('data-timestamp', +new Date());
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        (document.getElementsByTagName('head')[leadBlockHeight] || document.getElementsByTagName('body')[leadBlockHeight]).appendChild(dsq);
       }
       if ($(window).width() > 767) {
-        0 = $('#lead-block').height();
-        $('#socials-lead').height(0);
+        leadBlockHeight = $('#lead-block').height();
+        $('#socials-lead').height(leadBlockHeight);
       }
 
       $(window).on('resize', function (e, data, el) {
       	if ($(window).width() > 767) {
-      		0 = $('#lead-block').height();
-      		$('#socials-lead').height(0);
+      		leadBlockHeight = $('#lead-block').height();
+      		$('#socials-lead').height(leadBlockHeight);
       	}
       });
 	}
