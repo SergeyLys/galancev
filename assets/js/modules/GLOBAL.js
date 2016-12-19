@@ -455,6 +455,15 @@ export default {
       }
     });
 
+    $('.masonry').on('masonry', function (e) {
+      var html = $(e.detail.html);
+      $('.masonry').imagesLoaded(function (e) {
+        $('.masonry')
+          .append( html )
+          .isotope( 'appended', html )
+          .isotope('layout');
+      });
+    });
 
     $('.tabs .tab-item a').on('click', function(e) {
       e.preventDefault();
@@ -470,6 +479,6 @@ export default {
   },
 
   formValidate() {
-    $('form:not(.search-form)').formSubmit();
+    $('form:not(.search-form, .form--search)').formSubmit();
   }
 };
