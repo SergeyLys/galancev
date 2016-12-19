@@ -2730,48 +2730,56 @@ exports.default = {
     this.masonryGrid();
     this.formValidate();
   },
-  banner: function (_banner) {
-    function banner() {
-      return _banner.apply(this, arguments);
-    }
+  banner: function banner() {
+    //if (localStorage.getItem('banner') !== '') {
+    //  switch(banner) {
+    //    case 'notifyImg':
+    //      localStorage.clear();
+    //      localStorage.setItem('banner', notifyImg);
+    //      $('.notify-wrap').html(notifyImg);
+    //      break;
+    //    case 'notifyNoImg':
+    //      localStorage.clear();
+    //      localStorage.setItem('banner', notifyNoImg);
+    //      $('.notify-wrap').html(notifyNoImg);
+    //      break;
+    //    case 'notifyImgMin':
+    //      localStorage.clear();
+    //      localStorage.setItem('banner', notifyImgMin);
+    //      $('.notify-wrap').html(notifyImgMin);
+    //      break;
+    //    case 'notifyNoImgMin':
+    //      localStorage.clear();
+    //      localStorage.setItem('banner', notifyNoImgMin);
+    //      $('.notify-wrap').html(notifyNoImgMin);
+    //      break;
+    //    default: console.log('no banner'); break;
+    //  }
+    //}
 
-    banner.toString = function () {
-      return _banner.toString();
-    };
-
-    return banner;
-  }(function () {
-    if (localStorage.getItem('banner') !== '') {
-      switch (banner) {
-        case 'notifyImg':
-          localStorage.clear();
-          localStorage.setItem('banner', notifyImg);
-          $('.notify-wrap').html(notifyImg);
-          break;
-        case 'notifyNoImg':
-          localStorage.clear();
-          localStorage.setItem('banner', notifyNoImg);
-          $('.notify-wrap').html(notifyNoImg);
-          break;
-        case 'notifyImgMin':
-          localStorage.clear();
-          localStorage.setItem('banner', notifyImgMin);
-          $('.notify-wrap').html(notifyImgMin);
-          break;
-        case 'notifyNoImgMin':
-          localStorage.clear();
-          localStorage.setItem('banner', notifyNoImgMin);
-          $('.notify-wrap').html(notifyNoImgMin);
-          break;
-        default:
-          break;
+    var notifycationLocal = localStorage.getItem('notifycations');
+    notifycationLocal = notifycationLocal ? JSON.parse(notifycationLocal) : [];
+    var notifycations = $('.notify[data-notify]');
+    if (notifycations.length) {
+      for (var i = 0; i <= notifycations.length; i++) {
+        if (notifycationLocal.indexOf($(notifycations[i]).attr('data-notify')) === -1) {
+          $(notifycations[i]).show();
+        }
       }
     }
 
-    $('.notify .link-to').on('click', function () {
-      $('.notify').slideUp();
-      localStorage.clear();
-      localStorage.setItem('banner', '');
+    $('.notify[data-notify] .link-to').on('click', function () {
+      //$('.notify').slideUp();
+      //localStorage.clear();
+      //localStorage.setItem('banner', '');
+
+      var notify = $(this).closest('.notify[data-notify]');
+      notify.slideUp();
+      var notifyNumber = notify.attr('data-notify');
+      if (notifycationLocal.indexOf(notifyNumber) === -1) {
+        notifycationLocal.push(notifyNumber);
+        localStorage.setItem('notifycations', JSON.stringify(notifycationLocal));
+      }
 
       $(window).on('scroll', function () {
         if ($(window).scrollTop() > 0) {
@@ -2793,7 +2801,7 @@ exports.default = {
         }
       });
     });
-  }),
+  },
   headerFunctions: function headerFunctions() {
     var trigger = $('.site-header').offset().top;
 
