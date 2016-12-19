@@ -174,25 +174,25 @@ export default {
   banner() {
     if (localStorage.getItem('banner') !== '') {
       switch(banner) {
-        case 'notifyImg': 
+        case 'notifyImg':
           localStorage.clear();
-          localStorage.setItem('banner', notifyImg); 
-          $('.notify-wrap').html(notifyImg); 
+          localStorage.setItem('banner', notifyImg);
+          $('.notify-wrap').html(notifyImg);
           break;
         case 'notifyNoImg':
           localStorage.clear();
-          localStorage.setItem('banner', notifyNoImg); 
-          $('.notify-wrap').html(notifyNoImg); 
+          localStorage.setItem('banner', notifyNoImg);
+          $('.notify-wrap').html(notifyNoImg);
           break;
         case 'notifyImgMin':
           localStorage.clear();
-          localStorage.setItem('banner', notifyImgMin); 
-          $('.notify-wrap').html(notifyImgMin); 
+          localStorage.setItem('banner', notifyImgMin);
+          $('.notify-wrap').html(notifyImgMin);
           break;
         case 'notifyNoImgMin':
           localStorage.clear();
-          localStorage.setItem('banner', notifyNoImgMin); 
-          $('.notify-wrap').html(notifyNoImgMin); 
+          localStorage.setItem('banner', notifyNoImgMin);
+          $('.notify-wrap').html(notifyNoImgMin);
           break;
         default: console.log('no banner'); break;
       }
