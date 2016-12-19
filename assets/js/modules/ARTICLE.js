@@ -10,6 +10,7 @@ export default {
 
 	init() {
 		this.lightGallery();
+		this.disquis();
 	},
 
 	lightGallery () {

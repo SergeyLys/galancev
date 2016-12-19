@@ -5607,7 +5607,7 @@ h1.c-black-imp
 {
     left: 0;
 
-    background: transparent url(/dist/images/mark-grey.svg) left center no-repeat;
+    background: transparent url(/assets/images/mark-grey.svg) left center no-repeat;
 }
 
 .story.c-grey-imp .story__title

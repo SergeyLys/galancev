@@ -2545,6 +2545,7 @@ require("../libs/light-gallery/lg-fullscreen.min.js");
 exports.default = {
   init: function init() {
     this.lightGallery();
+    this.disquis();
   },
   lightGallery: function lightGallery() {
     $('.gallery').lightGallery();
