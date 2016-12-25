@@ -475,24 +475,100 @@ export default {
       }
     });
 
-    $('.masonry').on('masonry', function (e) {
-      var html = $(e.detail.html);
-      $('.masonry').imagesLoaded(function (e) {
-        $('.masonry')
-          .append( html )
-          .isotope( 'appended', html )
-          .isotope('layout');
-      });
+    $('#btn-more-articles').on('click', function(event){
+      event.preventDefault();
+      var params = {
+        ids:[],
+      };
+      params.parents = $('.tab-item.active[data-filter]').attr('data-id');
+      if(params.parents === '*') {
+        params.parents = [];
+        var category = $('.tab-item[data-filter]').not('.active');
+        for(var i = 0; i < category.length; i++){
+          params.parents.push($(category[i]).attr('data-id'));
+        }
+      }
+
+      var masonry_items = $('.masonry .masonry-item');
+      if(masonry_items) {
+        for (var i = 0; i < masonry_items.length; i++) {
+          params.ids.push($(masonry_items[i]).attr('data-id'));
+        }
+      }
+
+      $.post('/assets/components/pdotools/connector_index.php', params, function (response) {
+        if (response && response['total']) {
+          var html = '';
+          for (var i = 0; i < response['total']; i++) {
+            var publishedon = new Date(parseInt(response.rows[i].publishedon) * 1e3);
+            var publishedon_formatter;
+            var now = Date.now();
+            var start_today = new Date();
+            start_today.setHours(0, 0, 0, 0);
+            var difference = now - publishedon;
+            switch (true) {
+              case difference < 6e4:
+                publishedon_formatter = Math.floor(difference / 1e3) + ' ' + formValidateSettings.sec_ago;
+                break;
+              case difference < 36e5:
+                publishedon_formatter = Math.floor(difference / 6e4) + ' ' + formValidateSettings.min_ago;
+                break;
+              case difference < 864e5 && start_today < publishedon:
+                publishedon_formatter = Math.floor(difference / 36e5) + ' ' + formValidateSettings.hour_ago;
+                break;
+              case difference < 864e5 && start_today > publishedon:
+                publishedon_formatter = formValidateSettings.yesterday + ' ' + publishedon.toLocaleString("ru", {
+                    hour: 'numeric',
+                    minute: 'numeric'
+                  });
+                break;
+              default:
+                publishedon_formatter = publishedon.toLocaleString("ru", {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  hour: 'numeric',
+                  minute: 'numeric'
+                });
+
+            }
+            html += '<div data-id="' + response.rows[i].id + '" data-time="'+publishedon.valueOf()+'" class="col-xs-12 col-sm-6 col-md-4 masonry-item" data-category="' + response.rows[i].parent + '"><article class="blocks__article">';
+            if (response.rows[i].img) html += '<div class="article__top"><div class="article__top-picture"><img src="' + response.rows[i].img + '" alt="' + response.rows[i].pagetitle + '"></div><a href="' + response.rows[i].uri + '" rel="nofollow" class="article__top-link"></a></div>';
+            html += '<div class="article__bottom"><div class="story-top"><time class="story__time" datetime="' + publishedon.toISOString() + '">' + publishedon_formatter + '</time><a href="' + response.rows[i].category_uri + '" class="label">' + response.rows[i].category_menutitle + '</a></div><h3 class="article__title"><a href="' + response.rows[i].uri + '">' + response.rows[i].pagetitle + '</a></h3>';
+            if (response.rows[i].source_title && response.rows[i].source_link) {
+              html += '<a href="' + response.rows[i].source_link + '" class="article__source">';
+              html += (response.rows[i].source_img) ? '<img src="' + response.rows[i].source_img + '" alt="' + response.rows[i].source_title + '" class="article__source-img">' : '<span class="article__source-link">' + response.rows[i].source_title + '</span></a>';
+            }
+            html += `</div></article></div>`;
+          }
+          html = $(html);
+          $('.masonry').imagesLoaded(function (e) { $('.masonry').append(html).isotope('appended', html).isotope('layout');});
+        }
+
+        if(response['total'] < 9) {
+          $('#btn-more-articles').hide();
+          $('.tab-item.active[data-filter]').attr('data-btn',0);
+        }
+      }, "json");
     });
 
-    $('.tabs .tab-item a').on('click', function(e) {
+    $('.tabs .tab-item a').on('click', function (e) {
       e.preventDefault();
-      var filterValue = $( this ).parent().attr('data-filter');
+      var filterValue = $(this).parent().attr('data-filter');
       $('.masonry').isotope({ filter: filterValue });
+      $('.masonry').isotope({sortBy: '[data-time]'});
+
 
       $('.tabs .tab-item').removeClass('active');
       $(this).parent().addClass('active');
+      if(parseInt($(this).parent().attr('data-btn'))){
+        $('#btn-more-articles').show();
+      } else {
+        $('#btn-more-articles').hide();
+      }
     });
+
+    $('#btn-more-articles').trigger('click');
 
 
 
