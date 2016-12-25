@@ -1,0 +1,44 @@
+.b-section-picture
+    margin: 60px 0
+
+    img
+        @media (max-width: 767px)
+            max-width: 165px
+
+.b-landing-form
+    padding-bottom: 70px
+
+    &.top
+        .section-description,
+        .form-holder
+            @media (min-width: $screen-md)
+                width: 75%
+        .sharing
+            @media (min-width: $screen-sm) and (max-width: 1023px)
+                text-align: center
+                
+                li
+                    float: none
+                    display: block
+                    margin-right: 0
+
+.review-item
+    border-bottom: 1px solid #b2b6b9
+    margin-bottom: 30px
+    padding-bottom: 30px
+
+    &:first-child
+        padding-top: 50px
+
+        @media (min-width: $screen-lg)
+            border-top: 1px solid #b2b6b9
+
+    p
+        font-size: 16px
+        line-height: 24px
+        margin: 0
+    p.author
+        font-size: 18px
+        line-height: 24px
+        font-weight: 600
+

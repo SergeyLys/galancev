@@ -1,0 +1,56 @@
+.author-item
+  display: -webkit-flex
+  display: -moz-flex
+  display: -ms-flex
+  display: -o-flex
+  display: flex
+  flex-wrap: wrap
+  padding-bottom: 40px
+  margin-bottom: 60px
+  position: relative
+
+  &:not(:last-child):before
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 15px
+    width: calc(100% - 30px)
+    height: 1px
+    background: #b2b6b9
+
+    @media (min-width: $screen-md)
+      left: 30px
+      width: calc(100% - 60px)
+
+  p
+    margin: 0
+
+  &:nth-child(even)
+    .author-info
+      @media (min-width: $screen-sm)
+        order: 1
+
+.author-info
+  margin-bottom: 25px
+
+  @media (min-width: $screen-sm)
+    margin-bottom: 0
+
+  img
+    margin-bottom: 25px
+
+.author-text
+  p
+    font-size: 16px
+    line-height: 24px
+
+  .signature
+    margin-top: 20px
+
+.author-description
+  font-size: 14px
+  line-height: 24px
+
+  a
+    color: #000
+    text-decoration: underline

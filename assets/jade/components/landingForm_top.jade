@@ -1,0 +1,29 @@
+section.blocks__inner.b-landing-form.top.no-mobile-padding
+    .container
+        .row
+            .col-xs-12.col-sm-6
+                .section-title.landing-title.title-left
+                    h2 Начните укрощение стресса прямо сейчас
+                .b-section-picture.text-center.sm-hidden
+                    img(src="../images/landing/ipad.jpg", alt="pic")
+                .section-description
+                    p Скачайте бесплатно первую главу “Стресс в жизни”. В ней вы узнаете о причинах возникновения и накопления стресса, обучитесь методам уменьшения вероятности появления стрессовых ситуаций
+                .form-holder
+                    form(action="../../example.json" method="get").form
+                        fieldset
+                            input(type="text" name='name' placeholder='Ваше имя:').form-control
+                        fieldset
+                            input(type="email" name='email' placeholder='Электронная почта:').form-control
+                        fieldset
+                            input(type="checkbox" id="subscribe")
+                            label(for="subscribe") Подписаться на новости моего сайта
+                        button(type='submit').btn.btn--brd Получить первую главу “Стресс в жизни”
+            .col-xs-12.col-sm-6
+                .b-section-picture.text-center.sm-visible
+                    img(src="../images/landing/ipad.jpg", alt="pic")
+            .col-xs-12.col-sm-6.col-md-offset-6
+                ul.sharing.feed__list.text-center
+                    li: span.feed__list-link.fa.fa-twitter.sharrre Твитнуть
+                    li: span.feed__list-link.fa.fa-twitter.sharrre Поделиться 2
+                    li: span.feed__list-link.fa.fa-twitter.sharrre Плюсануть
+                    li: span.feed__list-link.fa.fa-twitter.sharrre Поделиться 1

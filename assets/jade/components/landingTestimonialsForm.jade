@@ -1,0 +1,23 @@
+section.blocks__inner.b-bordered-form.top.no-mobile-padding
+    .container
+        .row
+            .col-xs-12.col-md-5.col-md-push-7.text-center
+                span.book-wrap
+                    img(src="../images/landing/book-pic.jpg", alt="pic")
+
+            .col-xs-12.col-md-7.col-md-pull-5
+                .section-title.landing-title.big.text-center
+                    h2 #[span.text-light Купить книгу] “Почему мы ленимся и что с этим делать”
+                    p.subtitle До 1 Июля по цене предзаказа 15 000 ₽
+            .col-xs-12.col-md-5.col-md-offset-1.col-md-pull-5
+                .form-holder
+                    form(action="../../example.json" method="get").form
+                        fieldset
+                            input(type="text" name='name' placeholder='Ваше имя:').form-control
+                        fieldset
+                            input(type="email" name='email' placeholder='Электронная почта:').form-control
+                        fieldset
+                            input(type="checkbox" id="subscribe1")
+                            label(for="subscribe1") Подписаться на новости моего сайта
+                        button(type='submit').btn.btn--brd Купить
+            

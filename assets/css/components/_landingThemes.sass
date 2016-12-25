@@ -1,0 +1,43 @@
+.b-themes
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    background-attachment: fixed
+    padding-bottom: 70px
+
+    .b-overflow
+        margin-bottom: -20px
+
+    @media (min-width: $screen-sm)
+        padding-bottom: 110px
+
+        .b-overflow
+            margin-bottom: -80px
+
+.theme-item
+    border-right: 1px solid rgba(#fff, .2)
+    margin-bottom: 20px
+
+    @media (min-width: $screen-sm)
+        margin-bottom: 80px
+
+    .theme-item--inner
+        color: #fff
+        text-align: center
+
+        @media (min-width: $screen-sm)
+            padding-left: 60px
+            padding-right: 60px
+            text-align: left
+
+        p
+            font-size: 16px
+            line-height: 24px
+
+.overflow-container
+    overflow: hidden
+    
+    .b-overflow
+        width: calc(100% + 8px)
+        display: flex
+        flex-wrap: wrap

@@ -38,6 +38,26 @@ fieldset
     right: 0
     top: 40%
 
+  input[type='checkbox']
+    display: none
+    
+    + label
+      padding-left: 35px
+      position: relative
+
+      &:before
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        width: 20px
+        height: 20px
+        border-radius: 4px
+        background: #687684
+
+    &:checked + label:before
+      background: #687684 url('../images/checkbox-arrow.svg') center no-repeat
+
 .form--search
   margin-bottom: 50px
 
@@ -84,6 +104,36 @@ label.error,
 
 .form-wrap__inner.hide
   visibility: hidden
+
+.form-holder
+  &.custom-form
+    background: #fff
+    display: -webkit-flex
+    display: -moz-flex
+    display: -ms-flex
+    display: -o-flex
+    display: flex
+    padding: 55px 15px 55px 15px
+    border-radius: 4px
+
+    @media (min-width: $screen-sm)
+      padding: 55px 55px 55px 0
+  
+    form
+      @media (min-width: $screen-sm)
+        width: calc(100% - 42.8571429%)
+
+    .b-picture
+      width: 42.8571429%
+      text-align: center
+      display: none
+
+      @media (min-width: $screen-sm)
+        display: block
+
+      img
+        border-radius: 50%
+        max-width: 175px
 
 .form-wrap__success,
 .form-wrap__error

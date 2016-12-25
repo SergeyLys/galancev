@@ -1,6 +1,9 @@
 //
 // Globals
 //=========================================
+// *
+//   box-sizing: border-box
+
 html
   font-family: $base-font
   line-height: 1
@@ -38,14 +41,48 @@ footer
   font-weight: bold
   line-height: 24px
 
+.text-light
+  font-weight: 100
+
 .mute-scroll
   overflow: hidden
 
 .text-center
   text-align: center
 
+.justufy-center
+  justify-content: center
+
+.text-left
+  text-align: left
+
+.sm-hidden
+  @media (min-width: $screen-sm)
+    display: none
+
+.sm-visible
+  display: none
+
+  @media (min-width: $screen-sm)
+    display: block
+
 .colored
   color: $active
+
+.sharing
+  margin: 0
+  padding: 0
+
+  li
+    display: inline-block
+    margin-right: 15px
+    margin-bottom: 20px
+
+    span.feed__list-link.fa
+      color: #000
+      font-size: 16px
+      margin-right: 5px
+
 
 .blocks
   .container-fluid
@@ -53,13 +90,35 @@ footer
       padding-left: 0
       padding-right: 0
 
+.section-description
+  p
+    font-size: 16px
+    line-height: 24px
+    margin: 0
+
+  + .form-holder
+    margin-top: 70px
+    margin-bottom: 60px
+
 .section-title
   padding-top: 70px
   padding-bottom: 30px
   border-bottom: 1px solid #E2E7EA
   margin-bottom: 40px
   text-align: center
-  
+
+  small
+    font-size: 16px
+    line-height: 24px
+    display: block
+    margin-right: auto
+    margin-left: auto
+    margin-top: -15px
+    margin-bottom: 30px
+
+    @media (min-width: $screen-md)
+      width: 66.6666667%
+
   h2
     font-size: 24px
     line-height: 30px
@@ -73,6 +132,52 @@ footer
     padding-top: 110px
     margin-bottom: 50px
 
+  .subtitle
+    font-size: 18px
+    line-height: 30px
+    margin-bottom: 30px
+    margin-top: 0
+    font-weight: 600
+
+    @media (min-width: $screen-sm)
+      font-size: 24px
+
+  &.dark
+    border-bottom: 1px solid #b2b6b9
+
+  &.white
+    border-bottom: 1px solid rgba(#fff, .2)
+
+    h2
+      color: #fff
+
+  &.landing-title
+    padding-bottom: 0
+
+    h2
+      margin-bottom: 30px
+      margin-top: 0
+      font-size: 30px
+      line-height: 30px
+      font-weight: 800
+
+      @media (min-width: $screen-sm)
+        font-size: 36px
+        line-height: 40px
+
+  &.big
+    h2
+      font-size: 30px
+      line-height: 36px
+
+      @media (min-width: $screen-sm)
+        font-size: 48px
+        line-height: 50px
+
+  &.title-left
+    @media (min-width: $screen-sm)
+      text-align: left
+      
 // .flex-columns
 //   display: -webkit-flex
 //   display: -moz-flex

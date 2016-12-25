@@ -1,0 +1,41 @@
+section.b-reviews.container
+  .row
+    .col-xs-12
+      .section-title.landing-title.dark
+        h2 Поделитесь как вы справляетесь со стрессом
+        small Я постоянно задаюсь вопросом как справиться со стрессом, и нахожу ответы не только в своем жизенном опыте, я черпаю идеи для методик из опыта окружающих меня коллег и моих слушателей. Если вас не затруднит, будье добры ответить на один вопрос
+    .col-xs-12.col-lg-7.col-lg-push-5
+      .form-holder.custom-form
+        .b-picture
+          img(src="../images/landing/author.jpg", alt="pic")
+        form(action="../../example.json" method="get").form
+            fieldset
+                input(type="text" name='name' placeholder='Ваше имя:').form-control
+            fieldset
+                input(type="email" name='email' placeholder='Электронная почта:').form-control
+            fieldset
+                input(type="text" name='message' placeholder='А как вы справляетесь со стрессом?').form-control
+            fieldset
+                input(type="checkbox" id="subscribe2")
+                label(for="subscribe2") Показать мой опыт на этой странице
+            button(type='submit').btn.btn--brd Отправить
+    .col-xs-12.col-sm-10.col-sm-offset-1.col-lg-offset-0.col-lg-5.col-lg-pull-7
+      .b-review
+        .review-item
+          p Конечно, определенную роль здесь играют генетика, невысокий (по сравнению с развитыми европейскими странами и США) уровень медицинского обслуживания, отсутствие денег на нужные лекарства и знаменитый Российский пофигизм. Однако, немалую (а, порой, и основную) роль играет сфера профессиональной деятельности.
+          p.author — Сергей
+        .review-item
+          p Конечно, определенную роль здесь играют генетика, невысокий (по сравнению с развитыми европейскими странами и США) уровень медицинского обслуживания, отсутствие денег на нужные лекарства и знаменитый Российский пофигизм. Однако, немалую (а, порой, и основную) роль играет сфера профессиональной деятельности.
+          p.author — Сергей
+      a(href="#").btn.load-review Загрузить еще
+      script.
+        window.onload = function() {
+          $('.load-review').on('click', function(e) {
+            var review = $('<div></div>');
+            review.addClass('review-item');
+            review.html(`<p>Конечно, определенную роль здесь играют генетика, невысокий (по сравнению с развитыми европейскими странами и США) уровень медицинского обслуживания, отсутствие денег на нужные лекарства и знаменитый Российский пофигизм. Однако, немалую (а, порой, и основную) роль играет сфера профессиональной деятельности.</p>
+                  <p class="author">— Сергей</p>`)
+            e.preventDefault();
+            $('.b-review').append(review);
+          });
+        };

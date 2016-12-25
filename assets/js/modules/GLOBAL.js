@@ -169,6 +169,7 @@ export default {
     this.tabsToSelect();
     this.masonryGrid();
     this.formValidate();
+    this.globalSliders();
   },
 
   banner() {
@@ -499,5 +500,20 @@ export default {
 
   formValidate() {
     $('form:not(.search-form, .form--search)').formSubmit();
+  },
+
+  globalSliders() {
+    $('.testimonials-slider').slick({
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 1,
+          }
+        }
+      ]
+    });
   }
 };
