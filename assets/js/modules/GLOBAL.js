@@ -549,7 +549,9 @@ export default {
           $('#btn-more-articles').hide();
           $('.tab-item.active[data-filter]').attr('data-btn',0);
         }
-      }, "json");
+      }, "json").fail(function(error) {
+        console.dir(error);
+      });
     });
 
     $('.tabs .tab-item a').on('click', function (e) {
