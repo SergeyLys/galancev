@@ -496,7 +496,7 @@ export default {
         }
       }
 
-      $.post('/assets/components/pdotools/connector_index.php', params, function (response) {
+      $.post('/api/articles', params, function (response) {
         if (response && response['total']) {
           var html = '';
           for (var i = 0; i < response['total']; i++) {
