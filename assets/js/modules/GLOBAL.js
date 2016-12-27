@@ -27,6 +27,7 @@ jQueryBridget( 'isotope', Isotope, $ );
         },
         messages: {
           name: formValidateSettings.name,
+          message: formValidateSettings.messageEmpty,
           email: {
             required: formValidateSettings.emailEmpty,
             email: formValidateSettings.emailIncorrect
@@ -472,6 +473,11 @@ export default {
       animationOptions: {
         duration: 250,
         easing: "swing"
+      },
+      getSortData: {
+        time: function (elem) {
+          return parseInt($(elem).attr('data-time'));
+        }
       }
     });
 
@@ -542,7 +548,9 @@ export default {
             html += `</div></article></div>`;
           }
           html = $(html);
-          $('.masonry').imagesLoaded(function (e) { $('.masonry').append(html).isotope('appended', html).isotope('layout');});
+          $('.masonry').imagesLoaded(function (e) {
+            $('.masonry').append(html).isotope('appended', html).isotope('layout', { sortBy: 'time',sortAscending : false });
+          });
         }
 
         if(response['total'] < 9) {

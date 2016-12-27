@@ -5255,6 +5255,7 @@ jQueryBridget('isotope', Isotope, $);
         },
         messages: {
           name: formValidateSettings.name,
+          message: formValidateSettings.messageEmpty,
           email: {
             required: formValidateSettings.emailEmpty,
             email: formValidateSettings.emailIncorrect
@@ -5684,6 +5685,11 @@ exports.default = {
       animationOptions: {
         duration: 250,
         easing: "swing"
+      },
+      getSortData: {
+        time: function time(elem) {
+          return parseInt($(elem).attr('data-time'));
+        }
       }
     });
 
@@ -5755,7 +5761,7 @@ exports.default = {
           }
           html = $(html);
           $('.masonry').imagesLoaded(function (e) {
-            $('.masonry').append(html).isotope('appended', html).isotope('layout');
+            $('.masonry').append(html).isotope('appended', html).isotope('layout', { sortBy: 'time', sortAscending: false });
           });
         }
 
