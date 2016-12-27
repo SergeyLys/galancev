@@ -5693,6 +5693,14 @@ exports.default = {
       }
     });
 
+    $('.masonry').on('masonry', function (e) {
+      var html = $(e.detail.html);
+      $('.masonry').imagesLoaded(function (e) {
+        $('.masonry').append(html).isotope('appended', html).isotope('layout');
+        $('.masonry').isotope({ sortBy: 'time', sortAscending: false });
+      });
+    });
+
     $('#btn-more-articles').on('click', function (event) {
       event.preventDefault();
       var params = {
