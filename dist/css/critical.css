@@ -5101,7 +5101,7 @@ p.small
         display: -ms-flexbox;
         display:      flex;
         visibility: visible;
-        overflow: initial;
+        overflow: inherit;
             flex-direction: column;
 
         height: auto;
@@ -5324,6 +5324,14 @@ p.small
     .hidden-md
     {
         display: none !important;
+    }
+}
+
+@media all and (min-width: 1024px) and (-ms-high-contrast: none), (min-width: 1024px) and (-ms-high-contrast: active)
+{
+    .site-header .b-logo svg
+    {
+        width: 141px;
     }
 }
 

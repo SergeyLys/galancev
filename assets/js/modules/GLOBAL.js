@@ -532,7 +532,7 @@ export default {
                 });
 
             }
-            html += '<div data-id="' + response.rows[i].id + '" data-time="'+publishedon.valueOf()+'" class="col-xs-12 col-sm-6 col-md-4 masonry-item" data-category="' + response.rows[i].parent + '"><article class="blocks__article">';
+            html += '<div data-id="' + response.rows[i].id + '" data-time="'+response.rows[i].publishedon+'" class="col-xs-12 col-sm-6 col-md-4 masonry-item" data-category="' + response.rows[i].parent + '"><article class="blocks__article">';
             if (response.rows[i].img) html += '<div class="article__top"><div class="article__top-picture"><img src="' + response.rows[i].img + '" alt="' + response.rows[i].pagetitle + '"></div><a href="' + response.rows[i].uri + '" rel="nofollow" class="article__top-link"></a></div>';
             html += '<div class="article__bottom"><div class="story-top"><time class="story__time" datetime="' + publishedon.toISOString() + '">' + publishedon_formatter + '</time><a href="' + response.rows[i].category_uri + '" class="label">' + response.rows[i].category_menutitle + '</a></div><h3 class="article__title"><a href="' + response.rows[i].uri + '">' + response.rows[i].pagetitle + '</a></h3>';
             if (response.rows[i].source_title && response.rows[i].source_link) {
@@ -558,7 +558,7 @@ export default {
       e.preventDefault();
       var filterValue = $(this).parent().attr('data-filter');
       $('.masonry').isotope({ filter: filterValue });
-      $('.masonry').isotope({sortBy: '[data-time]'});
+      $('.masonry').isotope({ sortBy: 'time',sortAscending : false });
 
 
       $('.tabs .tab-item').removeClass('active');
