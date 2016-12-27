@@ -355,13 +355,20 @@ export default {
         }
       });
     }
-    //if ($('.n-vk').length) {
-    //  $('.n-vk').html(VK.Share.button(window.location.href, {
-    //    noparse: true,
-    //    type: 'custom',
-    //    text: '<span class="fa fa-vk"></span>'
-    //  }));
-    //}
+    // if ($('.feed__list .fa-vk').length) {
+    //  $('.feed__list .fa-vk').sharrre({
+    //     share: {facebook: true},
+    //     url: $(this).data('url') != 'undefined' ? $(this).data('url') : '',
+    //     text: $(this).data('text') != 'undefined' ? $(this).data('text') : '',
+    //     enableHover: false,
+    //     enableCounter: false,
+    //     template: '<span></span>',
+    //     click: function (api, options) {
+    //       api.simulateClick();
+    //       api.openPopup('facebook');
+    //     }
+    //  })
+    // }
   },
 
   articleFunctions() {
@@ -464,16 +471,19 @@ export default {
 
   masonryGrid () {
 
-    $('.masonry').isotope({
-      itemSelector: '.masonry-item',
-      columnWidth: '.masonry-item',
-      isResizable: true,
-      isAnimatedFromBottom: true,
-      animationOptions: {
-        duration: 250,
-        easing: "swing"
-      }
+    $(window).on('load', function() {
+      $('.masonry').isotope({
+        itemSelector: '.masonry-item',
+        columnWidth: '.masonry-item',
+        isResizable: true,
+        isAnimatedFromBottom: true,
+        animationOptions: {
+          duration: 250,
+          easing: "swing"
+        }
+      });
     });
+    
 
     $('#btn-more-articles').on('click', function(event){
       event.preventDefault();
