@@ -5761,7 +5761,8 @@ exports.default = {
           }
           html = $(html);
           $('.masonry').imagesLoaded(function (e) {
-            $('.masonry').append(html).isotope('appended', html).isotope('layout', { sortBy: 'time', sortAscending: false });
+            $('.masonry').append(html).isotope('appended', html).isotope('layout');
+            $('.masonry').isotope({ sortBy: 'time', sortAscending: false });
           });
         }
 
