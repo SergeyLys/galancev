@@ -5297,7 +5297,7 @@ jQueryBridget('isotope', Isotope, $);
               $form.hide(200);
 
               var formError = $('<div></div>').addClass('form-error');
-              formError.html('<div class="state-icon"></div> <div class="form-title">' + data.title + '</div> <div class="form-descr">' + data.message + '</div>');
+              formError.html('<div class="state-icon"></div> <div class="form-title">' + data.title + '</div> <div class="form-descr">' + data.message + '</div><a href="#" class="btn">' + formValidateSettings.send_again + '</a>');
               $form.parent().append(formError);
 
               setTimeout(function () {
