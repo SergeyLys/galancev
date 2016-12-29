@@ -5684,23 +5684,21 @@ exports.default = {
   },
   masonryGrid: function masonryGrid() {
 
-    setTimeout(function () {
-      $('.masonry').isotope({
-        itemSelector: '.masonry-item',
-        columnWidth: '.masonry-item',
-        isResizable: true,
-        isAnimatedFromBottom: true,
-        animationOptions: {
-          duration: 250,
-          easing: "swing"
-        },
-        getSortData: {
-          time: function time(elem) {
-            return parseInt($(elem).attr('data-time'));
-          }
+    $('.masonry').isotope({
+      itemSelector: '.masonry-item',
+      columnWidth: '.masonry-item',
+      isResizable: true,
+      isAnimatedFromBottom: true,
+      animationOptions: {
+        duration: 250,
+        easing: "swing"
+      },
+      getSortData: {
+        time: function time(elem) {
+          return parseInt($(elem).attr('data-time'));
         }
-      });
-    }, 1000);
+      }
+    });
 
     $('.masonry').on('masonry', function (e) {
       var html = $(e.detail.html);
