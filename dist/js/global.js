@@ -5573,6 +5573,13 @@ exports.default = {
         }
       });
     }
+    if ($('.n-vk').length) {
+      $('.n-vk').html(VK.Share.button(window.location.href, {
+        noparse: true,
+        type: 'custom',
+        text: '<span class="fa fa-vk">' + $('.n-vk').attr('data-content') + '</span>'
+      }));
+    }
     // if ($('.feed__list .fa-vk').length) {
     //  $('.feed__list .fa-vk').sharrre({
     //     share: {facebook: true},

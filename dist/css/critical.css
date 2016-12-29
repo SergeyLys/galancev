@@ -814,34 +814,35 @@ footer
     margin-bottom: 20px;
 }
 
-.sharing li span.feed__list-link.fa
+.sharing li span.feed__list-link.fa,
+.sharing li a
 {
     font-size: 16px;
 
     color: #000;
 }
 
-.sharing li span.feed__list-link.fa:before
+.sharing li .fa:before
 {
     margin-right: 5px;
 }
 
-.sharing li span.feed__list-link.fa.fa-twitter:before
+.sharing li .fa-twitter:before
 {
     color: #1ecae7;
 }
 
-.sharing li span.feed__list-link.fa.fa-facebook-square:before
+.sharing li .fa-facebook-square:before
 {
     color: #5369a7;
 }
 
-.sharing li span.feed__list-link.fa.fa-google:before
+.sharing li .fa-google:before
 {
     color: #de5952;
 }
 
-.sharing li span.feed__list-link.fa.fa-vk:before
+.sharing li .fa-vk:before
 {
     color: #6482a0;
 }
