@@ -389,9 +389,7 @@ export default {
       toggleOnScrollImages();
     });
 
-    $('.definition--group .definition__column').on('mouseover', function (e, data, el) {
-      hoverDigits($(el));
-    });
+    
 
     $('.droplist__state').on('click', function (e, data, el) {
       var $droplist = $(this).closest('.droplist');
@@ -441,6 +439,10 @@ export default {
         });
       }
     };
+
+    $('.definition--group .definition__column').on('mouseover', function (e, data, el) {
+      hoverDigits($(this));
+    });
     
     var hoverDigits = function ($node) {
       var $digit = $node.find('.definition__digit');
