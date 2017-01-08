@@ -171,6 +171,7 @@ export default {
     this.masonryGrid();
     this.formValidate();
     this.globalSliders();
+    this.scrollToAnchor();
   },
 
   banner() {
@@ -491,7 +492,7 @@ export default {
         easing: "swing"
       },
       getSortData: {
-        time: function (elem) {
+        time: function time(elem) {
           return parseInt($(elem).attr('data-time'));
         }
       }
@@ -503,27 +504,26 @@ export default {
         $('.masonry').append(html).isotope('appended', html).isotope('layout');
         setTimeout(function () {
           $('.masonry').isotope({ sortBy: 'time', sortAscending: false });
-        },0);
+        }, 0);
       });
     });
 
-
-    $('#btn-more-articles').on('click', function(event){
+    $('#btn-more-articles').on('click', function (event) {
       event.preventDefault();
       var params = {
-        ids:[],
+        ids: []
       };
       params.parents = $('.tab-item.active[data-filter]').attr('data-id');
-      if(params.parents === '*') {
+      if (params.parents === '*') {
         params.parents = [];
         var category = $('.tab-item[data-filter]').not('.active');
-        for(var i = 0; i < category.length; i++){
+        for (var i = 0; i < category.length; i++) {
           params.parents.push($(category[i]).attr('data-id'));
         }
       }
 
       var masonry_items = $('.masonry .masonry-item');
-      if(masonry_items) {
+      if (masonry_items) {
         for (var i = 0; i < masonry_items.length; i++) {
           params.ids.push($(masonry_items[i]).attr('data-id'));
         }
@@ -551,9 +551,9 @@ export default {
                 break;
               case difference < 864e5 && start_today > publishedon:
                 publishedon_formatter = formValidateSettings.yesterday + ' ' + publishedon.toLocaleString("ru", {
-                    hour: 'numeric',
-                    minute: 'numeric'
-                  });
+                  hour: 'numeric',
+                  minute: 'numeric'
+                });
                 break;
               default:
                 publishedon_formatter = publishedon.toLocaleString("ru", {
@@ -565,31 +565,28 @@ export default {
                 });
 
             }
-            html += '<div data-id="' + response.rows[i].id + '" data-time="'+response.rows[i].publishedon+'" class="col-xs-12 col-sm-6 col-md-4 masonry-item" data-category="' + response.rows[i].parent + '"><article class="blocks__article">';
+            html += '<div data-id="' + response.rows[i].id + '" data-time="' + response.rows[i].publishedon + '" class="col-xs-12 col-sm-6 col-md-4 masonry-item" data-category="' + response.rows[i].parent + '"><article class="blocks__article">';
             if (response.rows[i].img) html += '<div class="article__top"><div class="article__top-picture"><img src="' + response.rows[i].img + '" alt="' + response.rows[i].pagetitle + '"></div><a href="' + response.rows[i].uri + '" rel="nofollow" class="article__top-link"></a></div>';
             html += '<div class="article__bottom"><div class="story-top"><time class="story__time" datetime="' + publishedon.toISOString() + '">' + publishedon_formatter + '</time><a href="' + response.rows[i].category_uri + '" class="label">' + response.rows[i].category_menutitle + '</a></div><h3 class="article__title"><a href="' + response.rows[i].uri + '">' + response.rows[i].pagetitle + '</a></h3>';
             if (response.rows[i].source_title && response.rows[i].source_link) {
               html += '<a href="' + response.rows[i].source_link + '" class="article__source">';
-              html += (response.rows[i].source_img) ? '<img src="' + response.rows[i].source_img + '" alt="' + response.rows[i].source_title + '" class="article__source-img">' : '<span class="article__source-link">' + response.rows[i].source_title + '</span></a>';
+              html += response.rows[i].source_img ? '<img src="' + response.rows[i].source_img + '" alt="' + response.rows[i].source_title + '" class="article__source-img">' : '<span class="article__source-link">' + response.rows[i].source_title + '</span></a>';
             }
-            html += `</div></article></div>`;
+            html += '</div></article></div>';
           }
           html = $(html);
           $('.masonry').imagesLoaded(function (e) {
             $('.masonry').append(html).isotope('appended', html).isotope('layout');
             setTimeout(function () {
+              if ($('.masonry .masonry-item:not(:has(form)):visible').length >= parseInt($('.tab-item.active[data-all]').attr('data-all'))) {
+                $('#btn-more-articles').hide();
+              }
               $('.masonry').isotope({ sortBy: 'time', sortAscending: false });
-            },0);
+            }, 0);
           });
         }
 
-        if(response['total'] < 9) {
-          $('#btn-more-articles').hide();
-          $('.tab-item.active[data-filter]').attr('data-btn',0);
-        }
-      }, "json").fail(function(error) {
-        console.dir(error);
-      });
+      }, "json").fail(function (error) {});
     });
 
     $('.tabs .tab-item a').on('click', function (e) {
@@ -598,22 +595,19 @@ export default {
       $('.masonry').isotope({ filter: filterValue });
       setTimeout(function () {
         $('.masonry').isotope({ sortBy: 'time', sortAscending: false });
-      },0);
-
+      }, 0);
 
       $('.tabs .tab-item').removeClass('active');
       $(this).parent().addClass('active');
-      if(parseInt($(this).parent().attr('data-btn'))){
-        $('#btn-more-articles').show();
-      } else {
+
+      if ($('.masonry .masonry-item'+filterValue+':not(:has(form))').length >= parseInt($(this).parent().attr('data-all'))) {
         $('#btn-more-articles').hide();
+      } else {
+        $('#btn-more-articles').show();
       }
     });
 
     $('#btn-more-articles').trigger('click');
-
-
-
   },
 
   formValidate() {
@@ -632,6 +626,17 @@ export default {
           }
         }
       ]
+    });
+  },
+
+  scrollToAnchor() {
+    $('.has-anchor').on('click', function(e) {
+      if ($($(this).attr('href')).length != 0) {
+        e.preventDefault();
+        $('body, html').animate({
+          'scrollTop': $($(this).attr('href')).offset().top + 'px'
+        }, 500);
+      }
     });
   }
 };
