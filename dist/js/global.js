@@ -5271,7 +5271,8 @@ jQueryBridget('isotope', Isotope, $);
             dataType: 'json',
             data: $form.serialize()
           }).done(function (data) {
-
+            if (data.title === undefined) data.title = '';
+            if (data.message === undefined) data.message = '';
             if (data.success == true) {
               $form.hide(200);
               $form[0].reset();
@@ -5318,7 +5319,7 @@ jQueryBridget('isotope', Isotope, $);
             $form.hide(200);
 
             var formError = $('<div></div>').addClass('form-error');
-            formError.html('<div class="state-icon"></div> <div class="form-title">' + data.title + '</div> <div class="form-descr">' + data.message + '</div> <a href="#" class="btn">' + formValidateSettings.send_again + '</a>');
+            formError.html('<div class="state-icon"></div> <div class="form-title">' + formValidateSettings.send_error_title + '</div> <div class="form-descr">' + formValidateSettings.send_error_message + '</div> <a href="#" class="btn">' + formValidateSettings.send_again + '</a>');
             $form.parent().append(formError);
 
             setTimeout(function () {
