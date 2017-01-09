@@ -5248,6 +5248,8 @@ jQueryBridget('isotope', Isotope, $);
       $(this).validate({
         rules: {
           name: "required",
+          message: "required",
+          text: "required",
           email: {
             required: true,
             email: true
@@ -5256,6 +5258,7 @@ jQueryBridget('isotope', Isotope, $);
         messages: {
           name: formValidateSettings.name,
           message: formValidateSettings.messageEmpty,
+          text: formValidateSettings.textEmpty,
           email: {
             required: formValidateSettings.emailEmpty,
             email: formValidateSettings.emailIncorrect
