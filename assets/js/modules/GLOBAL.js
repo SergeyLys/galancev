@@ -259,8 +259,8 @@ export default {
     }
 
     $('li.has-sub a').on('click', function(e) {
-      e.preventDefault();
       if ($(this).parent().find('.sub-menu').length && $(window).width() <= 1023) {
+        e.preventDefault();
         $(this).parent().find('.sub-menu').slideToggle();
       }
     });
