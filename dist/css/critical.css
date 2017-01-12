@@ -1889,14 +1889,6 @@ img
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$gray', endColorstr='#f3ba00', GradientType=1);
 }
 
-.article__top:hover .article__top-picture:after
-{
-    -webkit-transition: opacity .25s ease;
-            transition: opacity .25s ease;
-
-    opacity: .33;
-}
-
 .article__top-link
 {
     position: absolute;
