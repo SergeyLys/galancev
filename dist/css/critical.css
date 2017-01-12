@@ -1862,7 +1862,7 @@ img
 
     content: '';
 
-    opacity: .33;
+    opacity: 0;
     background-color: #000;
 }
 
