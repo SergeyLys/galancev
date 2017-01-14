@@ -1,0 +1,52 @@
+extends templates/page-template
+
+block script
+  script(type='text/javascript').
+    var vars = {
+        ajaxUrl: "",
+        page: 'contacts_page'
+    };
+
+block content
+  .heading.mod.page-title
+    .container
+      .row
+        .col-xs-12
+          ul.breadcrumbs
+            li.breadcrumbs__li
+              a.breadcrumbs__link(href="index.html") Дмитрий Галанцев
+            li.breadcrumbs__li
+              span.breadcrumbs__link Контакты
+        .col-xs-12.col-md-6
+          h1.extra Контакты
+  .blocks
+    .blocks__inner
+      .container
+        .row.contacts-wrap
+          .col-xs-12.col-sm-6.col-lg-4
+            .contact-title
+              h2.h2-title Телефон
+            .contact-info
+              p Рабочий #[strong +7 (495) 215-21-49]
+              p Мобильный #[strong +7 (495) 215-21-49]
+          .col-xs-12.col-sm-6.col-lg-4
+            .contact-title
+              h2.h2-title Электронная почта, сайт
+            .contact-info
+              p: a(href='mailto:hello@galantsev.com'): strong hello@galantsev.com
+              p: a(href='galantsev.com'): strong galantsev.com
+          .col-xs-12.col-sm-6.col-lg-4
+            .contact-title
+              h2.h2-title Социальные сети
+            .contact-info
+              ul.contact-socials
+                li: a(href='#').fa.fa-facebook - #[span facebook]
+                li: a(href='#').fa.fa-twitter - #[span twitter]
+                li: a(href='#').fa.fa-linkedin - #[span linkedin]
+          .col-xs-12.col-sm-6.col-lg-4
+            .contact-title
+              h2.h2-title Мой рабочий адрес
+            .contact-info
+              p: strong г. Москва, ул. Большая Садовая, д.10
+          .col-xs-12.col-lg-8
+            #map(data-center-lat='55.767049' data-center-lng='37.594075' data-zoom='14' data-marker='../images/pin.png')

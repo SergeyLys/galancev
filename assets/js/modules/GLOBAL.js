@@ -8,6 +8,9 @@
 import "../libs/sharrre/jquery.sharrre.js";
 // import "../libs/jquery-form/jquery.form.js";
 import '../libs/jquery.validate.js';
+import "../libs/light-gallery/lightgallery.min.js";
+import "../libs/light-gallery/lg-thumbnail.min.js";
+import "../libs/light-gallery/lg-fullscreen.min.js";
 var jQueryBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
 var imagesLoaded = require('imagesloaded');
@@ -174,6 +177,7 @@ export default {
     this.formValidate();
     this.globalSliders();
     this.scrollToAnchor();
+    this.popups();
   },
 
   banner() {
@@ -484,7 +488,7 @@ export default {
 
   masonryGrid () {
 
-    $('.masonry').isotope({
+    $('.masonry:not(.noinit)').isotope({
       itemSelector: '.masonry-item',
       columnWidth: '.masonry-item',
       isResizable: true,
@@ -500,7 +504,7 @@ export default {
       }
     });
 
-    $('.masonry').on('masonry', function (e) {
+    $('.masonry:not(.noinit)').on('masonry', function (e) {
       var html = $(e.detail.html);
       $('.masonry').imagesLoaded(function (e) {
         $('.masonry').append(html).isotope('appended', html).isotope('layout');
@@ -640,5 +644,12 @@ export default {
         }, 500);
       }
     });
+  },
+
+  popups() {
+    $('.popup-link').lightGallery({
+      subHtmlSelectorRelative: true,
+      counter: false
+    }); 
   }
 };
