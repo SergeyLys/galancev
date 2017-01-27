@@ -471,6 +471,16 @@ export default {
         });
       }
     };
+
+    $('.has-anchor').on('click', function(e) {
+      e.preventDefault();
+
+      if ($($(this).attr('href')).length != 0) {
+        $('body, html').animate({
+          'scrollTop': $($(this).attr('href')).offset().top + 'px'
+        });
+      }
+    });
   },
 
   tabsToSelect() {
