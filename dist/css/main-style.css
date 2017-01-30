@@ -6043,6 +6043,7 @@ h1.c-black-imp
     float: left;
 
     width: auto;
+    max-width: 30px;
     margin-top: 30px;
     margin-right: 8px;
     margin-bottom: 17px;
@@ -7552,7 +7553,7 @@ h1.extra
 
         width: calc(100% - 60px);
         max-width: 100%;
-        margin-top: -150px;
+        margin-top: -175px;
     }
 
     .content__preview-aside .prew
