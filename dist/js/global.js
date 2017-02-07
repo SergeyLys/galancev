@@ -5753,7 +5753,7 @@ exports.default = {
     $('.tabs').tabsToSelect();
   },
   masonryGrid: function masonryGrid() {
-    $('.masonry').imagesLoaded(function (e) {
+    $(window).on('load', function () {
       $('.masonry:not(.noinit)').isotope({
         itemSelector: '.masonry-item',
         columnWidth: '.masonry-item',
