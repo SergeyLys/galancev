@@ -5753,7 +5753,7 @@ exports.default = {
     $('.tabs').tabsToSelect();
   },
   masonryGrid: function masonryGrid() {
-    $(window).on('load', function () {
+    $('.masonry').imagesLoaded(function (e) {
       $('.masonry:not(.noinit)').isotope({
         itemSelector: '.masonry-item',
         columnWidth: '.masonry-item',
@@ -5771,9 +5771,9 @@ exports.default = {
       });
     });
 
-    $('.masonry:not(.noinit)').on('masonry', function (e) {
-      var html = $(e.detail.html);
-      $('.masonry').imagesLoaded(function (e) {
+    $('.masonry').imagesLoaded(function (e) {
+      $('.masonry:not(.noinit)').on('masonry', function (e) {
+        var html = $(e.detail.html);
         $('.masonry').append(html).isotope('appended', html).isotope('layout');
         setTimeout(function () {
           $('.masonry').isotope({ sortBy: 'time', sortAscending: false });
