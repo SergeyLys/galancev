@@ -499,8 +499,6 @@ export default {
   },
 
   masonryGrid () {
-    console.log('no load');
-
     $('.masonry').imagesLoaded(function (e) {
       $('.masonry:not(.noinit)').isotope({
         itemSelector: '.masonry-item',
@@ -587,11 +585,13 @@ export default {
 
             }
             html += '<div data-id="' + response.rows[i].id + '" data-time="' + response.rows[i].publishedon + '" class="col-xs-12 col-sm-6 col-md-4 masonry-item" data-category="' + response.rows[i].parent + '"><article class="blocks__article">';
-            if (response.rows[i].img) html += '<div class="article__top"><div class="article__top-picture"><img src="' + response.rows[i].img + '" alt="' + response.rows[i].pagetitle + '"></div><a href="' + response.rows[i].uri + '" rel="nofollow" class="article__top-link"></a></div>';
+            if (response.rows[i].img) html += '<div class="article__top"><div class="article__top-picture"><img src="' + response.rows[i].img + '" alt="' + response.rows[i].img_alt + '"></div><a href="' + response.rows[i].uri + '" rel="nofollow" class="article__top-link"></a></div>';
             html += '<div class="article__bottom"><div class="story-top"><time class="story__time" datetime="' + publishedon.toISOString() + '">' + publishedon_formatter + '</time><a href="' + response.rows[i].category_uri + '" class="label">' + response.rows[i].category_menutitle + '</a></div><h3 class="article__title"><a href="' + response.rows[i].uri + '">' + response.rows[i].pagetitle + '</a></h3>';
-            if (response.rows[i].source_title && response.rows[i].source_link) {
+            if (response.rows[i].source_title && response.rows[i].source_link || response.rows[i].source_link && response.rows[i].source_img ) {
               html += '<a href="' + response.rows[i].source_link + '" class="article__source">';
-              html += response.rows[i].source_img ? '<img src="' + response.rows[i].source_img + '" alt="' + response.rows[i].source_title + '" class="article__source-img">' : '<span class="article__source-link">' + response.rows[i].source_title + '</span></a>';
+              if(response.rows[i].source_img) html += '<img src="' + response.rows[i].source_img + '" alt="' + response.rows[i].source_img_alt + '" class="article__source-img">';
+              if(response.rows[i].source_title) html += '<span class="article__source-link">' + response.rows[i].source_title + '</span>';
+              html += '</a>';
             }
             html += '</div></article></div>';
           }
