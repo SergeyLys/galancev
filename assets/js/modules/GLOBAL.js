@@ -499,7 +499,7 @@ export default {
   },
 
   masonryGrid () {
-    $('.masonry').imagesLoaded(function (e) {
+    $(window).on('load', function() {
       $('.masonry:not(.noinit)').isotope({
         itemSelector: '.masonry-item',
         columnWidth: '.masonry-item',
@@ -517,7 +517,7 @@ export default {
       });
     });
 
-    $('.masonry').imagesLoaded(function (e) {
+    $(window).on('load', function() {
       $('.masonry:not(.noinit)').on('masonry', function (e) {
         var html = $(e.detail.html);
         $('.masonry').append(html).isotope('appended', html).isotope('layout');
@@ -628,7 +628,9 @@ export default {
       }
     });
 
-    $('#btn-more-articles').trigger('click');
+    $(window).on('load', function() {
+      $('#btn-more-articles').trigger('click');
+    });
   },
 
   formValidate() {
