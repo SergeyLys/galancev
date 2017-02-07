@@ -596,7 +596,7 @@ export default {
             html += '</div></article></div>';
           }
           html = $(html);
-          $('img').on('load', function (e) {
+          $('.masonry:not(.noinit)').imagesLoaded(function (e) {
             $('.masonry').append(html).isotope('appended', html).isotope('layout');
             setTimeout(function () {
               if ($('.masonry .masonry-item:not(:has(form)):visible').length >= parseInt($('.tab-item.active[data-all]').attr('data-all'))) {
