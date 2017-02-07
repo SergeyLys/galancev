@@ -5667,7 +5667,6 @@ exports.default = {
   },
   articleFunctions: function articleFunctions() {
     $(window).on('resize', function (e, data, el) {
-      setNotesAltitude();
       setFeedBlockTop();
     });
 

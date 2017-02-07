@@ -1,13 +1,16 @@
 //
 // Buttons
 //=========================================
-.btn
+.btn,
+.content__data a.btn
   display: inline-block
   padding: 18px 17px
-  background-color: #687684
+  background-color: #fff
+  border: 2px solid $plane-color
   border-radius: 4px
   font-size: 14px
-  color: #fff
+  line-height: 1
+  color: $plane-color
   font-weight: 900
   text-decoration: none
   text-align: center
@@ -17,10 +20,13 @@
   cursor: pointer
   transition: all $hover-timing
   
-.btn:hover
-  background-color: $active
+.btn:hover,
+.content__data a.btn:hover
+  background-color: $plane-color
+  color: #fff 
   box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2)
   transition: all $hover-timing
+  text-decoration: none   
 
 .link-to
   border-bottom: 1px solid rgba(0, 0, 0, 0.2)

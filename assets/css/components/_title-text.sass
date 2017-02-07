@@ -52,6 +52,7 @@ h1.c-black-imp
   .content__preview-icon
     display: block
     float: left
+    max-width: 30px
     margin-right: 8px
     text-decoration: none
     border: 1px solid rgba(0, 0, 0, .2)
@@ -99,10 +100,10 @@ h1.c-black-imp
 /* tablet */
 @media (min-width: $screen-sm ) 
   .content__preview-aside
-    margin-top: -160%
+    margin-top: -100%
     .prew
       margin-top: -100%
-      margin-bottom: 100%
+      margin-bottom: 30px
       box-shadow: none
   .preview
     .breadcrumbs.c-grey-imp
@@ -111,14 +112,17 @@ h1.c-black-imp
 /* desctop */
 @media (min-width: $screen-md) 
   .content__preview-aside
-      margin-top: -100%
+      margin-top: -160px
       position: absolute
       max-width: 100%
       width: calc(100% - 60px)
       .prew
         margin-top: 0px
-        margin-bottom: 0px
+        margin-bottom: 6px 
         box-shadow: 7.071px 7.071px 20px rgba(0, 0, 0, 0.1)
   .preview
     .breadcrumbs.c-grey-imp
       margin-top: 70px
+@media (min-width: $screen-lg) 
+  .content__preview-text.nopad > *
+    margin-left: 42px    
