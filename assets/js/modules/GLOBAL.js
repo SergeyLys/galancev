@@ -596,17 +596,18 @@ export default {
             html += '</div></article></div>';
           }
           html = $(html);
+
+          $('.masonry').append(html);
           $('.masonry:not(.noinit)').imagesLoaded(function (e) {
-            $('.masonry').append(html).isotope('appended', html).isotope('layout');
+            $('.masonry').isotope('appended', html).isotope('layout');
             setTimeout(function () {
               if ($('.masonry .masonry-item:not(:has(form)):visible').length >= parseInt($('.tab-item.active[data-all]').attr('data-all'))) {
                 $('#btn-more-articles').hide();
               }
-              $('.masonry').isotope({ sortBy: 'time', sortAscending: false });
+              $('.masonry').isotope({sortBy: 'time', sortAscending: false});
             }, 0);
           });
         }
-
       }, "json").fail(function (error) {});
     });
 
