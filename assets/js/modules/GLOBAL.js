@@ -8,6 +8,9 @@
 import "../libs/sharrre/jquery.sharrre.js";
 // import "../libs/jquery-form/jquery.form.js";
 import '../libs/jquery.validate.js';
+import "../libs/light-gallery/lightgallery.min.js";
+import "../libs/light-gallery/lg-thumbnail.min.js";
+import "../libs/light-gallery/lg-fullscreen.min.js";
 var jQueryBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
 var imagesLoaded = require('imagesloaded');
@@ -20,6 +23,8 @@ jQueryBridget( 'isotope', Isotope, $ );
       $(this).validate({
         rules: {
           name: "required",
+          message: "required",
+          text: "required",
           email: {
             required: true,
             email: true
@@ -28,13 +33,14 @@ jQueryBridget( 'isotope', Isotope, $ );
         messages: {
           name: formValidateSettings.name,
           message: formValidateSettings.messageEmpty,
+          text: formValidateSettings.textEmpty,
           email: {
             required: formValidateSettings.emailEmpty,
             email: formValidateSettings.emailIncorrect
           }
         },
 
-        submitHandler: function(form, e) {
+        submitHandler: function submitHandler(form, e) {
           e.preventDefault();
           var $form = $(that);
           $.ajax({
@@ -42,25 +48,26 @@ jQueryBridget( 'isotope', Isotope, $ );
             url: $form.attr('action'),
             dataType: 'json',
             data: $form.serialize()
-          }).done(function(data) {
-
+          }).done(function (data) {
+            if(data.title === undefined) data.title = '';
+            if(data.message === undefined) data.message = '';
             if (data.success == true) {
               $form.hide(200);
               $form[0].reset();
 
               var formSuccess = $('<div></div>').addClass('form-success');
-              formSuccess.html('<div class="state-icon"></div> <div class="form-title">'+ data.title +'</div> <div class="form-descr">'+ data.message +'</div>');
+              formSuccess.html('<div class="state-icon"></div> <div class="form-title">' + data.title + '</div> <div class="form-descr">' + data.message + '</div>');
               $form.parent().append(formSuccess);
 
-              setTimeout(function() {
+              setTimeout(function () {
                 $form.parent().find('.form-success').show(200);
               }, 200);
 
-              setTimeout(function() {
+              setTimeout(function () {
                 $form.parent().find('.form-success').hide(200);
               }, 3000);
 
-              setTimeout(function() {
+              setTimeout(function () {
                 $form.parent().find('.form-success').remove();
                 $form.parent().find('.form-success');
                 $form.show(200);
@@ -69,45 +76,43 @@ jQueryBridget( 'isotope', Isotope, $ );
               $form.hide(200);
 
               var formError = $('<div></div>').addClass('form-error');
-              formError.html('<div class="state-icon"></div> <div class="form-title">'+ data.title +'</div> <div class="form-descr">'+ data.message +'</div><a href="#" class="btn">'+ formValidateSettings.send_again +'</a>');
+              formError.html('<div class="state-icon"></div> <div class="form-title">' + data.title + '</div> <div class="form-descr">' + data.message + '</div><a href="#" class="btn">' + formValidateSettings.send_again + '</a>');
               $form.parent().append(formError);
 
-              setTimeout(function() {
+              setTimeout(function () {
                 $form.parent().find('.form-error').show(200);
               }, 200);
 
-              $form.parent().find('.form-error').find('a').on('click', function(e) {
+              $form.parent().find('.form-error').find('a').on('click', function (e) {
                 e.preventDefault();
                 $form.parent().find('.form-error').hide(200);
 
-                setTimeout(function() {
+                setTimeout(function () {
                   $form.parent().find('.form-error').remove();
                   $form.show(200);
                 }, 200);
-              })
+              });
             }
-
-
-          }).fail(function() {
+          }).fail(function () {
             $form.hide(200);
 
             var formError = $('<div></div>').addClass('form-error');
-            formError.html('<div class="state-icon"></div> <div class="form-title">'+ data.title +'</div> <div class="form-descr">'+ data.message +'</div> <a href="#" class="btn">'+ formValidateSettings.send_again +'</a>');
+            formError.html('<div class="state-icon"></div> <div class="form-title">' + formValidateSettings.send_error_title + '</div> <div class="form-descr">' + formValidateSettings.send_error_message + '</div> <a href="#" class="btn">' + formValidateSettings.send_again + '</a>');
             $form.parent().append(formError);
 
-            setTimeout(function() {
+            setTimeout(function () {
               $form.parent().find('.form-error').show(200);
             }, 200);
 
-            $form.parent().find('.form-error').find('a').on('click', function(e) {
+            $form.parent().find('.form-error').find('a').on('click', function (e) {
               e.preventDefault();
               $form.parent().find('.form-error').hide(200);
 
-              setTimeout(function() {
+              setTimeout(function () {
                 $form.parent().find('.form-error').remove();
                 $form.show(200);
               }, 200);
-            })
+            });
           });
         }
       });
@@ -171,6 +176,8 @@ export default {
     this.masonryGrid();
     this.formValidate();
     this.globalSliders();
+    this.scrollToAnchor();
+    this.popups();
   },
 
   banner() {
@@ -256,8 +263,8 @@ export default {
     }
 
     $('li.has-sub a').on('click', function(e) {
-      e.preventDefault();
       if ($(this).parent().find('.sub-menu').length && $(window).width() <= 1023) {
+        e.preventDefault();
         $(this).parent().find('.sub-menu').slideToggle();
       }
     });
@@ -337,6 +344,8 @@ export default {
         enableCounter: false,
         template: '<span></span>',
         click: function (api, options) {
+          console.log($(this).data('url'));
+          console.log($(this).data('text'));
           api.simulateClick();
           api.openPopup('twitter');
         }
@@ -351,6 +360,7 @@ export default {
         enableCounter: false,
         template: '<span></span>',
         click: function (api, options) {
+          console.log($(this).data('url'));
           api.simulateClick();
           api.openPopup('facebook');
         }
@@ -389,9 +399,7 @@ export default {
       toggleOnScrollImages();
     });
 
-    $('.definition--group .definition__column').on('mouseover', function (e, data, el) {
-      hoverDigits($(el));
-    });
+    
 
     $('.droplist__state').on('click', function (e, data, el) {
       var $droplist = $(this).closest('.droplist');
@@ -441,6 +449,10 @@ export default {
         });
       }
     };
+
+    $('.definition--group .definition__column').on('mouseover', function (e, data, el) {
+      hoverDigits($(this));
+    });
     
     var hoverDigits = function ($node) {
       var $digit = $node.find('.definition__digit');
@@ -489,7 +501,7 @@ export default {
 
   masonryGrid () {
 
-    $('.masonry').isotope({
+    $('.masonry:not(.noinit)').isotope({
       itemSelector: '.masonry-item',
       columnWidth: '.masonry-item',
       isResizable: true,
@@ -499,39 +511,38 @@ export default {
         easing: "swing"
       },
       getSortData: {
-        time: function (elem) {
+        time: function time(elem) {
           return parseInt($(elem).attr('data-time'));
         }
       }
     });
 
-    $('.masonry').on('masonry', function (e) {
+    $('.masonry:not(.noinit)').on('masonry', function (e) {
       var html = $(e.detail.html);
       $('.masonry').imagesLoaded(function (e) {
         $('.masonry').append(html).isotope('appended', html).isotope('layout');
         setTimeout(function () {
           $('.masonry').isotope({ sortBy: 'time', sortAscending: false });
-        },0);
+        }, 0);
       });
     });
 
-
-    $('#btn-more-articles').on('click', function(event){
+    $('#btn-more-articles').on('click', function (event) {
       event.preventDefault();
       var params = {
-        ids:[],
+        ids: []
       };
       params.parents = $('.tab-item.active[data-filter]').attr('data-id');
-      if(params.parents === '*') {
+      if (params.parents === '*') {
         params.parents = [];
         var category = $('.tab-item[data-filter]').not('.active');
-        for(var i = 0; i < category.length; i++){
+        for (var i = 0; i < category.length; i++) {
           params.parents.push($(category[i]).attr('data-id'));
         }
       }
 
       var masonry_items = $('.masonry .masonry-item');
-      if(masonry_items) {
+      if (masonry_items) {
         for (var i = 0; i < masonry_items.length; i++) {
           params.ids.push($(masonry_items[i]).attr('data-id'));
         }
@@ -559,9 +570,9 @@ export default {
                 break;
               case difference < 864e5 && start_today > publishedon:
                 publishedon_formatter = formValidateSettings.yesterday + ' ' + publishedon.toLocaleString("ru", {
-                    hour: 'numeric',
-                    minute: 'numeric'
-                  });
+                  hour: 'numeric',
+                  minute: 'numeric'
+                });
                 break;
               default:
                 publishedon_formatter = publishedon.toLocaleString("ru", {
@@ -573,31 +584,28 @@ export default {
                 });
 
             }
-            html += '<div data-id="' + response.rows[i].id + '" data-time="'+response.rows[i].publishedon+'" class="col-xs-12 col-sm-6 col-md-4 masonry-item" data-category="' + response.rows[i].parent + '"><article class="blocks__article">';
+            html += '<div data-id="' + response.rows[i].id + '" data-time="' + response.rows[i].publishedon + '" class="col-xs-12 col-sm-6 col-md-4 masonry-item" data-category="' + response.rows[i].parent + '"><article class="blocks__article">';
             if (response.rows[i].img) html += '<div class="article__top"><div class="article__top-picture"><img src="' + response.rows[i].img + '" alt="' + response.rows[i].pagetitle + '"></div><a href="' + response.rows[i].uri + '" rel="nofollow" class="article__top-link"></a></div>';
             html += '<div class="article__bottom"><div class="story-top"><time class="story__time" datetime="' + publishedon.toISOString() + '">' + publishedon_formatter + '</time><a href="' + response.rows[i].category_uri + '" class="label">' + response.rows[i].category_menutitle + '</a></div><h3 class="article__title"><a href="' + response.rows[i].uri + '">' + response.rows[i].pagetitle + '</a></h3>';
             if (response.rows[i].source_title && response.rows[i].source_link) {
               html += '<a href="' + response.rows[i].source_link + '" class="article__source">';
-              html += (response.rows[i].source_img) ? '<img src="' + response.rows[i].source_img + '" alt="' + response.rows[i].source_title + '" class="article__source-img">' : '<span class="article__source-link">' + response.rows[i].source_title + '</span></a>';
+              html += response.rows[i].source_img ? '<img src="' + response.rows[i].source_img + '" alt="' + response.rows[i].source_title + '" class="article__source-img">' : '<span class="article__source-link">' + response.rows[i].source_title + '</span></a>';
             }
-            html += `</div></article></div>`;
+            html += '</div></article></div>';
           }
           html = $(html);
           $('.masonry').imagesLoaded(function (e) {
             $('.masonry').append(html).isotope('appended', html).isotope('layout');
             setTimeout(function () {
+              if ($('.masonry .masonry-item:not(:has(form)):visible').length >= parseInt($('.tab-item.active[data-all]').attr('data-all'))) {
+                $('#btn-more-articles').hide();
+              }
               $('.masonry').isotope({ sortBy: 'time', sortAscending: false });
-            },0);
+            }, 0);
           });
         }
 
-        if(response['total'] < 9) {
-          $('#btn-more-articles').hide();
-          $('.tab-item.active[data-filter]').attr('data-btn',0);
-        }
-      }, "json").fail(function(error) {
-        console.dir(error);
-      });
+      }, "json").fail(function (error) {});
     });
 
     $('.tabs .tab-item a').on('click', function (e) {
@@ -606,22 +614,19 @@ export default {
       $('.masonry').isotope({ filter: filterValue });
       setTimeout(function () {
         $('.masonry').isotope({ sortBy: 'time', sortAscending: false });
-      },0);
-
+      }, 0);
 
       $('.tabs .tab-item').removeClass('active');
       $(this).parent().addClass('active');
-      if(parseInt($(this).parent().attr('data-btn'))){
-        $('#btn-more-articles').show();
-      } else {
+
+      if ($('.masonry .masonry-item'+filterValue+':not(:has(form))').length >= parseInt($(this).parent().attr('data-all'))) {
         $('#btn-more-articles').hide();
+      } else {
+        $('#btn-more-articles').show();
       }
     });
 
     $('#btn-more-articles').trigger('click');
-
-
-
   },
 
   formValidate() {
@@ -641,5 +646,23 @@ export default {
         }
       ]
     });
+  },
+
+  scrollToAnchor() {
+    $('.has-anchor').on('click', function(e) {
+      if ($($(this).attr('href')).length != 0) {
+        e.preventDefault();
+        $('body, html').animate({
+          'scrollTop': $($(this).attr('href')).offset().top + 'px'
+        }, 500);
+      }
+    });
+  },
+
+  popups() {
+    $('.popup-link').lightGallery({
+      subHtmlSelectorRelative: true,
+      counter: false
+    }); 
   }
 };

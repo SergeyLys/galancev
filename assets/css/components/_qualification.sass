@@ -1,0 +1,103 @@
+.qualifer-grid
+  display: -webkit-flex
+  display: -moz-flex
+  display: -ms-flex
+  display: -o-flex
+  display: flex
+  position: relative
+  flex-wrap: wrap
+  padding-bottom: 40px
+
+  &:before,
+  &:after
+    content: ''
+    position: absolute
+    height: calc(100% - 60px)
+    width: 1px
+    background: #dee3e7
+    top: 0
+    display: none
+
+  &:after
+    right: calc(33.33333%)
+
+    @media (min-width: $screen-md)
+      display: block
+
+  &:before
+    @media (min-width: $screen-sm)
+      display: block
+      left: calc(50%)
+
+    @media (min-width: $screen-md)
+      left: calc(33.33333%)
+
+.qualifer-grid-wrap
+  .overflow-hidden 
+    margin-bottom: -101px
+
+  @media (max-width: 767px)
+    margin-left: -25px
+    margin-right: -25px
+    padding-left: 0
+    padding-right: 0
+
+  @media (min-width: $screen-sm) and (max-width: 1023px)
+    padding-left: 15px
+    padding-right: 15px
+
+
+.qualifer-item-wrap
+  border-bottom: 1px solid #dee3e7
+  margin-bottom: 60px
+
+  // &:nth-last-child(1),
+  // &:nth-last-child(2),
+  // &:nth-last-child(3)
+  //   border-bottom: none
+  //   margin-bottom: 0
+
+.qualifer-item
+  padding-bottom: 55px
+
+  > a
+    text-decoration: none
+    color: #000
+  
+    img
+      margin-bottom: 20px
+
+  .caption
+    .date
+      margin-bottom: 15px
+      p
+        font-size: 10px
+        opacity: .33
+        line-height: 24px
+        margin: 0
+        text-transform: uppercase
+
+    .title
+      margin-bottom: 25px
+      h4
+        font-size: 16px
+        line-height: 24px
+        font-weight: 800
+
+    .location
+      p
+        color: #687684
+        position: relative
+        padding-left: 22px
+        font-size: 14px
+        line-height: 20px
+        margin: 0
+
+        &:before
+          content: ''
+          position: absolute
+          left: 0
+          top: 0
+          width: 17px
+          height: 22px
+          background: url('../images/location.png') no-repeat center

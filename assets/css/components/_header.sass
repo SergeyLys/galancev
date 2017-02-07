@@ -1,6 +1,7 @@
 .header-wrap
 	position: relative
 	width: 100%
+	z-index: 5
 
 	@media (max-width: 1023px)
 		padding-left: 0 !important
@@ -302,6 +303,7 @@
 				a
 					font-size: 16px
 					line-height: 24px
+					text-transform: none
 
 					@media (min-width: $screen-md)
 						display: block
@@ -327,6 +329,10 @@
 
 				&:hover
 					text-decoration: underline
+
+			&.active
+				> a
+					color: #687684
 
 			&.has-sub
 				position: relative

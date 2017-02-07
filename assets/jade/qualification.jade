@@ -1,0 +1,71 @@
+extends templates/page-template
+
+block script
+  script(type='text/javascript').
+    var vars = {
+        ajaxUrl: "",
+        page: 'common_page'
+    };
+
+block content
+  .heading.mod.page-title
+    .container
+      .row
+        .col-xs-12
+          ul.breadcrumbs
+            li.breadcrumbs__li
+              a.breadcrumbs__link(href="index.html") Дмитрий Галанцев
+            li.breadcrumbs__li
+              span.breadcrumbs__link Квалификация
+        .col-xs-12.col-md-6
+          h1.extra Квалификация
+  .blocks
+    .blocks__inner
+      .container
+        .row.masonry-wrap.qualifer-grid-wrap
+            .overflow-hidden
+              .row.qualifer-grid
+                .col-xs-12.col-sm-6.col-md-4.qualifer-item-wrap
+                  .popup-link.qualifer-item
+                    a(href="../uploads/qualification/1.jpg" data-sub-html=".caption")
+                      img(src='../uploads/qualification/1.jpg')
+                      .caption
+                        .date
+                          p Дата получения: 22 Июня 2015 г.
+                        .title
+                          h4 Гражданско-правовые сделки. Представительство и доверенность
+                        .location
+                          p Москва, Российская Академия адвокатуры
+                .col-xs-12.col-sm-6.col-md-4.qualifer-item-wrap
+                  .popup-link.qualifer-item
+                    a(href="../uploads/qualification/1.jpg" data-sub-html=".caption")
+                      img(src='../uploads/qualification/1.jpg')
+                      .caption
+                        .date
+                          p Дата получения: 22 Июня 2015 г.
+                        .title
+                          h4 Гражданско-правовые сделки. Представительство и доверенность
+                        .location
+                          p Москва, Российская Академия адвокатуры
+                .col-xs-12.col-sm-6.col-md-4.qualifer-item-wrap
+                  .popup-link.qualifer-item
+                    a(href="../uploads/qualification/1.jpg" data-sub-html=".caption")
+                      img(src='../uploads/qualification/1.jpg')
+                      .caption
+                        .date
+                          p Дата получения: 22 Июня 2015 г.
+                        .title
+                          h4 Гражданско-правовые сделки. Представительство и доверенность
+                        .location
+                          p Москва, Российская Академия адвокатуры
+                .col-xs-12.col-sm-6.col-md-4.qualifer-item-wrap
+                  .popup-link.qualifer-item
+                    a(href="../uploads/qualification/1.jpg" data-sub-html=".caption")
+                      img(src='../uploads/qualification/1.jpg')
+                      .caption
+                        .date
+                          p Дата получения: 22 Июня 2015 г.
+                        .title
+                          h4 Гражданско-правовые сделки. Представительство и доверенность
+                        .location
+                          p Москва, Российская Академия адвокатуры
