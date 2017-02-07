@@ -499,21 +499,24 @@ export default {
   },
 
   masonryGrid () {
+    console.log('no load');
 
-    $('.masonry:not(.noinit)').isotope({
-      itemSelector: '.masonry-item',
-      columnWidth: '.masonry-item',
-      isResizable: true,
-      isAnimatedFromBottom: true,
-      animationOptions: {
-        duration: 250,
-        easing: "swing"
-      },
-      getSortData: {
-        time: function time(elem) {
-          return parseInt($(elem).attr('data-time'));
+    $('.masonry').imagesLoaded(function (e) {
+      $('.masonry:not(.noinit)').isotope({
+        itemSelector: '.masonry-item',
+        columnWidth: '.masonry-item',
+        isResizable: true,
+        isAnimatedFromBottom: true,
+        animationOptions: {
+          duration: 250,
+          easing: "swing"
+        },
+        getSortData: {
+          time: function time(elem) {
+            return parseInt($(elem).attr('data-time'));
+          }
         }
-      }
+      });
     });
 
     $('.masonry:not(.noinit)').on('masonry', function (e) {
