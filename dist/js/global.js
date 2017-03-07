@@ -5888,7 +5888,7 @@ exports.default = {
     });
   },
   formValidate: function formValidate() {
-    $('form:not(.search-form, .form--search)').formSubmit();
+    $('form:not(.search-form, .form--search, .buy-form)').formSubmit();
   },
   globalSliders: function globalSliders() {
     $('.testimonials-slider').slick({

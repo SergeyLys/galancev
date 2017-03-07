@@ -635,7 +635,7 @@ export default {
   },
 
   formValidate() {
-    $('form:not(.search-form, .form--search)').formSubmit();
+    $('form:not(.search-form, .form--search, .buy-form)').formSubmit();
   },
 
   globalSliders() {
