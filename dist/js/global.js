@@ -5316,40 +5316,62 @@ jQueryBridget('isotope', Isotope, $);
         submitHandler: function submitHandler(form, e) {
           e.preventDefault();
           var $form = $(that);
-          $.ajax({
-            type: $form.attr('method'),
-            url: $form.attr('action'),
-            dataType: 'json',
-            data: $form.serialize()
-          }).done(function (data) {
-            if (data.title === undefined) data.title = '';
-            if (data.message === undefined) data.message = '';
-            if (data.success == true) {
-              $form.hide(200);
-              $form[0].reset();
+          if (!$form.hasClass('.buy-form')) {
+            $.ajax({
+              type: $form.attr('method'),
+              url: $form.attr('action'),
+              dataType: 'json',
+              data: $form.serialize()
+            }).done(function (data) {
+              if (data.title === undefined) data.title = '';
+              if (data.message === undefined) data.message = '';
+              if (data.success == true) {
+                $form.hide(200);
+                $form[0].reset();
 
-              var formSuccess = $('<div></div>').addClass('form-success');
-              formSuccess.html('<div class="state-icon"></div> <div class="form-title">' + data.title + '</div> <div class="form-descr">' + data.message + '</div>');
-              $form.parent().append(formSuccess);
+                var formSuccess = $('<div></div>').addClass('form-success');
+                formSuccess.html('<div class="state-icon"></div> <div class="form-title">' + data.title + '</div> <div class="form-descr">' + data.message + '</div>');
+                $form.parent().append(formSuccess);
 
-              setTimeout(function () {
-                $form.parent().find('.form-success').show(200);
-              }, 200);
+                setTimeout(function () {
+                  $form.parent().find('.form-success').show(200);
+                }, 200);
 
-              setTimeout(function () {
-                $form.parent().find('.form-success').hide(200);
-              }, 3000);
+                setTimeout(function () {
+                  $form.parent().find('.form-success').hide(200);
+                }, 3000);
 
-              setTimeout(function () {
-                $form.parent().find('.form-success').remove();
-                $form.parent().find('.form-success');
-                $form.show(200);
-              }, 3200);
-            } else {
+                setTimeout(function () {
+                  $form.parent().find('.form-success').remove();
+                  $form.parent().find('.form-success');
+                  $form.show(200);
+                }, 3200);
+              } else {
+                $form.hide(200);
+
+                var formError = $('<div></div>').addClass('form-error');
+                formError.html('<div class="state-icon"></div> <div class="form-title">' + data.title + '</div> <div class="form-descr">' + data.message + '</div><a href="#" class="btn">' + formValidateSettings.send_again + '</a>');
+                $form.parent().append(formError);
+
+                setTimeout(function () {
+                  $form.parent().find('.form-error').show(200);
+                }, 200);
+
+                $form.parent().find('.form-error').find('a').on('click', function (e) {
+                  e.preventDefault();
+                  $form.parent().find('.form-error').hide(200);
+
+                  setTimeout(function () {
+                    $form.parent().find('.form-error').remove();
+                    $form.show(200);
+                  }, 200);
+                });
+              }
+            }).fail(function () {
               $form.hide(200);
 
               var formError = $('<div></div>').addClass('form-error');
-              formError.html('<div class="state-icon"></div> <div class="form-title">' + data.title + '</div> <div class="form-descr">' + data.message + '</div><a href="#" class="btn">' + formValidateSettings.send_again + '</a>');
+              formError.html('<div class="state-icon"></div> <div class="form-title">' + formValidateSettings.send_error_title + '</div> <div class="form-descr">' + formValidateSettings.send_error_message + '</div> <a href="#" class="btn">' + formValidateSettings.send_again + '</a>');
               $form.parent().append(formError);
 
               setTimeout(function () {
@@ -5365,28 +5387,8 @@ jQueryBridget('isotope', Isotope, $);
                   $form.show(200);
                 }, 200);
               });
-            }
-          }).fail(function () {
-            $form.hide(200);
-
-            var formError = $('<div></div>').addClass('form-error');
-            formError.html('<div class="state-icon"></div> <div class="form-title">' + formValidateSettings.send_error_title + '</div> <div class="form-descr">' + formValidateSettings.send_error_message + '</div> <a href="#" class="btn">' + formValidateSettings.send_again + '</a>');
-            $form.parent().append(formError);
-
-            setTimeout(function () {
-              $form.parent().find('.form-error').show(200);
-            }, 200);
-
-            $form.parent().find('.form-error').find('a').on('click', function (e) {
-              e.preventDefault();
-              $form.parent().find('.form-error').hide(200);
-
-              setTimeout(function () {
-                $form.parent().find('.form-error').remove();
-                $form.show(200);
-              }, 200);
             });
-          });
+          }
         }
       });
     });
@@ -5888,7 +5890,7 @@ exports.default = {
     });
   },
   formValidate: function formValidate() {
-    $('form:not(.search-form, .form--search, .buy-form)').formSubmit();
+    $('form:not(.search-form, .form--search)').formSubmit();
   },
   globalSliders: function globalSliders() {
     $('.testimonials-slider').slick({
@@ -12077,7 +12079,7 @@ require('./modules/web.dom.iterable');
 module.exports = require('./modules/_core');
 },{"./modules/_core":35,"./modules/es6.array.copy-within":132,"./modules/es6.array.every":133,"./modules/es6.array.fill":134,"./modules/es6.array.filter":135,"./modules/es6.array.find":137,"./modules/es6.array.find-index":136,"./modules/es6.array.for-each":138,"./modules/es6.array.from":139,"./modules/es6.array.index-of":140,"./modules/es6.array.is-array":141,"./modules/es6.array.iterator":142,"./modules/es6.array.join":143,"./modules/es6.array.last-index-of":144,"./modules/es6.array.map":145,"./modules/es6.array.of":146,"./modules/es6.array.reduce":148,"./modules/es6.array.reduce-right":147,"./modules/es6.array.slice":149,"./modules/es6.array.some":150,"./modules/es6.array.sort":151,"./modules/es6.array.species":152,"./modules/es6.date.now":153,"./modules/es6.date.to-iso-string":154,"./modules/es6.date.to-json":155,"./modules/es6.date.to-primitive":156,"./modules/es6.date.to-string":157,"./modules/es6.function.bind":158,"./modules/es6.function.has-instance":159,"./modules/es6.function.name":160,"./modules/es6.map":161,"./modules/es6.math.acosh":162,"./modules/es6.math.asinh":163,"./modules/es6.math.atanh":164,"./modules/es6.math.cbrt":165,"./modules/es6.math.clz32":166,"./modules/es6.math.cosh":167,"./modules/es6.math.expm1":168,"./modules/es6.math.fround":169,"./modules/es6.math.hypot":170,"./modules/es6.math.imul":171,"./modules/es6.math.log10":172,"./modules/es6.math.log1p":173,"./modules/es6.math.log2":174,"./modules/es6.math.sign":175,"./modules/es6.math.sinh":176,"./modules/es6.math.tanh":177,"./modules/es6.math.trunc":178,"./modules/es6.number.constructor":179,"./modules/es6.number.epsilon":180,"./modules/es6.number.is-finite":181,"./modules/es6.number.is-integer":182,"./modules/es6.number.is-nan":183,"./modules/es6.number.is-safe-integer":184,"./modules/es6.number.max-safe-integer":185,"./modules/es6.number.min-safe-integer":186,"./modules/es6.number.parse-float":187,"./modules/es6.number.parse-int":188,"./modules/es6.number.to-fixed":189,"./modules/es6.number.to-precision":190,"./modules/es6.object.assign":191,"./modules/es6.object.create":192,"./modules/es6.object.define-properties":193,"./modules/es6.object.define-property":194,"./modules/es6.object.freeze":195,"./modules/es6.object.get-own-property-descriptor":196,"./modules/es6.object.get-own-property-names":197,"./modules/es6.object.get-prototype-of":198,"./modules/es6.object.is":202,"./modules/es6.object.is-extensible":199,"./modules/es6.object.is-frozen":200,"./modules/es6.object.is-sealed":201,"./modules/es6.object.keys":203,"./modules/es6.object.prevent-extensions":204,"./modules/es6.object.seal":205,"./modules/es6.object.set-prototype-of":206,"./modules/es6.object.to-string":207,"./modules/es6.parse-float":208,"./modules/es6.parse-int":209,"./modules/es6.promise":210,"./modules/es6.reflect.apply":211,"./modules/es6.reflect.construct":212,"./modules/es6.reflect.define-property":213,"./modules/es6.reflect.delete-property":214,"./modules/es6.reflect.enumerate":215,"./modules/es6.reflect.get":218,"./modules/es6.reflect.get-own-property-descriptor":216,"./modules/es6.reflect.get-prototype-of":217,"./modules/es6.reflect.has":219,"./modules/es6.reflect.is-extensible":220,"./modules/es6.reflect.own-keys":221,"./modules/es6.reflect.prevent-extensions":222,"./modules/es6.reflect.set":224,"./modules/es6.reflect.set-prototype-of":223,"./modules/es6.regexp.constructor":225,"./modules/es6.regexp.flags":226,"./modules/es6.regexp.match":227,"./modules/es6.regexp.replace":228,"./modules/es6.regexp.search":229,"./modules/es6.regexp.split":230,"./modules/es6.regexp.to-string":231,"./modules/es6.set":232,"./modules/es6.string.anchor":233,"./modules/es6.string.big":234,"./modules/es6.string.blink":235,"./modules/es6.string.bold":236,"./modules/es6.string.code-point-at":237,"./modules/es6.string.ends-with":238,"./modules/es6.string.fixed":239,"./modules/es6.string.fontcolor":240,"./modules/es6.string.fontsize":241,"./modules/es6.string.from-code-point":242,"./modules/es6.string.includes":243,"./modules/es6.string.italics":244,"./modules/es6.string.iterator":245,"./modules/es6.string.link":246,"./modules/es6.string.raw":247,"./modules/es6.string.repeat":248,"./modules/es6.string.small":249,"./modules/es6.string.starts-with":250,"./modules/es6.string.strike":251,"./modules/es6.string.sub":252,"./modules/es6.string.sup":253,"./modules/es6.string.trim":254,"./modules/es6.symbol":255,"./modules/es6.typed.array-buffer":256,"./modules/es6.typed.data-view":257,"./modules/es6.typed.float32-array":258,"./modules/es6.typed.float64-array":259,"./modules/es6.typed.int16-array":260,"./modules/es6.typed.int32-array":261,"./modules/es6.typed.int8-array":262,"./modules/es6.typed.uint16-array":263,"./modules/es6.typed.uint32-array":264,"./modules/es6.typed.uint8-array":265,"./modules/es6.typed.uint8-clamped-array":266,"./modules/es6.weak-map":267,"./modules/es6.weak-set":268,"./modules/es7.array.includes":269,"./modules/es7.asap":270,"./modules/es7.error.is-error":271,"./modules/es7.map.to-json":272,"./modules/es7.math.iaddh":273,"./modules/es7.math.imulh":274,"./modules/es7.math.isubh":275,"./modules/es7.math.umulh":276,"./modules/es7.object.define-getter":277,"./modules/es7.object.define-setter":278,"./modules/es7.object.entries":279,"./modules/es7.object.get-own-property-descriptors":280,"./modules/es7.object.lookup-getter":281,"./modules/es7.object.lookup-setter":282,"./modules/es7.object.values":283,"./modules/es7.observable":284,"./modules/es7.reflect.define-metadata":285,"./modules/es7.reflect.delete-metadata":286,"./modules/es7.reflect.get-metadata":288,"./modules/es7.reflect.get-metadata-keys":287,"./modules/es7.reflect.get-own-metadata":290,"./modules/es7.reflect.get-own-metadata-keys":289,"./modules/es7.reflect.has-metadata":291,"./modules/es7.reflect.has-own-metadata":292,"./modules/es7.reflect.metadata":293,"./modules/es7.set.to-json":294,"./modules/es7.string.at":295,"./modules/es7.string.match-all":296,"./modules/es7.string.pad-end":297,"./modules/es7.string.pad-start":298,"./modules/es7.string.trim-left":299,"./modules/es7.string.trim-right":300,"./modules/es7.symbol.async-iterator":301,"./modules/es7.symbol.observable":302,"./modules/es7.system.global":303,"./modules/web.dom.iterable":304,"./modules/web.immediate":305,"./modules/web.timers":306}],308:[function(require,module,exports){
 /**
- * matchesSelector v2.0.1
+ * matchesSelector v2.0.2
  * matchesSelector( element, '.selector' )
  * MIT license
  */
@@ -12103,7 +12105,7 @@ module.exports = require('./modules/_core');
   'use strict';
 
   var matchesMethod = ( function() {
-    var ElemProto = Element.prototype;
+    var ElemProto = window.Element.prototype;
     // check for the standard method name first
     if ( ElemProto.matches ) {
       return 'matches';
@@ -12243,7 +12245,7 @@ return EvEmitter;
 
 },{}],310:[function(require,module,exports){
 /**
- * Fizzy UI utils v2.0.3
+ * Fizzy UI utils v2.0.4
  * MIT license
  */
 
@@ -12304,7 +12306,8 @@ utils.makeArray = function( obj ) {
   if ( Array.isArray( obj ) ) {
     // use object if already an array
     ary = obj;
-  } else if ( obj && typeof obj.length == 'number' ) {
+  } else if ( obj && typeof obj == 'object' &&
+    typeof obj.length == 'number' ) {
     // convert nodeList to array
     for ( var i=0; i < obj.length; i++ ) {
       ary.push( obj[i] );
@@ -13065,13 +13068,13 @@ return ImagesLoaded;
 
 },{"ev-emitter":309}],313:[function(require,module,exports){
 /*!
- * Isotope v3.0.1
+ * Isotope v3.0.3
  *
  * Licensed GPLv3 for open source use
  * or Isotope Commercial License for commercial use
  *
  * http://isotope.metafizzy.co
- * Copyright 2016 Metafizzy
+ * Copyright 2017 Metafizzy
  */
 
 ( function( window, factory ) {
@@ -13468,20 +13471,28 @@ var trim = String.prototype.trim ?
 
   // sort filteredItem order
   proto._sort = function() {
-    var sortByOpt = this.options.sortBy;
-    if ( !sortByOpt ) {
+    if ( !this.options.sortBy ) {
       return;
     }
-    // concat all sortBy and sortHistory
-    var sortBys = [].concat.apply( sortByOpt, this.sortHistory );
-    // sort magic
-    var itemSorter = getItemSorter( sortBys, this.options.sortAscending );
-    this.filteredItems.sort( itemSorter );
     // keep track of sortBy History
-    if ( sortByOpt != this.sortHistory[0] ) {
-      // add to front, oldest goes in last
-      this.sortHistory.unshift( sortByOpt );
+    var sortBys = utils.makeArray( this.options.sortBy );
+    if ( !this._getIsSameSortBy( sortBys ) ) {
+      // concat all sortBy and sortHistory, add to front, oldest goes in last
+      this.sortHistory = sortBys.concat( this.sortHistory );
     }
+    // sort magic
+    var itemSorter = getItemSorter( this.sortHistory, this.options.sortAscending );
+    this.filteredItems.sort( itemSorter );
+  };
+
+  // check if sortBys is same as start of sortHistory
+  proto._getIsSameSortBy = function( sortBys ) {
+    for ( var i=0; i < sortBys.length; i++ ) {
+      if ( sortBys[i] != this.sortHistory[i] ) {
+        return false;
+      }
+    }
+    return true;
   };
 
   // returns a function used for sorting
@@ -26638,90 +26649,34 @@ process.umask = function() { return 0; };
         return doneResult();
       }
 
+      context.method = method;
+      context.arg = arg;
+
       while (true) {
         var delegate = context.delegate;
         if (delegate) {
-          if (method === "return" ||
-              (method === "throw" && delegate.iterator[method] === undefined)) {
-            // A return or throw (when the delegate iterator has no throw
-            // method) always terminates the yield* loop.
-            context.delegate = null;
-
-            // If the delegate iterator has a return method, give it a
-            // chance to clean up.
-            var returnMethod = delegate.iterator["return"];
-            if (returnMethod) {
-              var record = tryCatch(returnMethod, delegate.iterator, arg);
-              if (record.type === "throw") {
-                // If the return method threw an exception, let that
-                // exception prevail over the original return or throw.
-                method = "throw";
-                arg = record.arg;
-                continue;
-              }
-            }
-
-            if (method === "return") {
-              // Continue with the outer return, now that the delegate
-              // iterator has been terminated.
-              continue;
-            }
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
           }
-
-          var record = tryCatch(
-            delegate.iterator[method],
-            delegate.iterator,
-            arg
-          );
-
-          if (record.type === "throw") {
-            context.delegate = null;
-
-            // Like returning generator.throw(uncaught), but without the
-            // overhead of an extra function call.
-            method = "throw";
-            arg = record.arg;
-            continue;
-          }
-
-          // Delegate generator ran and handled its own exceptions so
-          // regardless of what the method was, we continue as if it is
-          // "next" with an undefined arg.
-          method = "next";
-          arg = undefined;
-
-          var info = record.arg;
-          if (info.done) {
-            context[delegate.resultName] = info.value;
-            context.next = delegate.nextLoc;
-          } else {
-            state = GenStateSuspendedYield;
-            return info;
-          }
-
-          context.delegate = null;
         }
 
-        if (method === "next") {
+        if (context.method === "next") {
           // Setting context._sent for legacy support of Babel's
           // function.sent implementation.
-          context.sent = context._sent = arg;
+          context.sent = context._sent = context.arg;
 
-        } else if (method === "throw") {
+        } else if (context.method === "throw") {
           if (state === GenStateSuspendedStart) {
             state = GenStateCompleted;
-            throw arg;
+            throw context.arg;
           }
 
-          if (context.dispatchException(arg)) {
-            // If the dispatched exception was caught by a catch block,
-            // then let that catch block handle the exception normally.
-            method = "next";
-            arg = undefined;
-          }
+          context.dispatchException(context.arg);
 
-        } else if (method === "return") {
-          context.abrupt("return", arg);
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
         }
 
         state = GenStateExecuting;
@@ -26734,30 +26689,106 @@ process.umask = function() { return 0; };
             ? GenStateCompleted
             : GenStateSuspendedYield;
 
-          var info = {
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
             value: record.arg,
             done: context.done
           };
 
-          if (record.arg === ContinueSentinel) {
-            if (context.delegate && method === "next") {
-              // Deliberately forget the last sent value so that we don't
-              // accidentally pass it on to the delegate.
-              arg = undefined;
-            }
-          } else {
-            return info;
-          }
-
         } else if (record.type === "throw") {
           state = GenStateCompleted;
           // Dispatch the exception by looping back around to the
-          // context.dispatchException(arg) call above.
-          method = "throw";
-          arg = record.arg;
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
         }
       }
     };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        if (delegate.iterator.return) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
   }
 
   // Define Generator.prototype.{next,throw,return} in terms of the
@@ -26880,6 +26911,9 @@ process.umask = function() { return 0; };
       this.done = false;
       this.delegate = null;
 
+      this.method = "next";
+      this.arg = undefined;
+
       this.tryEntries.forEach(resetTryEntry);
 
       if (!skipTempReset) {
@@ -26916,7 +26950,15 @@ process.umask = function() { return 0; };
         record.type = "throw";
         record.arg = exception;
         context.next = loc;
-        return !!caught;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
       }
 
       for (var i = this.tryEntries.length - 1; i >= 0; --i) {
@@ -26984,12 +27026,12 @@ process.umask = function() { return 0; };
       record.arg = arg;
 
       if (finallyEntry) {
+        this.method = "next";
         this.next = finallyEntry.finallyLoc;
-      } else {
-        this.complete(record);
+        return ContinueSentinel;
       }
 
-      return ContinueSentinel;
+      return this.complete(record);
     },
 
     complete: function(record, afterLoc) {
@@ -27001,11 +27043,14 @@ process.umask = function() { return 0; };
           record.type === "continue") {
         this.next = record.arg;
       } else if (record.type === "return") {
-        this.rval = record.arg;
+        this.rval = this.arg = record.arg;
+        this.method = "return";
         this.next = "end";
       } else if (record.type === "normal" && afterLoc) {
         this.next = afterLoc;
       }
+
+      return ContinueSentinel;
     },
 
     finish: function(finallyLoc) {
@@ -27043,6 +27088,12 @@ process.umask = function() { return 0; };
         resultName: resultName,
         nextLoc: nextLoc
       };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
 
       return ContinueSentinel;
     }
