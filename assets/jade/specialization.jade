@@ -1,0 +1,38 @@
+extends templates/page-template
+
+block script
+  script(type='text/javascript').
+    var vars = {
+        ajaxUrl: "",
+        page: 'common_page'
+    };
+
+block content
+  .heading.mod.page-title
+    .container
+      .row
+        .col-xs-12
+          ul.breadcrumbs
+            li.breadcrumbs__li
+              a.breadcrumbs__link(href="index.html") Дмитрий Галанцев
+            li.breadcrumbs__li
+              span.breadcrumbs__link Специализация
+        .col-xs-12.col-md-6
+          h1.extra Специализация
+  .blocks
+    .blocks__inner
+      .container
+        .row
+          .col-xs-12.specialization__wrapper
+            .overflow-hidden
+              .specialization__inner.row
+                .specialization-item.col-xs-12.col-sm-6.col-md-4
+                  h4: a(href="#") Разрешение корпоративных споров
+                .specialization-item.col-xs-12.col-sm-6.col-md-4
+                  h4: a(href="#") Разрешение споров в сфере недвижимости
+                .specialization-item.col-xs-12.col-sm-6.col-md-4
+                  h4: a(href="#") Повышение эффективности судебного представительства
+                .specialization-item.col-xs-12.col-sm-6.col-md-4
+                  h4: a(href="#") Независимый консалтинг правовых конфликтов
+                .specialization-item.col-xs-12.col-sm-6.col-md-4
+                  h4: a(href="#") Независимый консалтинг правовых конфликтов

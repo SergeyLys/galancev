@@ -1,0 +1,60 @@
+.overflow-hidden
+	overflow: hidden
+
+.specialization__wrapper
+	padding-bottom: 50px
+	padding-top: 25px
+
+.specialization__inner
+	display: flex
+	flex-wrap: wrap
+	position: relative
+	margin-bottom: -1px
+
+	&:before,
+	&:after
+		content: ''
+		position: absolute
+		height: 100%
+		width: 1px
+		background: #dee3e7
+		top: 30px
+		display: none
+
+	&:after
+		right: 33.33333%
+
+		@media (min-width: $screen-md)
+			display: block
+
+	&:before
+		@media (min-width: $screen-sm)
+			display: block
+			left: 50%
+
+		@media (min-width: $screen-md)
+			left: 33.33333%
+
+	.specialization-item
+		border-bottom: 1px solid rgba(#000, .1)
+
+.specialization-item
+	padding-bottom: 50px
+	margin-top: 25px
+	
+	h4
+		font-size: 18px
+		line-height: 30px
+		margin: 0
+
+		@media (min-width: $screen-sm)
+			font-size: 24px
+
+	a
+		color: #000
+		border-bottom: 1px solid rgba(#000, .3)
+		transition: all .3s ease
+		text-decoration: none
+
+		&:hover
+			border-bottom: 1px solid rgba(#000, 0)

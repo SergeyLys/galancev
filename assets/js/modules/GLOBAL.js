@@ -181,6 +181,7 @@ export default {
     this.globalSliders();
     this.scrollToAnchor();
     this.popups();
+    this.textAccordin();
   },
 
   banner() {
@@ -672,5 +673,35 @@ export default {
       subHtmlSelectorRelative: true,
       counter: false
     }); 
+  },
+
+  textAccordin() {
+    $('.project-content__inner').each(function() {
+      if ($(this).innerHeight() > 200) {
+        let that = $(this);
+        let opener = $('<span>')
+        opener.text('Подробнее');
+        opener.addClass('opener');
+        $(this).parent().parent().append(opener);
+
+        opener.on('click', function() {
+          if ($(this).text() == 'Подробнее') {
+            $(this).text('Скрыть');
+            $(this).parent().addClass('open');
+            $(this).parent().find('.project-content__wrapper').css({
+              'height': that.innerHeight()
+            });
+          } else {
+            $(this).text('Подробнее');
+            $(this).parent().removeClass('open');
+            $(this).parent().find('.project-content__wrapper').css({
+              'height': '200px'
+            });
+          }
+        });
+      } else {
+        $(this).parent().parent().addClass('short');
+      }
+    });
   }
 };
